@@ -1,0 +1,23 @@
+# Copy to .dev.vars for local development (`npm run dev` / `npm run preview`).
+# In production these are set with `wrangler secret put NAME`, never committed.
+
+# Spam protection (Cloudflare Turnstile)
+TURNSTILE_SECRET_KEY=
+
+# Email notification (Resend REST API)
+RESEND_API_KEY=
+LEAD_EMAIL_TO=
+LEAD_EMAIL_FROM=
+
+# GoHighLevel (leave empty until connected - the destination is skipped
+# cleanly when not configured)
+GHL_MODE=inbound_webhook
+GHL_INBOUND_WEBHOOK_URL=
+GHL_API_BASE=
+GHL_API_TOKEN=
+GHL_LOCATION_ID=
+GHL_PIPELINE_ID=
+GHL_PIPELINE_STAGE_ID=
+
+# Optional generic webhook (Zapier / Make / n8n)
+LEAD_WEBHOOK_URL=

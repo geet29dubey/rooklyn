@@ -1,0 +1,449 @@
+{
+  "meta": {
+    "title": "Rooklyn — AI automation agency for Spain & worldwide",
+    "description": "Rooklyn builds AI WhatsApp agents, intelligent CRMs and automatic reminders that answer, qualify and book every lead, so your team can focus on closing."
+  },
+  "nav": {
+    "problems": "Problems",
+    "solutions": "Solutions",
+    "process": "Process",
+    "benefits": "Benefits",
+    "contact": "Contact",
+    "cta": "Book a free audit",
+    "menu": "Open menu",
+    "close": "Close menu"
+  },
+  "hero": {
+    "chip1": "AI automation agency",
+    "chip2": "Spain & worldwide",
+    "chip3": "EN / ES / IT",
+    "h1Pre": "The moves you'd make,",
+    "h1Italic": "made automatically.",
+    "subheadline": "Rooklyn builds AI WhatsApp agents, intelligent CRMs and automatic reminders that answer, qualify and book every lead, so your team can focus on closing.",
+    "ctaPrimary": "Book a free automation audit",
+    "ctaSecondary": "See how it works",
+    "trust": "Replies in seconds · Bilingual agents · GDPR-compliant",
+    "card1": "Lead qualified · just now",
+    "card2": "Reply sent · 4 s · WhatsApp",
+    "card3": "Reminder set · Thu 19:00"
+  },
+  "solutions": {
+    "eyebrow": "The solutions",
+    "titlePre": "Automation that works like",
+    "titleItalic": "your best employee.",
+    "intro": "Rooklyn designs and runs AI systems around your real sales process, in your brand voice, in your clients' language.",
+    "solvesLabel": "Solves",
+    "customCta": "Tell us what you need",
+    "items": {
+      "whatsapp_agent": {
+        "name": "WhatsApp Agent",
+        "oneliner": "Answers first, every time.",
+        "solves": "Slow replies · After-hours silence",
+        "description": "Replies to every WhatsApp message in seconds, 24/7, understands what the client needs and books the appointment directly in your calendar.",
+        "feature1": "Natural, on-brand conversations in EN / ES / IT",
+        "feature2": "Books, reschedules and cancels",
+        "feature3": "Hands over to a human when needed"
+      },
+      "lead_qualification": {
+        "name": "Lead Qualification",
+        "oneliner": "Know which leads are worth the move.",
+        "solves": "Time wasted on unqualified enquiries",
+        "description": "Asks the right questions, scores every lead and sends only sales-ready opportunities to your team.",
+        "feature1": "Custom qualification criteria",
+        "feature2": "Lead scoring and routing",
+        "feature3": "Instant alerts for hot leads"
+      },
+      "crm_automation": {
+        "name": "CRM Automation",
+        "oneliner": "See the whole board.",
+        "solves": "Leads scattered everywhere",
+        "description": "Every lead, conversation and deal captured and organised automatically in one clear pipeline.",
+        "feature1": "Automatic capture from every channel",
+        "feature2": "Pipeline stages and tasks updated for you",
+        "feature3": "Full conversation history and reporting"
+      },
+      "followups_reminders": {
+        "name": "Follow-ups & Reminders",
+        "oneliner": "A free move, every day.",
+        "solves": "No-shows · Forgotten follow-ups",
+        "description": "Timely reminders, confirmations and follow-ups that run on their own, so no client and no appointment slips away.",
+        "feature1": "WhatsApp, SMS and email reminders",
+        "feature2": "One-tap confirm or reschedule",
+        "feature3": "Automatic follow-ups and review requests"
+      },
+      "custom_automations": {
+        "name": "Custom Automations",
+        "oneliner": "Built for your position.",
+        "solves": "Repetitive admin",
+        "description": "Bespoke workflows designed around your business, your tools and your processes.",
+        "feature1": "Workflows tailored to your operation",
+        "feature2": "Integrations with the tools you already use",
+        "feature3": "Designed, built and maintained by Rooklyn"
+      }
+    }
+  },
+  "problems": {
+    "eyebrow": "The problem",
+    "titlePre": "Growing businesses lose clients",
+    "titleItalic": "in the gaps.",
+    "intro": "Most service businesses don't lose customers because of price or quality. They lose them in the minutes and hours between a message and a reply.",
+    "item1Title": "Slow replies lose leads.",
+    "item1Body": "Messages on WhatsApp, Instagram and web forms wait hours for an answer, and the client books with a competitor.",
+    "item2Title": "After-hours silence.",
+    "item2Body": "Evenings and weekends are when many clients reach out, and nobody is there to respond.",
+    "item3Title": "No-shows and last-minute cancellations.",
+    "item3Body": "Manual reminders are forgotten, leaving empty slots and lost revenue.",
+    "item4Title": "Leads scattered everywhere.",
+    "item4Body": "Contacts live in chats, spreadsheets and notebooks, so follow-ups slip through the cracks.",
+    "item5Title": "Time wasted on unqualified enquiries.",
+    "item5Body": "The team spends hours answering people who were never going to buy.",
+    "item6Title": "Repetitive admin drains the team.",
+    "item6Body": "The same questions, confirmations and data entry every single day.",
+    "closing": "Every unanswered message is a move your competitor makes first."
+  },
+  "process": {
+    "eyebrow": "The process",
+    "titlePre": "From first call to fully automated",
+    "titleItalic": "in four moves.",
+    "intro": "A clear, low-effort process. You bring the knowledge of your business, we handle everything else.",
+    "note": "Timelines are indicative and depend on the project scope.",
+    "step1Numeral": "i.",
+    "step1Title": "Discovery & audit",
+    "step1Duration": "Week 1",
+    "step1Body": "A free call to map how leads reach you today, where they get lost and which tasks eat your team's time.",
+    "step2Numeral": "ii.",
+    "step2Title": "Strategy & design",
+    "step2Duration": "Week 1–2",
+    "step2Body": "We design the automation flows, the conversation scripts in your brand voice and the integrations with your calendar and tools.",
+    "step3Numeral": "iii.",
+    "step3Title": "Build & launch",
+    "step3Duration": "Week 2–4",
+    "step3Body": "We build, test with real scenarios, train the AI on your services and go live with your team.",
+    "step4Numeral": "iv.",
+    "step4Title": "Optimise & grow",
+    "step4Duration": "Ongoing",
+    "step4Body": "Monthly reporting, conversation reviews and improvements, so results keep compounding."
+  },
+  "benefits": {
+    "eyebrow": "Benefits & ROI",
+    "titlePre": "What changes when",
+    "titleItalic": "every move is automated.",
+    "intro": "Automation pays for itself by recovering revenue you are already losing and giving your team back their time.",
+    "tile1Figure": "Seconds",
+    "tile1Label": "Response time",
+    "tile1Body": "Leads get an answer while they are still interested.",
+    "tile2Figure": "24/7",
+    "tile2Label": "Always open",
+    "tile2Body": "Capture enquiries at night, on weekends and during busy hours.",
+    "tile3Figure": "Fewer no-shows",
+    "tile3Label": "Reliable calendar",
+    "tile3Body": "Reminders and easy rescheduling keep the calendar full.",
+    "tile4Figure": "Hours back",
+    "tile4Label": "Focused team",
+    "tile4Body": "Your team stops answering the same questions and focuses on clients.",
+    "outcome1": "More booked appointments from the same number of leads",
+    "outcome2": "Higher conversion from first message to sale",
+    "outcome3": "Consistent, professional replies in three languages",
+    "outcome4": "A clean pipeline with no forgotten follow-ups",
+    "outcome5": "Clear monthly reporting on what the automation delivers",
+    "outcome6": "A business that scales without hiring for repetitive work",
+    "caseLabel": "Example scenario — illustrative only",
+    "caseTitle": "A dental clinic that stopped losing WhatsApp enquiries",
+    "caseBody": "Missed WhatsApp messages are answered and booked automatically, day and night.",
+    "caseBefore1": "Replies: hours",
+    "caseAfter1": "Replies: seconds",
+    "caseBefore2": "Follow-ups: manual",
+    "caseAfter2": "Follow-ups: automatic",
+    "ctaPrimary": "Get your free automation audit",
+    "ctaSecondary": "Talk to us on WhatsApp"
+  },
+  "contact": {
+    "eyebrow": "Get in touch",
+    "titlePre": "Tell us what you",
+    "titleItalic": "want to automate.",
+    "intro": "Share a few details about your business. We'll reply within one business day with ideas tailored to you, free and with no obligation.",
+    "reassurance1": "Free 30-minute audit call",
+    "reassurance2": "Answer within 1 business day",
+    "reassurance3": "Your data is protected under GDPR",
+    "emailLabel": "Email us",
+    "whatsappLabel": "WhatsApp us",
+    "groupAboutYou": "About you",
+    "groupAboutBusiness": "About your business",
+    "groupWhatYouNeed": "What you need",
+    "groupConsent": "Consent",
+    "fields": {
+      "fullName": "Full name",
+      "workEmail": "Work email",
+      "phone": "Phone / WhatsApp",
+      "jobTitle": "Job title / role",
+      "companyName": "Company name",
+      "website": "Website",
+      "industry": "Industry",
+      "companySize": "Company size",
+      "country": "Country",
+      "automationInterests": "What would you like to automate?",
+      "channels": "Main channels your clients use",
+      "monthlyEnquiries": "Approximate monthly enquiries",
+      "currentTools": "Tools you use today",
+      "currentToolsPlaceholder": "e.g. Google Calendar, HubSpot, Excel",
+      "challenge": "Describe your challenge or goal",
+      "timeline": "Preferred timeline",
+      "preferredLanguage": "Preferred contact language",
+      "heardAboutUs": "How did you hear about us?"
+    },
+    "selectPlaceholder": "Select…",
+    "charactersCount": "{count} / 1000 characters",
+    "options": {
+      "industry": {
+        "healthcare": "Healthcare & clinics",
+        "beauty_wellness": "Beauty & wellness",
+        "real_estate": "Real estate",
+        "hvac_home_services": "HVAC & home services",
+        "fitness_studios": "Fitness & studios",
+        "education": "Education & academies",
+        "hospitality": "Hospitality & restaurants",
+        "professional_services": "Professional services",
+        "ecommerce": "E-commerce",
+        "other": "Other"
+      },
+      "companySize": {
+        "solo": "Just me",
+        "2_10": "2–10",
+        "11_50": "11–50",
+        "51_200": "51–200",
+        "200_plus": "200+"
+      },
+      "country": {
+        "ES": "Spain",
+        "IT": "Italy",
+        "GB": "United Kingdom",
+        "FR": "France",
+        "DE": "Germany",
+        "PT": "Portugal",
+        "US": "United States",
+        "MX": "Mexico",
+        "AR": "Argentina",
+        "CO": "Colombia",
+        "CL": "Chile",
+        "BR": "Brazil",
+        "NL": "Netherlands",
+        "BE": "Belgium",
+        "IE": "Ireland",
+        "CH": "Switzerland",
+        "AT": "Austria",
+        "SE": "Sweden",
+        "NO": "Norway",
+        "DK": "Denmark",
+        "PL": "Poland",
+        "GR": "Greece",
+        "TR": "Turkey",
+        "AE": "United Arab Emirates",
+        "SA": "Saudi Arabia",
+        "CA": "Canada",
+        "AU": "Australia",
+        "NZ": "New Zealand",
+        "IN": "India",
+        "OTHER": "Other"
+      },
+      "automationInterests": {
+        "whatsapp_agent": "WhatsApp Agent",
+        "lead_qualification": "Lead Qualification",
+        "crm_automation": "CRM Automation",
+        "followups_reminders": "Follow-ups & Reminders",
+        "custom_automations": "Custom Automations",
+        "appointment_booking": "Appointment booking",
+        "customer_support": "Customer support / FAQs"
+      },
+      "channels": {
+        "whatsapp": "WhatsApp",
+        "instagram": "Instagram",
+        "website_forms": "Website forms",
+        "phone_calls": "Phone calls",
+        "email": "Email"
+      },
+      "monthlyEnquiries": {
+        "lt_100": "< 100",
+        "100_500": "100–500",
+        "500_2000": "500–2,000",
+        "gt_2000": "2,000+"
+      },
+      "timeline": {
+        "asap": "As soon as possible",
+        "within_1_month": "Within 1 month",
+        "1_3_months": "1–3 months",
+        "exploring": "Just exploring"
+      },
+      "preferredLanguage": {
+        "en": "English",
+        "es": "Español",
+        "it": "Italiano"
+      },
+      "heardAboutUs": {
+        "google": "Google",
+        "linkedin": "LinkedIn",
+        "instagram": "Instagram",
+        "referral": "Referral",
+        "other": "Other"
+      }
+    },
+    "consentPrivacyPre": "I have read and accept the",
+    "consentPrivacyLink": "Privacy Policy",
+    "consentPrivacyPost": "and agree that Rooklyn processes my data to respond to my request.",
+    "consentMarketing": "I'd like to receive occasional news and automation tips from Rooklyn.",
+    "privacyNotice": "Data controller: Rooklyn. Purpose: to respond to your request and manage the commercial relationship. Legal basis: your consent. Recipients: service providers under contract, including our CRM platform, which may involve international transfers with appropriate safeguards. Rights: access, rectification, erasure and more, as described in the Privacy Policy.",
+    "submit": "Send my request",
+    "sending": "Sending…",
+    "successTitle": "Thank you, {name}. Your request is on its way.",
+    "successBody": "We'll reply within one business day.",
+    "successBook": "Book your audit call now",
+    "backToTop": "Back to top",
+    "errorTitle": "Something went wrong",
+    "errorBody": "Please try again, or email us directly at {email}.",
+    "errors": {
+      "fullName": "Please enter your full name.",
+      "email": "Please enter a valid email address.",
+      "phone": "Please enter a valid phone number.",
+      "companyName": "Please enter your company name.",
+      "website": "Please enter a valid URL.",
+      "industry": "Please select an industry.",
+      "companySize": "Please select a company size.",
+      "country": "Please select a country.",
+      "automationInterests": "Please select at least one option.",
+      "challengeMin": "Please tell us a bit more (at least 20 characters).",
+      "challengeMax": "Please keep this under 1,000 characters.",
+      "consentRequired": "You must accept the Privacy Policy to continue.",
+      "turnstile": "Please confirm you're not a robot.",
+      "generic": "Please check this field."
+    }
+  },
+  "footer": {
+    "tagline": "The moves you'd make, made automatically.",
+    "copyright": "© {year} Rooklyn. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "dataProtection": "Data Protection",
+    "legalNotice": "Legal Notice"
+  },
+  "cookies": {
+    "title": "Cookie preferences",
+    "message": "We use cookies to run this site and, with your consent, to understand how it's used.",
+    "learnMore": "Learn more",
+    "necessary": "Necessary (always on)",
+    "analytics": "Analytics",
+    "marketing": "Marketing",
+    "customize": "Customise",
+    "rejectAll": "Reject all",
+    "acceptAll": "Accept all",
+    "savePreferences": "Save preferences"
+  },
+  "legal": {
+    "devNote": "Template: review with a legal professional before publishing.",
+    "lastUpdated": "Last updated",
+    "backHome": "Back to home",
+    "cookieSettingsLink": "Change your cookie settings",
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "1. Data controller",
+          "body": "[Legal company name], with tax ID [NIF/CIF], registered address at [Registered address], is the data controller responsible for the personal data you share through this website. You can contact us at [Contact email]."
+        },
+        {
+          "heading": "2. What data we collect",
+          "body": "When you submit the contact form we collect your name, email address, phone number, job title, company details, the information you share about your automation needs, and technical data such as your IP address, browser, and the pages you visited before submitting (UTM parameters, referrer)."
+        },
+        {
+          "heading": "3. Purpose of processing",
+          "body": "We use your data to respond to your enquiry, prepare a proposal, manage our commercial relationship, and, only with your separate consent, send you occasional news and automation tips."
+        },
+        {
+          "heading": "4. Legal basis",
+          "body": "The legal basis for processing is your consent, given when you submit the contact form and accept this Privacy Policy, in line with Regulation (EU) 2016/679 (GDPR) and Spain's Ley Orgánica 3/2018 (LOPDGDD)."
+        },
+        {
+          "heading": "5. Recipients and processors",
+          "body": "Your data may be shared with service providers acting as processors under contract, including [CRM provider: GoHighLevel / HighLevel] for pipeline and workflow management, and [Cloudflare] for hosting, security, spam protection (Turnstile) and cookieless analytics (Web Analytics). Some of these providers may process data outside the European Economic Area; in that case appropriate safeguards apply, such as the European Commission's Standard Contractual Clauses."
+        },
+        {
+          "heading": "6. Data retention",
+          "body": "We keep your data for as long as necessary to handle your enquiry and manage our relationship, and afterwards for the periods required by applicable law."
+        },
+        {
+          "heading": "7. Your rights",
+          "body": "You may exercise your rights of access, rectification, erasure, restriction, portability and objection, and withdraw your consent at any time, by writing to [Contact email]. You also have the right to lodge a complaint with the Spanish Data Protection Agency (agpd.es)."
+        },
+        {
+          "heading": "8. International transfers",
+          "body": "[International data transfer details to be completed once the CRM and hosting configuration is finalised, including the specific safeguards applied.]"
+        }
+      ]
+    },
+    "cookiePolicy": {
+      "title": "Cookie Policy",
+      "sections": [
+        {
+          "heading": "1. What are cookies",
+          "body": "Cookies are small files stored on your device that help websites function and, with your consent, understand how they are used."
+        },
+        {
+          "heading": "2. Cookies we use",
+          "body": "Necessary cookies are always active and are required for the site to work. Analytics cookies (used only with your consent) help us understand traffic through Cloudflare Web Analytics, which is cookieless by design. Marketing cookies, used only with your consent, may be added in the future for advertising purposes."
+        },
+        {
+          "heading": "3. Managing your preferences",
+          "body": "You can accept, reject or customise non-essential cookies from the banner shown on your first visit, and change your choice at any time from the link below."
+        },
+        {
+          "heading": "4. Change your preferences",
+          "body": "Use the link below to reopen the cookie preferences panel."
+        }
+      ]
+    },
+    "dataProtection": {
+      "title": "Data Protection",
+      "sections": [
+        {
+          "heading": "1. Your rights under the GDPR",
+          "body": "Under the GDPR and Spain's LOPDGDD, you have the right to access the personal data we hold about you, request its rectification or erasure, restrict or object to its processing, and request the portability of your data."
+        },
+        {
+          "heading": "2. How to exercise your rights",
+          "body": "Send a written request to [Contact email], including a copy of an identity document, specifying which right you wish to exercise. We will respond within one month, as required by applicable law."
+        },
+        {
+          "heading": "3. Data protection officer",
+          "body": "[Data protection officer / contact person, if applicable]."
+        },
+        {
+          "heading": "4. Supervisory authority",
+          "body": "If you believe your rights have not been respected, you can lodge a complaint with the Spanish Data Protection Agency (Agencia Española de Protección de Datos, agpd.es)."
+        }
+      ]
+    },
+    "legalNotice": {
+      "title": "Legal Notice",
+      "sections": [
+        {
+          "heading": "1. Ownership of the website",
+          "body": "In compliance with Spain's Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), the following information is provided: Company name: [Legal company name]. Tax ID: [NIF/CIF]. Registered address: [Registered address]. Email: [Contact email]. Registration details: [Commercial registry details, if applicable]."
+        },
+        {
+          "heading": "2. Purpose of the website",
+          "body": "This website provides information about Rooklyn's AI automation services and allows visitors to request a free audit through the contact form."
+        },
+        {
+          "heading": "3. Terms of use",
+          "body": "Access to and use of this website implies acceptance of these terms. Users agree to use the website and its content lawfully, without engaging in any activity that could damage, disable or impair the site or its services."
+        },
+        {
+          "heading": "4. Intellectual property",
+          "body": "All content on this website, including text, graphics, logos and the Rooklyn mark, is the property of [Legal company name] or its licensors and is protected by intellectual property laws."
+        },
+        {
+          "heading": "5. Liability",
+          "body": "[Legal company name] is not liable for any damages arising from the use of this website, to the extent permitted by applicable law."
+        }
+      ]
+    }
+  }
+}

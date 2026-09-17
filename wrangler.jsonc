@@ -1,0 +1,32 @@
+{
+  // verify against the current OpenNext Cloudflare docs
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rooklyn-web",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  // Non-secret variables. Secrets (RESEND_API_KEY, GHL_API_TOKEN,
+  // GHL_INBOUND_WEBHOOK_URL, TURNSTILE_SECRET_KEY, LEAD_WEBHOOK_URL) are
+  // set with `wrangler secret put NAME` or in the dashboard, never here.
+  "vars": {
+    "GHL_MODE": "inbound_webhook"
+  },
+  // 5 lead submissions per 60 seconds per IP, enforced in /api/lead.
+  "ratelimits": [
+    {
+      "name": "LEAD_RATE_LIMITER",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    }
+  ]
+}

@@ -1,0 +1,511 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useLocale, useTranslations } from "next-intl";
+import { RooklynMark } from "@/components/logo/RooklynMark";
+import { Button } from "@/components/ui/Button";
+import { ToggleChip } from "@/components/ui/Chip";
+import { Turnstile } from "@/components/forms/Turnstile";
+import { FieldWrap, inputClass, selectClass, textareaClass } from "@/components/forms/fields";
+import { leadFormSchema, type LeadFormInput } from "@/lib/leads/schema";
+import {
+  AUTOMATION_INTERESTS,
+  CHANNELS,
+  COMPANY_SIZES,
+  COUNTRIES_OTHER,
+  COUNTRIES_PRIORITY,
+  HEARD_ABOUT,
+  INDUSTRIES,
+  MONTHLY_ENQUIRIES,
+  TIMELINES,
+} from "@/config/site";
+
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
+const UTM_STORAGE_KEY = "rooklyn-utm";
+
+function captureUtmAndTracking() {
+  if (typeof window === "undefined") {
+    return { utmSource: "", utmMedium: "", utmCampaign: "", utmTerm: "", utmContent: "" };
+  }
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl: Record<string, string> = {};
+  let hasAny = false;
+  for (const key of UTM_KEYS) {
+    const value = params.get(key);
+    if (value) {
+      fromUrl[key] = value;
+      hasAny = true;
+    }
+  }
+  let stored: Record<string, string> = {};
+  try {
+    stored = JSON.parse(sessionStorage.getItem(UTM_STORAGE_KEY) ?? "{}");
+  } catch {
+    stored = {};
+  }
+  const merged = hasAny ? fromUrl : stored;
+  if (hasAny) {
+    try {
+      sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(fromUrl));
+    } catch {
+      // Session storage unavailable - UTMs simply won't persist across
+      // navigations, which only affects attribution, not submission.
+    }
+  }
+  return {
+    utmSource: merged.utm_source ?? "",
+    utmMedium: merged.utm_medium ?? "",
+    utmCampaign: merged.utm_campaign ?? "",
+    utmTerm: merged.utm_term ?? "",
+    utmContent: merged.utm_content ?? "",
+  };
+}
+
+export function LeadForm() {
+  const t = useTranslations("contact");
+  const locale = useLocale() as "en" | "es" | "it";
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [submittedName, setSubmittedName] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    watch,
+    setValue,
+    setFocus,
+    formState: { errors, isSubmitting },
+  } = useForm<LeadFormInput>({
+    resolver: zodResolver(leadFormSchema),
+    defaultValues: {
+      fullName: "",
+      workEmail: "",
+      phone: "+34",
+      jobTitle: "",
+      companyName: "",
+      website: "",
+      automationInterests: [],
+      channels: [],
+      currentTools: "",
+      challenge: "",
+      preferredLanguage: locale,
+      privacyAccepted: false as unknown as true,
+      marketingOptIn: false,
+      website_url: "",
+      turnstileToken: "",
+    },
+  });
+
+  useEffect(() => {
+    try {
+      const preselect = sessionStorage.getItem("rooklyn-preselect-interest");
+      if (preselect) {
+        setValue("automationInterests", [preselect as LeadFormInput["automationInterests"][number]]);
+        sessionStorage.removeItem("rooklyn-preselect-interest");
+        document.getElementById("contact")?.scrollIntoView({ block: "start" });
+      }
+    } catch {
+      // sessionStorage unavailable - no pre-selection, form still works.
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const challenge = watch("challenge") ?? "";
+
+  const countries = useMemo(
+    () => [...COUNTRIES_PRIORITY, ...COUNTRIES_OTHER],
+    []
+  );
+
+  async function onSubmit(values: LeadFormInput) {
+    setStatus("sending");
+    const tracking = captureUtmAndTracking();
+    const payload = {
+      ...values,
+      submissionId: crypto.randomUUID(),
+      locale,
+      pageUrl: window.location.href,
+      referrer: document.referrer,
+      submittedAt: new Date().toISOString(),
+      ...tracking,
+    };
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setSubmittedName(values.fullName.split(" ")[0] ?? values.fullName);
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  function onInvalid() {
+    const firstError = Object.keys(errors)[0] as keyof LeadFormInput | undefined;
+    if (firstError) setFocus(firstError);
+  }
+
+  const bookingUrl = process.env.NEXT_PUBLIC_GHL_BOOKING_URL;
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "";
+
+  if (status === "success") {
+    return (
+      <div className="rounded-[24px] border border-hairline bg-card p-8 text-center sm:p-12">
+        <RooklynMark size={48} className="mx-auto" />
+        <h3 className="mt-6">{t("successTitle", { name: submittedName })}</h3>
+        <p className="mt-2 text-text-2">{t("successBody")}</p>
+        <div className="mt-8 flex flex-col items-center gap-4">
+          {bookingUrl && (
+            <a
+              href={bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-porcelain px-6 py-3.5 text-[15px] font-semibold text-night"
+            >
+              <span aria-hidden className="h-2 w-2 rounded-full bg-apricot" />
+              {t("successBook")}
+            </a>
+          )}
+          <a href="#top" className="text-[14px] text-text-2 underline underline-offset-2">
+            {t("backToTop")}
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit(onSubmit, onInvalid)}
+      noValidate
+      className="rounded-[24px] border border-hairline bg-card p-6 sm:p-9"
+    >
+      <div className="flex flex-col gap-8">
+        <fieldset className="flex flex-col gap-4">
+          <legend className="eyebrow mb-1">{t("groupAboutYou")}</legend>
+
+          <FieldWrap label={t("fields.fullName")} htmlFor="fullName" error={errors.fullName && t("errors.fullName")}>
+            <input
+              id="fullName"
+              autoComplete="name"
+              className={inputClass(!!errors.fullName)}
+              {...register("fullName")}
+            />
+          </FieldWrap>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <FieldWrap label={t("fields.workEmail")} htmlFor="workEmail" error={errors.workEmail && t("errors.email")}>
+              <input
+                id="workEmail"
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                className={inputClass(!!errors.workEmail)}
+                {...register("workEmail")}
+              />
+            </FieldWrap>
+
+            <FieldWrap label={t("fields.phone")} htmlFor="phone" error={errors.phone && t("errors.phone")}>
+              <input
+                id="phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                className={inputClass(!!errors.phone)}
+                {...register("phone")}
+              />
+            </FieldWrap>
+          </div>
+
+          <FieldWrap label={t("fields.jobTitle")} htmlFor="jobTitle" optional>
+            <input
+              id="jobTitle"
+              autoComplete="organization-title"
+              className={inputClass()}
+              {...register("jobTitle")}
+            />
+          </FieldWrap>
+        </fieldset>
+
+        <fieldset className="flex flex-col gap-4">
+          <legend className="eyebrow mb-1">{t("groupAboutBusiness")}</legend>
+
+          <FieldWrap label={t("fields.companyName")} htmlFor="companyName" error={errors.companyName && t("errors.companyName")}>
+            <input
+              id="companyName"
+              autoComplete="organization"
+              className={inputClass(!!errors.companyName)}
+              {...register("companyName")}
+            />
+          </FieldWrap>
+
+          <FieldWrap label={t("fields.website")} htmlFor="website" optional error={errors.website && t("errors.website")}>
+            <input
+              id="website"
+              type="url"
+              inputMode="url"
+              autoComplete="url"
+              placeholder="https://"
+              className={inputClass(!!errors.website)}
+              {...register("website")}
+            />
+          </FieldWrap>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <FieldWrap label={t("fields.industry")} htmlFor="industry" error={errors.industry && t("errors.industry")}>
+              <select id="industry" className={selectClass(!!errors.industry)} defaultValue="" {...register("industry")}>
+                <option value="" disabled>
+                  {t("selectPlaceholder")}
+                </option>
+                {INDUSTRIES.map((id) => (
+                  <option key={id} value={id}>
+                    {t(`options.industry.${id}`)}
+                  </option>
+                ))}
+              </select>
+            </FieldWrap>
+
+            <FieldWrap label={t("fields.companySize")} htmlFor="companySize" error={errors.companySize && t("errors.companySize")}>
+              <select id="companySize" className={selectClass(!!errors.companySize)} defaultValue="" {...register("companySize")}>
+                <option value="" disabled>
+                  {t("selectPlaceholder")}
+                </option>
+                {COMPANY_SIZES.map((id) => (
+                  <option key={id} value={id}>
+                    {t(`options.companySize.${id}`)}
+                  </option>
+                ))}
+              </select>
+            </FieldWrap>
+          </div>
+
+          <FieldWrap label={t("fields.country")} htmlFor="country" error={errors.country && t("errors.country")}>
+            <select
+              id="country"
+              autoComplete="country-name"
+              className={selectClass(!!errors.country)}
+              defaultValue=""
+              {...register("country")}
+            >
+              <option value="" disabled>
+                {t("selectPlaceholder")}
+              </option>
+              {countries.map((id) => (
+                <option key={id} value={id}>
+                  {t(`options.country.${id}`)}
+                </option>
+              ))}
+            </select>
+          </FieldWrap>
+        </fieldset>
+
+        <fieldset className="flex flex-col gap-5">
+          <legend className="eyebrow mb-1">{t("groupWhatYouNeed")}</legend>
+
+          <FieldWrap
+            label={t("fields.automationInterests")}
+            htmlFor="automationInterests"
+            error={errors.automationInterests && t("errors.automationInterests")}
+          >
+            <Controller
+              control={control}
+              name="automationInterests"
+              render={({ field }) => (
+                <div id="automationInterests" className="flex flex-wrap gap-2.5">
+                  {AUTOMATION_INTERESTS.map((id) => (
+                    <ToggleChip
+                      key={id}
+                      id={`interest-${id}`}
+                      label={t(`options.automationInterests.${id}`)}
+                      selected={field.value?.includes(id) ?? false}
+                      onToggle={() => {
+                        const current = field.value ?? [];
+                        field.onChange(
+                          current.includes(id)
+                            ? current.filter((v) => v !== id)
+                            : [...current, id]
+                        );
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+            />
+          </FieldWrap>
+
+          <FieldWrap label={t("fields.channels")} htmlFor="channels" optional>
+            <Controller
+              control={control}
+              name="channels"
+              render={({ field }) => (
+                <div id="channels" className="flex flex-wrap gap-2.5">
+                  {CHANNELS.map((id) => (
+                    <ToggleChip
+                      key={id}
+                      id={`channel-${id}`}
+                      label={t(`options.channels.${id}`)}
+                      selected={field.value?.includes(id) ?? false}
+                      onToggle={() => {
+                        const current = field.value ?? [];
+                        field.onChange(
+                          current.includes(id)
+                            ? current.filter((v) => v !== id)
+                            : [...current, id]
+                        );
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+            />
+          </FieldWrap>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <FieldWrap label={t("fields.monthlyEnquiries")} htmlFor="monthlyEnquiries" optional>
+              <select id="monthlyEnquiries" className={selectClass()} defaultValue="" {...register("monthlyEnquiries")}>
+                <option value="">{t("selectPlaceholder")}</option>
+                {MONTHLY_ENQUIRIES.map((id) => (
+                  <option key={id} value={id}>
+                    {t(`options.monthlyEnquiries.${id}`)}
+                  </option>
+                ))}
+              </select>
+            </FieldWrap>
+
+            <FieldWrap label={t("fields.timeline")} htmlFor="timeline" optional>
+              <select id="timeline" className={selectClass()} defaultValue="" {...register("timeline")}>
+                <option value="">{t("selectPlaceholder")}</option>
+                {TIMELINES.map((id) => (
+                  <option key={id} value={id}>
+                    {t(`options.timeline.${id}`)}
+                  </option>
+                ))}
+              </select>
+            </FieldWrap>
+          </div>
+
+          <FieldWrap label={t("fields.currentTools")} htmlFor="currentTools" optional>
+            <input
+              id="currentTools"
+              placeholder={t("fields.currentToolsPlaceholder")}
+              className={inputClass()}
+              {...register("currentTools")}
+            />
+          </FieldWrap>
+
+          <FieldWrap
+            label={t("fields.challenge")}
+            htmlFor="challenge"
+            error={
+              errors.challenge &&
+              (errors.challenge.type === "too_big" ? t("errors.challengeMax") : t("errors.challengeMin"))
+            }
+          >
+            <textarea
+              id="challenge"
+              rows={5}
+              className={textareaClass(!!errors.challenge)}
+              {...register("challenge")}
+            />
+            <p className="text-right text-[12px] text-text-3">
+              {t("charactersCount", { count: challenge.length })}
+            </p>
+          </FieldWrap>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <FieldWrap label={t("fields.preferredLanguage")} htmlFor="preferredLanguage">
+              <select id="preferredLanguage" className={selectClass()} {...register("preferredLanguage")}>
+                {(["en", "es", "it"] as const).map((id) => (
+                  <option key={id} value={id}>
+                    {t(`options.preferredLanguage.${id}`)}
+                  </option>
+                ))}
+              </select>
+            </FieldWrap>
+
+            <FieldWrap label={t("fields.heardAboutUs")} htmlFor="heardAboutUs" optional>
+              <select id="heardAboutUs" className={selectClass()} defaultValue="" {...register("heardAboutUs")}>
+                <option value="">{t("selectPlaceholder")}</option>
+                {HEARD_ABOUT.map((id) => (
+                  <option key={id} value={id}>
+                    {t(`options.heardAboutUs.${id}`)}
+                  </option>
+                ))}
+              </select>
+            </FieldWrap>
+          </div>
+        </fieldset>
+
+        <fieldset className="flex flex-col gap-4">
+          <legend className="eyebrow mb-1">{t("groupConsent")}</legend>
+
+          <label className="flex items-start gap-3 text-[14px] text-text-2">
+            <input
+              type="checkbox"
+              className="mt-1 h-5 w-5 shrink-0 accent-champagne"
+              {...register("privacyAccepted")}
+            />
+            <span>
+              {t("consentPrivacyPre")}{" "}
+              <a href={`/${locale}/privacy-policy`} target="_blank" className="text-champagne underline underline-offset-2">
+                {t("consentPrivacyLink")}
+              </a>{" "}
+              {t("consentPrivacyPost")}
+            </span>
+          </label>
+          {errors.privacyAccepted && (
+            <p role="alert" className="text-[13px] text-error">
+              {t("errors.consentRequired")}
+            </p>
+          )}
+
+          <label className="flex items-start gap-3 text-[14px] text-text-2">
+            <input
+              type="checkbox"
+              className="mt-1 h-5 w-5 shrink-0 accent-champagne"
+              {...register("marketingOptIn")}
+            />
+            <span>{t("consentMarketing")}</span>
+          </label>
+
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="website_url">Leave this field empty</label>
+            <input id="website_url" tabIndex={-1} autoComplete="off" {...register("website_url")} />
+          </div>
+
+          <Controller
+            control={control}
+            name="turnstileToken"
+            render={({ field }) => (
+              <Turnstile onToken={(token) => field.onChange(token)} className="max-[399px]:scale-90 max-[399px]:origin-left" />
+            )}
+          />
+          {errors.turnstileToken && (
+            <p role="alert" className="text-[13px] text-error">
+              {t("errors.turnstile")}
+            </p>
+          )}
+
+          <Button type="submit" disabled={isSubmitting} className="w-full">
+            {isSubmitting ? t("sending") : t("submit")}
+          </Button>
+
+          <p className="text-[12px] leading-relaxed text-text-3">{t("privacyNotice")}</p>
+        </fieldset>
+
+        {status === "error" && (
+          <div role="alert" className="rounded-xl border border-error/40 bg-error/10 p-4 text-[14px] text-error">
+            <p className="font-semibold">{t("errorTitle")}</p>
+            <p className="mt-1">{t("errorBody", { email: contactEmail })}</p>
+          </div>
+        )}
+      </div>
+    </form>
+  );
+}

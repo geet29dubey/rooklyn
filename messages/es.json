@@ -1,0 +1,449 @@
+{
+  "meta": {
+    "title": "Rooklyn — Agencia de automatización con IA en España y el mundo",
+    "description": "Rooklyn crea agentes de WhatsApp con IA, CRMs inteligentes y recordatorios automáticos que responden, cualifican y agendan cada lead, para que tu equipo se centre en cerrar ventas."
+  },
+  "nav": {
+    "problems": "Problemas",
+    "solutions": "Soluciones",
+    "process": "Proceso",
+    "benefits": "Beneficios",
+    "contact": "Contacto",
+    "cta": "Reserva tu auditoría gratuita",
+    "menu": "Abrir menú",
+    "close": "Cerrar menú"
+  },
+  "hero": {
+    "chip1": "Agencia de automatización con IA",
+    "chip2": "España y el mundo",
+    "chip3": "EN / ES / IT",
+    "h1Pre": "Los movimientos que harías,",
+    "h1Italic": "hechos automáticamente.",
+    "subheadline": "Rooklyn crea agentes de WhatsApp con IA, CRMs inteligentes y recordatorios automáticos que responden, cualifican y agendan cada lead, para que tu equipo se centre en cerrar ventas.",
+    "ctaPrimary": "Reserva tu auditoría gratuita",
+    "ctaSecondary": "Descubre cómo funciona",
+    "trust": "Respuestas en segundos · Agentes bilingües · Cumplimiento RGPD",
+    "card1": "Lead cualificado · justo ahora",
+    "card2": "Respuesta enviada · 4 s · WhatsApp",
+    "card3": "Recordatorio programado · jue 19:00"
+  },
+  "solutions": {
+    "eyebrow": "Las soluciones",
+    "titlePre": "Automatización que funciona como",
+    "titleItalic": "tu mejor empleado.",
+    "intro": "Rooklyn diseña y gestiona sistemas de IA adaptados a tu proceso de ventas real, con tu tono de marca y en el idioma de tus clientes.",
+    "solvesLabel": "Resuelve",
+    "customCta": "Cuéntanos qué necesitas",
+    "items": {
+      "whatsapp_agent": {
+        "name": "Agente de WhatsApp",
+        "oneliner": "Responde primero, siempre.",
+        "solves": "Respuestas lentas · Silencio fuera de horario",
+        "description": "Responde a cada mensaje de WhatsApp en segundos, 24/7, entiende qué necesita el cliente y agenda la cita directamente en tu calendario.",
+        "feature1": "Conversaciones naturales y con tu marca en EN / ES / IT",
+        "feature2": "Agenda, reprograma y cancela citas",
+        "feature3": "Deriva a una persona cuando hace falta"
+      },
+      "lead_qualification": {
+        "name": "Cualificación de leads",
+        "oneliner": "Descubre qué leads merecen tu jugada.",
+        "solves": "Tiempo perdido en consultas no cualificadas",
+        "description": "Hace las preguntas correctas, puntúa cada lead y envía a tu equipo solo las oportunidades listas para vender.",
+        "feature1": "Criterios de cualificación a medida",
+        "feature2": "Puntuación y asignación de leads",
+        "feature3": "Alertas instantáneas para leads calientes"
+      },
+      "crm_automation": {
+        "name": "Automatización del CRM",
+        "oneliner": "Ve todo el tablero.",
+        "solves": "Leads dispersos por todas partes",
+        "description": "Cada lead, conversación y oportunidad se captura y organiza automáticamente en un único pipeline claro.",
+        "feature1": "Captura automática desde cada canal",
+        "feature2": "Etapas y tareas del pipeline actualizadas por ti",
+        "feature3": "Historial completo de conversaciones e informes"
+      },
+      "followups_reminders": {
+        "name": "Seguimientos y recordatorios",
+        "oneliner": "Una jugada gratis, cada día.",
+        "solves": "Ausencias · Seguimientos olvidados",
+        "description": "Recordatorios, confirmaciones y seguimientos puntuales que funcionan solos, para que ningún cliente ni cita se te escape.",
+        "feature1": "Recordatorios por WhatsApp, SMS y email",
+        "feature2": "Confirmar o reprogramar con un toque",
+        "feature3": "Seguimientos automáticos y solicitud de reseñas"
+      },
+      "custom_automations": {
+        "name": "Automatizaciones a medida",
+        "oneliner": "Diseñadas para tu posición.",
+        "solves": "Tareas administrativas repetitivas",
+        "description": "Flujos de trabajo a medida, diseñados en torno a tu negocio, tus herramientas y tus procesos.",
+        "feature1": "Flujos adaptados a tu operativa",
+        "feature2": "Integraciones con las herramientas que ya usas",
+        "feature3": "Diseñadas, creadas y mantenidas por Rooklyn"
+      }
+    }
+  },
+  "problems": {
+    "eyebrow": "El problema",
+    "titlePre": "Los negocios en crecimiento pierden clientes",
+    "titleItalic": "en los huecos.",
+    "intro": "La mayoría de los negocios de servicios no pierden clientes por precio o calidad. Los pierden en los minutos y horas que pasan entre un mensaje y una respuesta.",
+    "item1Title": "Las respuestas lentas hacen perder leads.",
+    "item1Body": "Los mensajes de WhatsApp, Instagram y formularios web esperan horas para recibir respuesta, y el cliente reserva con la competencia.",
+    "item2Title": "Silencio fuera de horario.",
+    "item2Body": "Muchos clientes escriben por la tarde-noche o el fin de semana, y no hay nadie para responder.",
+    "item3Title": "Ausencias y cancelaciones de última hora.",
+    "item3Body": "Los recordatorios manuales se olvidan, dejando huecos vacíos y pérdida de ingresos.",
+    "item4Title": "Leads dispersos por todas partes.",
+    "item4Body": "Los contactos viven en chats, hojas de cálculo y libretas, así que los seguimientos se pierden por el camino.",
+    "item5Title": "Tiempo perdido en consultas no cualificadas.",
+    "item5Body": "El equipo dedica horas a responder a personas que nunca iban a comprar.",
+    "item6Title": "Las tareas repetitivas agotan al equipo.",
+    "item6Body": "Las mismas preguntas, confirmaciones e introducción de datos, todos los días.",
+    "closing": "Cada mensaje sin responder es una jugada que tu competencia hace antes que tú."
+  },
+  "process": {
+    "eyebrow": "El proceso",
+    "titlePre": "De la primera llamada a la automatización completa",
+    "titleItalic": "en cuatro jugadas.",
+    "intro": "Un proceso claro y de bajo esfuerzo. Tú aportas el conocimiento de tu negocio, nosotros nos ocupamos del resto.",
+    "note": "Los plazos son orientativos y dependen del alcance del proyecto.",
+    "step1Numeral": "i.",
+    "step1Title": "Descubrimiento y auditoría",
+    "step1Duration": "Semana 1",
+    "step1Body": "Una llamada gratuita para mapear cómo te llegan los leads hoy, dónde se pierden y qué tareas consumen el tiempo de tu equipo.",
+    "step2Numeral": "ii.",
+    "step2Title": "Estrategia y diseño",
+    "step2Duration": "Semana 1–2",
+    "step2Body": "Diseñamos los flujos de automatización, los guiones de conversación con tu tono de marca y las integraciones con tu calendario y herramientas.",
+    "step3Numeral": "iii.",
+    "step3Title": "Desarrollo y lanzamiento",
+    "step3Duration": "Semana 2–4",
+    "step3Body": "Desarrollamos, probamos con escenarios reales, entrenamos la IA en tus servicios y lanzamos con tu equipo.",
+    "step4Numeral": "iv.",
+    "step4Title": "Optimización y crecimiento",
+    "step4Duration": "Continuo",
+    "step4Body": "Informes mensuales, revisión de conversaciones y mejoras, para que los resultados sigan creciendo."
+  },
+  "benefits": {
+    "eyebrow": "Beneficios y ROI",
+    "titlePre": "Qué cambia cuando",
+    "titleItalic": "cada jugada está automatizada.",
+    "intro": "La automatización se paga sola al recuperar ingresos que ya estás perdiendo y al devolverle tiempo a tu equipo.",
+    "tile1Figure": "Segundos",
+    "tile1Label": "Tiempo de respuesta",
+    "tile1Body": "Los leads reciben respuesta mientras siguen interesados.",
+    "tile2Figure": "24/7",
+    "tile2Label": "Siempre abierto",
+    "tile2Body": "Captura consultas por la noche, los fines de semana y en horas de máxima demanda.",
+    "tile3Figure": "Menos ausencias",
+    "tile3Label": "Agenda fiable",
+    "tile3Body": "Los recordatorios y la reprogramación fácil mantienen la agenda llena.",
+    "tile4Figure": "Horas recuperadas",
+    "tile4Label": "Equipo centrado",
+    "tile4Body": "Tu equipo deja de responder las mismas preguntas y se centra en los clientes.",
+    "outcome1": "Más citas reservadas con el mismo número de leads",
+    "outcome2": "Mayor conversión desde el primer mensaje hasta la venta",
+    "outcome3": "Respuestas consistentes y profesionales en tres idiomas",
+    "outcome4": "Un pipeline limpio, sin seguimientos olvidados",
+    "outcome5": "Informes mensuales claros sobre lo que aporta la automatización",
+    "outcome6": "Un negocio que escala sin contratar para tareas repetitivas",
+    "caseLabel": "Escenario de ejemplo — solo ilustrativo",
+    "caseTitle": "Una clínica dental que dejó de perder consultas por WhatsApp",
+    "caseBody": "Los mensajes de WhatsApp que antes se perdían ahora se responden y agendan automáticamente, día y noche.",
+    "caseBefore1": "Respuestas: horas",
+    "caseAfter1": "Respuestas: segundos",
+    "caseBefore2": "Seguimientos: manuales",
+    "caseAfter2": "Seguimientos: automáticos",
+    "ctaPrimary": "Consigue tu auditoría gratuita",
+    "ctaSecondary": "Escríbenos por WhatsApp"
+  },
+  "contact": {
+    "eyebrow": "Contacta con nosotros",
+    "titlePre": "Cuéntanos qué",
+    "titleItalic": "quieres automatizar.",
+    "intro": "Cuéntanos algunos detalles sobre tu negocio. Te responderemos en un día laborable con ideas hechas a tu medida, gratis y sin compromiso.",
+    "reassurance1": "Llamada de auditoría gratuita de 30 minutos",
+    "reassurance2": "Respuesta en 1 día laborable",
+    "reassurance3": "Tus datos están protegidos según el RGPD",
+    "emailLabel": "Escríbenos",
+    "whatsappLabel": "WhatsApp",
+    "groupAboutYou": "Sobre ti",
+    "groupAboutBusiness": "Sobre tu negocio",
+    "groupWhatYouNeed": "Qué necesitas",
+    "groupConsent": "Consentimiento",
+    "fields": {
+      "fullName": "Nombre completo",
+      "workEmail": "Email de trabajo",
+      "phone": "Teléfono / WhatsApp",
+      "jobTitle": "Cargo / puesto",
+      "companyName": "Nombre de la empresa",
+      "website": "Sitio web",
+      "industry": "Sector",
+      "companySize": "Tamaño de la empresa",
+      "country": "País",
+      "automationInterests": "¿Qué te gustaría automatizar?",
+      "channels": "Principales canales que usan tus clientes",
+      "monthlyEnquiries": "Consultas mensuales aproximadas",
+      "currentTools": "Herramientas que usas hoy",
+      "currentToolsPlaceholder": "p. ej. Google Calendar, HubSpot, Excel",
+      "challenge": "Describe tu reto u objetivo",
+      "timeline": "Plazo preferido",
+      "preferredLanguage": "Idioma de contacto preferido",
+      "heardAboutUs": "¿Cómo nos conociste?"
+    },
+    "selectPlaceholder": "Selecciona…",
+    "charactersCount": "{count} / 1000 caracteres",
+    "options": {
+      "industry": {
+        "healthcare": "Salud y clínicas",
+        "beauty_wellness": "Belleza y bienestar",
+        "real_estate": "Inmobiliaria",
+        "hvac_home_services": "Climatización y servicios del hogar",
+        "fitness_studios": "Fitness y estudios",
+        "education": "Educación y academias",
+        "hospitality": "Hostelería y restauración",
+        "professional_services": "Servicios profesionales",
+        "ecommerce": "E-commerce",
+        "other": "Otro"
+      },
+      "companySize": {
+        "solo": "Solo yo",
+        "2_10": "2–10",
+        "11_50": "11–50",
+        "51_200": "51–200",
+        "200_plus": "200+"
+      },
+      "country": {
+        "ES": "España",
+        "IT": "Italia",
+        "GB": "Reino Unido",
+        "FR": "Francia",
+        "DE": "Alemania",
+        "PT": "Portugal",
+        "US": "Estados Unidos",
+        "MX": "México",
+        "AR": "Argentina",
+        "CO": "Colombia",
+        "CL": "Chile",
+        "BR": "Brasil",
+        "NL": "Países Bajos",
+        "BE": "Bélgica",
+        "IE": "Irlanda",
+        "CH": "Suiza",
+        "AT": "Austria",
+        "SE": "Suecia",
+        "NO": "Noruega",
+        "DK": "Dinamarca",
+        "PL": "Polonia",
+        "GR": "Grecia",
+        "TR": "Turquía",
+        "AE": "Emiratos Árabes Unidos",
+        "SA": "Arabia Saudí",
+        "CA": "Canadá",
+        "AU": "Australia",
+        "NZ": "Nueva Zelanda",
+        "IN": "India",
+        "OTHER": "Otro"
+      },
+      "automationInterests": {
+        "whatsapp_agent": "Agente de WhatsApp",
+        "lead_qualification": "Cualificación de leads",
+        "crm_automation": "Automatización del CRM",
+        "followups_reminders": "Seguimientos y recordatorios",
+        "custom_automations": "Automatizaciones a medida",
+        "appointment_booking": "Reserva de citas",
+        "customer_support": "Atención al cliente / FAQs"
+      },
+      "channels": {
+        "whatsapp": "WhatsApp",
+        "instagram": "Instagram",
+        "website_forms": "Formularios web",
+        "phone_calls": "Llamadas telefónicas",
+        "email": "Email"
+      },
+      "monthlyEnquiries": {
+        "lt_100": "< 100",
+        "100_500": "100–500",
+        "500_2000": "500–2.000",
+        "gt_2000": "2.000+"
+      },
+      "timeline": {
+        "asap": "Lo antes posible",
+        "within_1_month": "En 1 mes",
+        "1_3_months": "1–3 meses",
+        "exploring": "Solo estoy explorando"
+      },
+      "preferredLanguage": {
+        "en": "English",
+        "es": "Español",
+        "it": "Italiano"
+      },
+      "heardAboutUs": {
+        "google": "Google",
+        "linkedin": "LinkedIn",
+        "instagram": "Instagram",
+        "referral": "Recomendación",
+        "other": "Otro"
+      }
+    },
+    "consentPrivacyPre": "He leído y acepto la",
+    "consentPrivacyLink": "Política de Privacidad",
+    "consentPrivacyPost": "y acepto que Rooklyn trate mis datos para responder a mi solicitud.",
+    "consentMarketing": "Quiero recibir novedades ocasionales y consejos de automatización de Rooklyn.",
+    "privacyNotice": "Responsable: Rooklyn. Finalidad: responder a tu solicitud y gestionar la relación comercial. Base legal: tu consentimiento. Destinatarios: proveedores de servicios bajo contrato, incluida nuestra plataforma de CRM, lo que puede implicar transferencias internacionales con las garantías adecuadas. Derechos: acceso, rectificación, supresión y más, como se describe en la Política de Privacidad.",
+    "submit": "Enviar mi solicitud",
+    "sending": "Enviando…",
+    "successTitle": "Gracias, {name}. Tu solicitud está en camino.",
+    "successBody": "Te responderemos en un día laborable.",
+    "successBook": "Reserva tu llamada de auditoría ahora",
+    "backToTop": "Volver arriba",
+    "errorTitle": "Algo salió mal",
+    "errorBody": "Inténtalo de nuevo o escríbenos directamente a {email}.",
+    "errors": {
+      "fullName": "Introduce tu nombre completo.",
+      "email": "Introduce un email válido.",
+      "phone": "Introduce un número de teléfono válido.",
+      "companyName": "Introduce el nombre de tu empresa.",
+      "website": "Introduce una URL válida.",
+      "industry": "Selecciona un sector.",
+      "companySize": "Selecciona el tamaño de la empresa.",
+      "country": "Selecciona un país.",
+      "automationInterests": "Selecciona al menos una opción.",
+      "challengeMin": "Cuéntanos un poco más (mínimo 20 caracteres).",
+      "challengeMax": "Máximo 1.000 caracteres.",
+      "consentRequired": "Debes aceptar la Política de Privacidad para continuar.",
+      "turnstile": "Confirma que no eres un robot.",
+      "generic": "Revisa este campo."
+    }
+  },
+  "footer": {
+    "tagline": "Los movimientos que harías, hechos automáticamente.",
+    "copyright": "© {year} Rooklyn. Todos los derechos reservados.",
+    "privacyPolicy": "Política de Privacidad",
+    "cookiePolicy": "Política de Cookies",
+    "dataProtection": "Protección de Datos",
+    "legalNotice": "Aviso Legal"
+  },
+  "cookies": {
+    "title": "Preferencias de cookies",
+    "message": "Usamos cookies para que este sitio funcione y, con tu consentimiento, para entender cómo se usa.",
+    "learnMore": "Saber más",
+    "necessary": "Necesarias (siempre activas)",
+    "analytics": "Analíticas",
+    "marketing": "Marketing",
+    "customize": "Personalizar",
+    "rejectAll": "Rechazar todo",
+    "acceptAll": "Aceptar todo",
+    "savePreferences": "Guardar preferencias"
+  },
+  "legal": {
+    "devNote": "Plantilla: revisar con un profesional legal antes de publicar.",
+    "lastUpdated": "Última actualización",
+    "backHome": "Volver al inicio",
+    "cookieSettingsLink": "Cambiar tu configuración de cookies",
+    "privacyPolicy": {
+      "title": "Política de Privacidad",
+      "sections": [
+        {
+          "heading": "1. Responsable del tratamiento",
+          "body": "[Razón social], con NIF/CIF [NIF/CIF], domicilio en [Dirección registrada], es responsable de los datos personales que compartes a través de este sitio web. Puedes contactarnos en [Email de contacto]."
+        },
+        {
+          "heading": "2. Qué datos recopilamos",
+          "body": "Al enviar el formulario de contacto recopilamos tu nombre, email, teléfono, cargo, datos de tu empresa, la información que compartes sobre tus necesidades de automatización, y datos técnicos como tu IP, navegador y las páginas visitadas antes de enviar el formulario (parámetros UTM, referente)."
+        },
+        {
+          "heading": "3. Finalidad del tratamiento",
+          "body": "Usamos tus datos para responder a tu consulta, preparar una propuesta, gestionar nuestra relación comercial y, solo con tu consentimiento independiente, enviarte novedades y consejos de automatización."
+        },
+        {
+          "heading": "4. Base legal",
+          "body": "La base legal del tratamiento es tu consentimiento, otorgado al enviar el formulario de contacto y aceptar esta Política de Privacidad, conforme al Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD)."
+        },
+        {
+          "heading": "5. Destinatarios y encargados del tratamiento",
+          "body": "Tus datos pueden compartirse con proveedores de servicios que actúan como encargados del tratamiento bajo contrato, incluyendo [Proveedor de CRM: GoHighLevel / HighLevel] para la gestión del pipeline y flujos de trabajo, y [Cloudflare] para alojamiento, seguridad, protección antispam (Turnstile) y analítica sin cookies (Web Analytics). Algunos de estos proveedores pueden tratar datos fuera del Espacio Económico Europeo; en ese caso se aplican las garantías adecuadas, como las Cláusulas Contractuales Tipo de la Comisión Europea."
+        },
+        {
+          "heading": "6. Conservación de datos",
+          "body": "Conservamos tus datos durante el tiempo necesario para gestionar tu consulta y nuestra relación, y posteriormente durante los plazos exigidos por la ley aplicable."
+        },
+        {
+          "heading": "7. Tus derechos",
+          "body": "Puedes ejercer tus derechos de acceso, rectificación, supresión, limitación, portabilidad y oposición, y retirar tu consentimiento en cualquier momento, escribiendo a [Email de contacto]. También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (agpd.es)."
+        },
+        {
+          "heading": "8. Transferencias internacionales",
+          "body": "[Detalles de las transferencias internacionales de datos, a completar una vez finalizada la configuración del CRM y el alojamiento, incluyendo las garantías específicas aplicadas.]"
+        }
+      ]
+    },
+    "cookiePolicy": {
+      "title": "Política de Cookies",
+      "sections": [
+        {
+          "heading": "1. Qué son las cookies",
+          "body": "Las cookies son pequeños archivos que se almacenan en tu dispositivo y ayudan a que los sitios web funcionen y, con tu consentimiento, a entender cómo se usan."
+        },
+        {
+          "heading": "2. Cookies que usamos",
+          "body": "Las cookies necesarias están siempre activas y son imprescindibles para el funcionamiento del sitio. Las cookies analíticas (solo con tu consentimiento) nos ayudan a entender el tráfico mediante Cloudflare Web Analytics, que por diseño no usa cookies. Las cookies de marketing, solo con tu consentimiento, podrían añadirse en el futuro con fines publicitarios."
+        },
+        {
+          "heading": "3. Gestionar tus preferencias",
+          "body": "Puedes aceptar, rechazar o personalizar las cookies no esenciales desde el aviso que aparece en tu primera visita, y cambiar tu elección en cualquier momento desde el enlace de abajo."
+        },
+        {
+          "heading": "4. Cambiar tus preferencias",
+          "body": "Usa el enlace de abajo para volver a abrir el panel de preferencias de cookies."
+        }
+      ]
+    },
+    "dataProtection": {
+      "title": "Protección de Datos",
+      "sections": [
+        {
+          "heading": "1. Tus derechos según el RGPD",
+          "body": "Según el RGPD y la LOPDGDD, tienes derecho a acceder a los datos personales que tenemos sobre ti, solicitar su rectificación o supresión, limitar u oponerte a su tratamiento, y solicitar la portabilidad de tus datos."
+        },
+        {
+          "heading": "2. Cómo ejercer tus derechos",
+          "body": "Envía una solicitud por escrito a [Email de contacto], incluyendo una copia de un documento de identidad y especificando qué derecho deseas ejercer. Responderemos en el plazo de un mes, según exige la normativa aplicable."
+        },
+        {
+          "heading": "3. Delegado de Protección de Datos",
+          "body": "[Delegado de Protección de Datos / persona de contacto, si procede]."
+        },
+        {
+          "heading": "4. Autoridad de control",
+          "body": "Si consideras que no se han respetado tus derechos, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (agpd.es)."
+        }
+      ]
+    },
+    "legalNotice": {
+      "title": "Aviso Legal",
+      "sections": [
+        {
+          "heading": "1. Titularidad del sitio web",
+          "body": "En cumplimiento de la Ley 34/2002 de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se facilita la siguiente información: Razón social: [Razón social]. NIF/CIF: [NIF/CIF]. Domicilio: [Dirección registrada]. Email: [Email de contacto]. Datos registrales: [Datos del registro mercantil, si procede]."
+        },
+        {
+          "heading": "2. Objeto del sitio web",
+          "body": "Este sitio web informa sobre los servicios de automatización con IA de Rooklyn y permite a los visitantes solicitar una auditoría gratuita a través del formulario de contacto."
+        },
+        {
+          "heading": "3. Condiciones de uso",
+          "body": "El acceso y uso de este sitio web implica la aceptación de estas condiciones. Los usuarios se comprometen a usar el sitio y sus contenidos de forma lícita, sin realizar actividades que puedan dañar, deshabilitar o sobrecargar el sitio o sus servicios."
+        },
+        {
+          "heading": "4. Propiedad intelectual",
+          "body": "Todo el contenido de este sitio web, incluidos textos, gráficos, logotipos y la marca Rooklyn, es propiedad de [Razón social] o de sus licenciantes y está protegido por la legislación de propiedad intelectual."
+        },
+        {
+          "heading": "5. Responsabilidad",
+          "body": "[Razón social] no se hace responsable de los daños derivados del uso de este sitio web, en la medida permitida por la legislación aplicable."
+        }
+      ]
+    }
+  }
+}

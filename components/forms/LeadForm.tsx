@@ -6,13 +6,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import { RooklynMark } from "@/components/logo/RooklynMark";
 import { Button } from "@/components/ui/Button";
-import { ToggleChip } from "@/components/ui/Chip";
 import { Turnstile } from "@/components/forms/Turnstile";
-import { FieldWrap, inputClass, selectClass, textareaClass } from "@/components/forms/fields";
+import { FieldWrap, inputClass, selectClass } from "@/components/forms/fields";
 import { leadFormSchema, type LeadFormInput } from "@/lib/leads/schema";
 import {
   AUTOMATION_INTERESTS,
-  CHANNELS,
   COMPANY_SIZES,
   COUNTRIES_OTHER,
   COUNTRIES_PRIORITY,
@@ -73,7 +71,6 @@ export function LeadForm() {
     register,
     handleSubmit,
     control,
-    watch,
     setValue,
     setFocus,
     formState: { errors, isSubmitting },
@@ -83,13 +80,9 @@ export function LeadForm() {
       fullName: "",
       workEmail: "",
       phone: "+34",
-      jobTitle: "",
       companyName: "",
       website: "",
-      automationInterests: [],
-      channels: [],
-      currentTools: "",
-      challenge: "",
+      automationInterests: "" as unknown as LeadFormInput["automationInterests"],
       preferredLanguage: locale,
       privacyAccepted: false as unknown as true,
       marketingOptIn: false,
@@ -102,7 +95,7 @@ export function LeadForm() {
     try {
       const preselect = sessionStorage.getItem("rooklyn-preselect-interest");
       if (preselect) {
-        setValue("automationInterests", [preselect as LeadFormInput["automationInterests"][number]]);
+        setValue("automationInterests", preselect as LeadFormInput["automationInterests"]);
         sessionStorage.removeItem("rooklyn-preselect-interest");
         document.getElementById("contact")?.scrollIntoView({ block: "start" });
       }
@@ -111,8 +104,6 @@ export function LeadForm() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const challenge = watch("challenge") ?? "";
 
   const countries = useMemo(
     () => [...COUNTRIES_PRIORITY, ...COUNTRIES_OTHER],
@@ -168,7 +159,7 @@ export function LeadForm() {
               rel="noopener noreferrer"
               className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-porcelain px-6 py-3.5 text-[15px] font-semibold text-night"
             >
-              <span aria-hidden className="h-2 w-2 rounded-full bg-apricot" />
+              <span aria-hidden className="h-2 w-2 rounded-full bg-champagne" />
               {t("successBook")}
             </a>
           )}
@@ -222,15 +213,6 @@ export function LeadForm() {
               />
             </FieldWrap>
           </div>
-
-          <FieldWrap label={t("fields.jobTitle")} htmlFor="jobTitle" optional>
-            <input
-              id="jobTitle"
-              autoComplete="organization-title"
-              className={inputClass()}
-              {...register("jobTitle")}
-            />
-          </FieldWrap>
         </fieldset>
 
         <fieldset className="flex flex-col gap-4">
@@ -313,57 +295,21 @@ export function LeadForm() {
             htmlFor="automationInterests"
             error={errors.automationInterests && t("errors.automationInterests")}
           >
-            <Controller
-              control={control}
-              name="automationInterests"
-              render={({ field }) => (
-                <div id="automationInterests" className="flex flex-wrap gap-2.5">
-                  {AUTOMATION_INTERESTS.map((id) => (
-                    <ToggleChip
-                      key={id}
-                      id={`interest-${id}`}
-                      label={t(`options.automationInterests.${id}`)}
-                      selected={field.value?.includes(id) ?? false}
-                      onToggle={() => {
-                        const current = field.value ?? [];
-                        field.onChange(
-                          current.includes(id)
-                            ? current.filter((v) => v !== id)
-                            : [...current, id]
-                        );
-                      }}
-                    />
-                  ))}
-                </div>
-              )}
-            />
-          </FieldWrap>
-
-          <FieldWrap label={t("fields.channels")} htmlFor="channels" optional>
-            <Controller
-              control={control}
-              name="channels"
-              render={({ field }) => (
-                <div id="channels" className="flex flex-wrap gap-2.5">
-                  {CHANNELS.map((id) => (
-                    <ToggleChip
-                      key={id}
-                      id={`channel-${id}`}
-                      label={t(`options.channels.${id}`)}
-                      selected={field.value?.includes(id) ?? false}
-                      onToggle={() => {
-                        const current = field.value ?? [];
-                        field.onChange(
-                          current.includes(id)
-                            ? current.filter((v) => v !== id)
-                            : [...current, id]
-                        );
-                      }}
-                    />
-                  ))}
-                </div>
-              )}
-            />
+            <select
+              id="automationInterests"
+              className={selectClass(!!errors.automationInterests)}
+              defaultValue=""
+              {...register("automationInterests")}
+            >
+              <option value="" disabled>
+                {t("selectPlaceholder")}
+              </option>
+              {AUTOMATION_INTERESTS.map((id) => (
+                <option key={id} value={id}>
+                  {t(`options.automationInterests.${id}`)}
+                </option>
+              ))}
+            </select>
           </FieldWrap>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -389,34 +335,6 @@ export function LeadForm() {
               </select>
             </FieldWrap>
           </div>
-
-          <FieldWrap label={t("fields.currentTools")} htmlFor="currentTools" optional>
-            <input
-              id="currentTools"
-              placeholder={t("fields.currentToolsPlaceholder")}
-              className={inputClass()}
-              {...register("currentTools")}
-            />
-          </FieldWrap>
-
-          <FieldWrap
-            label={t("fields.challenge")}
-            htmlFor="challenge"
-            error={
-              errors.challenge &&
-              (errors.challenge.type === "too_big" ? t("errors.challengeMax") : t("errors.challengeMin"))
-            }
-          >
-            <textarea
-              id="challenge"
-              rows={5}
-              className={textareaClass(!!errors.challenge)}
-              {...register("challenge")}
-            />
-            <p className="text-right text-[12px] text-text-3">
-              {t("charactersCount", { count: challenge.length })}
-            </p>
-          </FieldWrap>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <FieldWrap label={t("fields.preferredLanguage")} htmlFor="preferredLanguage">

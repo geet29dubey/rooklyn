@@ -1,16 +1,16 @@
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 
-export const cormorant = Cormorant_Garamond({
+export const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  variable: "--font-playfair",
   display: "swap",
 });
 
-export const manrope = Manrope({
+export const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-manrope",
+  variable: "--font-inter",
   display: "swap",
 });

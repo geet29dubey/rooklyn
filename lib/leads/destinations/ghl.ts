@@ -102,14 +102,10 @@ async function upsertContact(
     source: lead.source,
     tags: lead.tags,
     customFields: [
-      { id: cf.jobTitle, value: lead.contact.job_title },
       { id: cf.industry, value: lead.company.industry },
       { id: cf.companySize, value: lead.company.size },
-      { id: cf.automationInterests, value: lead.needs.automation_interests.join(", ") },
-      { id: cf.channels, value: lead.needs.channels.join(", ") },
+      { id: cf.automationInterests, value: lead.needs.automation_interest },
       { id: cf.monthlyEnquiries, value: lead.needs.monthly_enquiries },
-      { id: cf.currentTools, value: lead.needs.current_tools },
-      { id: cf.challenge, value: lead.needs.challenge },
       { id: cf.timeline, value: lead.needs.timeline },
       { id: cf.preferredLanguage, value: lead.contact.preferred_language },
       { id: cf.heardAboutUs, value: lead.needs.heard_about_us },
@@ -156,22 +152,9 @@ async function createOpportunity(
       pipelineStageId: config.pipelineStageId,
       locationId: config.locationId,
       contactId,
-      name: `${lead.company.name} — ${lead.needs.automation_interests[0] ?? "Automation"}`,
+      name: `${lead.company.name} — ${lead.needs.automation_interest}`,
       source: lead.source,
     }),
-  });
-}
-
-// TODO: verify against current GHL API docs before going live.
-async function addNote(lead: NormalizedLead, contactId: string, config: Extract<GhlConfig, { mode: "api" }>) {
-  await fetch(`${config.apiBase}/contacts/${contactId}/notes`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${config.apiToken}`,
-      "Content-Type": "application/json",
-      Version: "2021-07-28",
-    },
-    body: JSON.stringify({ body: lead.needs.challenge }),
   });
 }
 
@@ -184,11 +167,10 @@ async function sendViaApi(lead: NormalizedLead, config: Extract<GhlConfig, { mod
         const contactId = data.contact?.id;
         if (contactId) {
           await createOpportunity(lead, contactId, config);
-          await addNote(lead, contactId, config);
         }
       } catch {
         // Contact was upserted but the response shape was unexpected;
-        // the opportunity/note are best-effort follow-ups only.
+        // the opportunity is a best-effort follow-up only.
       }
     }
     return res;

@@ -21,9 +21,12 @@ export function Benefits() {
   return (
     <section
       id="benefits"
-      className="relative overflow-hidden bg-garnet-deep py-section-mobile md:py-section"
+      className="relative overflow-hidden py-section-mobile sm:py-section-tablet md:py-section"
     >
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-garnet-glow" />
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 right-[-8%] h-[360px] w-[360px] rounded-full bg-lagoon/[0.12] blur-[110px] md:h-[480px] md:w-[480px]" />
+        <div className="absolute bottom-[-15%] left-[-8%] h-[320px] w-[320px] rounded-full bg-garnet/20 blur-[100px] md:h-[420px] md:w-[420px]" />
+      </div>
 
       <div className="container relative max-w-container">
         <SectionHeader
@@ -43,7 +46,7 @@ export function Benefits() {
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {tiles.map((tile, i) => (
             <FadeIn key={tile.label} delay={i * 0.05}>
-              <div className="h-full rounded-[20px] border border-porcelain/[0.1] bg-white/[0.03] p-7">
+              <div className="h-full rounded-2xl border border-hairline bg-card p-7">
                 <p
                   className="font-display bg-gradient-to-br from-champagne to-champagne-light bg-clip-text text-transparent"
                   style={{ fontSize: "clamp(2rem, 4vw, 2.75rem)" }}
@@ -71,7 +74,7 @@ export function Benefits() {
         </div>
 
         <FadeIn className="mt-12">
-          <div className="rounded-[20px] border border-porcelain/[0.1] bg-white/[0.03] p-7 sm:p-9">
+          <div className="rounded-2xl border border-hairline bg-card p-7 sm:p-9">
             <span className="eyebrow text-[10px] tracking-[0.16em] text-text-3">
               {t("caseLabel")}
             </span>

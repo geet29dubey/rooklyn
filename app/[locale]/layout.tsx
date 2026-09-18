@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { cormorant, manrope } from "@/lib/fonts";
+import { playfair, inter } from "@/lib/fonts";
 import { routing, type Locale } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -90,7 +90,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${cormorant.variable} ${manrope.variable}`}
+      className={`${playfair.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
       <head>

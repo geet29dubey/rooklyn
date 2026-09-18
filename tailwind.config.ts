@@ -10,47 +10,51 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: { DEFAULT: "20px", lg: "32px" },
+      padding: { DEFAULT: "20px", sm: "28px", lg: "40px" },
     },
     extend: {
       colors: {
-        night: "#0B131C",
-        "night-2": "#0E1822",
-        "night-3": "#132131",
-        card: "#142333",
-        "card-2": "#1B2B3D",
-        ink: "#13243A",
-        porcelain: "#F2EEE8",
-        "text-2": "#B9C4CF",
-        "text-3": "#8A99A8",
-        champagne: "#C9A96E",
-        "champagne-light": "#D9BE8C",
-        garnet: "#9E2A45",
-        "garnet-deep": "#5C1628",
-        "garnet-night": "#3A0F1C",
-        lagoon: "#117A6D",
-        atlantic: "#2A5CAA",
-        "sea-glass": "#8FD3C1",
-        sky: "#A9C4EC",
-        apricot: "#F4A36C",
-        error: "#E39A86",
-        hairline: "rgba(242,238,232,0.09)",
+        // Deep Atlantic — main background
+        night: "#0D1923",
+        "night-2": "#0A141C",
+        // Slate Navy — elevated surfaces
+        card: "#1D323F",
+        "card-2": "#16262F",
+        ink: "#1D323F",
+        // Warm Ivory — primary text
+        porcelain: "#F4F1EB",
+        // Soft Silver — secondary / tertiary text
+        "text-2": "#B8C0C5",
+        "text-3": "#7E8891",
+        // Champagne Gold — brand emphasis
+        champagne: "#C2AB76",
+        "champagne-light": "#DBC79A",
+        // Muted Garnet — problem states / atmosphere only
+        garnet: "#4E2938",
+        "garnet-deep": "#4E2938",
+        "garnet-night": "#341B25",
+        // Lagoon Mint — automation / success / active-system
+        lagoon: "#78C8C2",
+        error: "#E2949E",
+        hairline: "rgba(184,192,197,0.16)",
       },
       fontFamily: {
-        display: ["var(--font-cormorant)", "serif"],
-        sans: ["var(--font-manrope)", "sans-serif"],
+        display: ["var(--font-playfair)", "serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
       },
       maxWidth: {
-        container: "1200px",
+        container: "1240px",
       },
       backgroundImage: {
-        tide: "linear-gradient(125deg, #117A6D, #2A5CAA)",
+        "mint-glow":
+          "radial-gradient(circle, rgba(120,200,194,0.10), transparent 65%)",
         "garnet-glow":
-          "radial-gradient(70% 60% at 100% 0%, rgba(158,42,69,.5), transparent 70%)",
+          "radial-gradient(circle, rgba(78,41,56,0.17), transparent 70%)",
       },
       spacing: {
-        section: "120px",
-        "section-mobile": "80px",
+        section: "96px",
+        "section-tablet": "72px",
+        "section-mobile": "56px",
       },
       keyframes: {
         marquee: {

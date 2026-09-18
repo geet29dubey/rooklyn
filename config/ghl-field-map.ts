@@ -20,14 +20,10 @@ export const GHL_FIELD_MAP = {
   // replace every [GHL_CF_*] placeholder with the real custom field ID
   // created in the GHL sub-account.
   customFields: {
-    jobTitle: "[GHL_CF_JOB_TITLE]",
     industry: "[GHL_CF_INDUSTRY]",
     companySize: "[GHL_CF_COMPANY_SIZE]",
     automationInterests: "[GHL_CF_AUTOMATION_INTERESTS]",
-    channels: "[GHL_CF_CHANNELS]",
     monthlyEnquiries: "[GHL_CF_MONTHLY_ENQUIRIES]",
-    currentTools: "[GHL_CF_CURRENT_TOOLS]",
-    challenge: "[GHL_CF_CHALLENGE]",
     timeline: "[GHL_CF_TIMELINE]",
     preferredLanguage: "[GHL_CF_PREFERRED_LANGUAGE]",
     heardAboutUs: "[GHL_CF_HEARD_ABOUT_US]",

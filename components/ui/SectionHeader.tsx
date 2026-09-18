@@ -21,7 +21,7 @@ export function SectionHeader({
   return (
     <div className={cn("mb-12 md:mb-16", className)}>
       <div className="flex items-center gap-3 mb-5">
-        <span className="flex h-6 items-center rounded-full bg-garnet/20 px-2.5 text-[11px] font-bold tracking-widest text-garnet border border-garnet/30">
+        <span className="flex h-6 items-center rounded-full bg-champagne/12 px-2.5 text-[11px] font-bold tracking-widest text-champagne border border-champagne/25">
           {number}
         </span>
         <span className="eyebrow">{eyebrow}</span>

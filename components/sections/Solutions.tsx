@@ -19,16 +19,13 @@ const ICONS: Record<SolutionId, typeof MessageCircle> = {
 const ACCENT_CLASSES: Record<string, { bg: string; text: string }> = {
   lagoon: { bg: "bg-lagoon/12", text: "text-lagoon" },
   champagne: { bg: "bg-champagne/12", text: "text-champagne" },
-  atlantic: { bg: "bg-atlantic/12", text: "text-atlantic" },
-  apricot: { bg: "bg-apricot/12", text: "text-apricot" },
-  "sea-glass": { bg: "bg-sea-glass/12", text: "text-sea-glass" },
 };
 
 export function Solutions() {
   const t = useTranslations("solutions");
 
   return (
-    <section id="solutions" className="py-section-mobile md:py-section">
+    <section id="solutions" className="py-section-mobile sm:py-section-tablet md:py-section">
       <div className="container max-w-container">
         <SectionHeader
           number="02"
@@ -97,10 +94,7 @@ function SolutionCard({
           <Icon className="h-5 w-5" strokeWidth={1.5} />
         </div>
         <h3>{t(`${base}.name`)}</h3>
-        <p className="font-display mt-1 text-[22px] italic text-champagne">
-          {t(`${base}.oneliner`)}
-        </p>
-        <p className="eyebrow mt-4 text-[10px] tracking-[0.16em] text-text-3">
+        <p className="eyebrow mt-3 text-[10px] tracking-[0.16em] text-text-3">
           {t("solvesLabel")}: {t(`${base}.solves`)}
         </p>
         <p className="mt-4 text-[15px] text-text-2">{t(`${base}.description`)}</p>
@@ -120,21 +114,15 @@ function SolutionCard({
 function CustomCard({ t }: { t: ReturnType<typeof useTranslations> }) {
   const base = "items.custom_automations";
   return (
-    <div className="relative overflow-hidden rounded-[24px] border border-hairline bg-garnet-deep p-8 sm:p-12">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-garnet-glow" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-[10px] rounded-[16px] border border-porcelain/[0.12]"
-      />
+    <div className="relative overflow-hidden rounded-[20px] border border-hairline bg-card p-8 sm:p-12">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-mint-glow" />
+      <div aria-hidden className="absolute left-0 top-0 h-[3px] w-20 bg-champagne" />
       <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
         <div>
-          <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-sea-glass/12 text-sea-glass">
+          <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-lagoon/12 text-lagoon">
             <Wand2 className="h-5 w-5" strokeWidth={1.5} />
           </div>
           <h3>{t(`${base}.name`)}</h3>
-          <p className="font-display mt-1 text-[24px] italic text-champagne">
-            {t(`${base}.oneliner`)}
-          </p>
           <p className="mt-4 max-w-md text-[15px] text-text-2">
             {t(`${base}.description`)}
           </p>

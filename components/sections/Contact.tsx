@@ -10,12 +10,12 @@ export function Contact() {
   const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
 
   return (
-    <section id="contact" className="py-section-mobile md:py-section">
+    <section id="contact" className="py-section-mobile sm:py-section-tablet md:py-section">
       <div className="container max-w-container">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="mb-8 flex items-center gap-3">
-              <span className="flex h-6 items-center rounded-full bg-garnet/20 px-2.5 text-[11px] font-bold tracking-widest text-garnet border border-garnet/30">
+              <span className="flex h-6 items-center rounded-full bg-champagne/12 px-2.5 text-[11px] font-bold tracking-widest text-champagne border border-champagne/25">
                 05
               </span>
               <span className="eyebrow">{t("eyebrow")}</span>

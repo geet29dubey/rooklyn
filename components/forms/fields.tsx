@@ -47,6 +47,3 @@ export const inputClass = (hasError?: boolean) =>
 
 export const selectClass = (hasError?: boolean) =>
   cn(controlBase, "appearance-none bg-no-repeat pr-10", hasError && "border-error");
-
-export const textareaClass = (hasError?: boolean) =>
-  cn(controlBase, "min-h-[140px] resize-y py-3", hasError && "border-error");

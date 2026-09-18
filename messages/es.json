@@ -14,15 +14,14 @@
     "close": "Cerrar menú"
   },
   "hero": {
-    "chip1": "Agencia de automatización con IA",
-    "chip2": "España y el mundo",
-    "chip3": "EN / ES / IT",
-    "h1Pre": "Los movimientos que harías,",
-    "h1Italic": "hechos automáticamente.",
-    "subheadline": "Rooklyn crea agentes de WhatsApp con IA, CRMs inteligentes y recordatorios automáticos que responden, cualifican y agendan cada lead, para que tu equipo se centre en cerrar ventas.",
-    "ctaPrimary": "Reserva tu auditoría gratuita",
-    "ctaSecondary": "Descubre cómo funciona",
-    "trust": "Respuestas en segundos · Agentes bilingües · Cumplimiento RGPD",
+    "eyebrow": "Automatización estratégica para negocios en crecimiento",
+    "h1Pre": "Tu próximo movimiento,",
+    "h1Italic": "ya está hecho.",
+    "subheadline": "Rooklyn responde a las consultas, cualifica leads, actualiza tu CRM y hace seguimiento automáticamente, para que las oportunidades sigan avanzando aunque tu equipo esté ocupado.",
+    "ctaPrimary": "Ver Rooklyn en acción",
+    "ctaSecondary": "Reserva una auditoría gratuita",
+    "trust": "WhatsApp · Cualificación de leads · CRM · Seguimientos · Multilingüe",
+    "brandProposition": "Los movimientos que harías, hechos automáticamente.",
     "card1": "Lead cualificado · justo ahora",
     "card2": "Respuesta enviada · 4 s · WhatsApp",
     "card3": "Recordatorio programado · jue 19:00"
@@ -175,24 +174,18 @@
       "fullName": "Nombre completo",
       "workEmail": "Email de trabajo",
       "phone": "Teléfono / WhatsApp",
-      "jobTitle": "Cargo / puesto",
       "companyName": "Nombre de la empresa",
       "website": "Sitio web",
       "industry": "Sector",
       "companySize": "Tamaño de la empresa",
       "country": "País",
       "automationInterests": "¿Qué te gustaría automatizar?",
-      "channels": "Principales canales que usan tus clientes",
       "monthlyEnquiries": "Consultas mensuales aproximadas",
-      "currentTools": "Herramientas que usas hoy",
-      "currentToolsPlaceholder": "p. ej. Google Calendar, HubSpot, Excel",
-      "challenge": "Describe tu reto u objetivo",
       "timeline": "Plazo preferido",
       "preferredLanguage": "Idioma de contacto preferido",
       "heardAboutUs": "¿Cómo nos conociste?"
     },
     "selectPlaceholder": "Selecciona…",
-    "charactersCount": "{count} / 1000 caracteres",
     "options": {
       "industry": {
         "healthcare": "Salud y clínicas",
@@ -254,13 +247,6 @@
         "appointment_booking": "Reserva de citas",
         "customer_support": "Atención al cliente / FAQs"
       },
-      "channels": {
-        "whatsapp": "WhatsApp",
-        "instagram": "Instagram",
-        "website_forms": "Formularios web",
-        "phone_calls": "Llamadas telefónicas",
-        "email": "Email"
-      },
       "monthlyEnquiries": {
         "lt_100": "< 100",
         "100_500": "100–500",
@@ -308,9 +294,7 @@
       "industry": "Selecciona un sector.",
       "companySize": "Selecciona el tamaño de la empresa.",
       "country": "Selecciona un país.",
-      "automationInterests": "Selecciona al menos una opción.",
-      "challengeMin": "Cuéntanos un poco más (mínimo 20 caracteres).",
-      "challengeMax": "Máximo 1.000 caracteres.",
+      "automationInterests": "Selecciona una opción.",
       "consentRequired": "Debes aceptar la Política de Privacidad para continuar.",
       "turnstile": "Confirma que no eres un robot.",
       "generic": "Revisa este campo."

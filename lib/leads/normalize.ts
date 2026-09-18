@@ -10,7 +10,6 @@ export type NormalizedLead = {
     last_name: string;
     email: string;
     phone: string;
-    job_title: string;
     preferred_language: string;
   };
   company: {
@@ -21,11 +20,8 @@ export type NormalizedLead = {
     country: string;
   };
   needs: {
-    automation_interests: string[];
-    channels: string[];
+    automation_interest: string;
     monthly_enquiries: string;
-    current_tools: string;
-    challenge: string;
     timeline: string;
     heard_about_us: string;
   };
@@ -74,7 +70,7 @@ export function normalizeLead(input: LeadInput, submittedAtIso: string): Normali
   const tags = [
     "website-lead",
     `lang-${input.locale}`,
-    ...input.automationInterests.map((i) => `interest-${i.replace(/_/g, "-")}`),
+    `interest-${input.automationInterests.replace(/_/g, "-")}`,
     `industry-${input.industry.replace(/_/g, "-")}`,
     `size-${input.companySize.replace(/_/g, "-")}`,
   ];
@@ -91,7 +87,6 @@ export function normalizeLead(input: LeadInput, submittedAtIso: string): Normali
       last_name: last,
       email: input.workEmail.toLowerCase(),
       phone: toE164(input.phone),
-      job_title: input.jobTitle ?? "",
       preferred_language: input.preferredLanguage,
     },
     company: {
@@ -102,11 +97,8 @@ export function normalizeLead(input: LeadInput, submittedAtIso: string): Normali
       country: input.country,
     },
     needs: {
-      automation_interests: input.automationInterests,
-      channels: input.channels,
+      automation_interest: input.automationInterests,
       monthly_enquiries: input.monthlyEnquiries ?? "",
-      current_tools: input.currentTools ?? "",
-      challenge: input.challenge,
       timeline: input.timeline ?? "",
       heard_about_us: input.heardAboutUs ?? "",
     },

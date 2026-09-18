@@ -14,7 +14,7 @@ export function Footer() {
   ] as const;
 
   return (
-    <footer className="border-t border-hairline bg-[#070D14]">
+    <footer className="border-t border-hairline bg-night-2">
       <div className="container max-w-container flex flex-col gap-8 py-12 md:py-14">
         <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
           <Link href="/" className="flex items-center gap-3">

@@ -101,7 +101,7 @@ export function MobileMenu({
             onClick={onClose}
             className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-porcelain px-6 py-3.5 text-[15px] font-semibold text-night"
           >
-            <span aria-hidden className="h-2 w-2 rounded-full bg-apricot" />
+            <span aria-hidden className="h-2 w-2 rounded-full bg-champagne" />
             {t("cta")}
           </Link>
         </div>

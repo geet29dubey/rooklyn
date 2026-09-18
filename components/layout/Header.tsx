@@ -20,14 +20,14 @@ export function Header() {
         style={{ paddingTop: "max(12px, env(safe-area-inset-top))" }}
       >
         <div className="container max-w-container">
-          <div className="flex h-14 items-center justify-between rounded-full border border-hairline bg-[rgba(11,19,28,0.72)] pl-3 pr-2 backdrop-blur-md landscape-phone:h-[52px] md:h-16 md:pl-4 md:pr-3">
+          <div className="flex h-14 items-center justify-between rounded-full border border-[rgba(184,192,197,0.14)] bg-[rgba(13,25,35,0.88)] pl-3 pr-2 backdrop-blur-md landscape-phone:h-[52px] md:h-16 md:pl-4 md:pr-3">
             <Link
               href="/"
               className="flex items-center gap-2 md:gap-3"
               aria-label="Rooklyn — home"
             >
               <RooklynMark size={28} />
-              <span className="font-display hidden text-[15px] tracking-[0.22em] text-champagne sm:inline md:text-[16px] md:tracking-[0.3em]">
+              <span className="font-display hidden text-[16px] font-bold tracking-[0.2em] text-champagne sm:inline md:text-[17px] md:tracking-[0.26em]">
                 ROOKLYN
               </span>
             </Link>
@@ -57,7 +57,7 @@ export function Header() {
               >
                 <span
                   aria-hidden
-                  className="h-2 w-2 rounded-full bg-apricot"
+                  className="h-2 w-2 rounded-full bg-champagne"
                 />
                 {t("cta")}
               </Link>

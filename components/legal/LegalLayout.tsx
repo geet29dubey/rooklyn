@@ -23,7 +23,7 @@ export function LegalLayout({
   const isDev = process.env.NODE_ENV === "development";
 
   return (
-    <article className="py-section-mobile md:py-section">
+    <article className="py-section-mobile sm:py-section-tablet md:py-section">
       <div className="mx-auto max-w-[720px] px-5">
         {isDev && (
           <p className="mb-8 rounded-xl border border-champagne/30 bg-champagne/10 p-4 text-[13px] text-champagne">

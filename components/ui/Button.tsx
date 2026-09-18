@@ -11,9 +11,9 @@ const base =
 
 const variants = {
   primary:
-    "bg-porcelain text-night hover-fine:hover:-translate-y-0.5 hover-fine:hover:shadow-[0_10px_30px_-10px_rgba(242,238,232,0.35)]",
+    "bg-porcelain text-night hover-fine:hover:-translate-y-0.5 hover-fine:hover:shadow-[0_6px_20px_-8px_rgba(244,241,235,0.3)]",
   secondary:
-    "bg-transparent text-porcelain border border-[rgba(242,238,232,.3)] hover-fine:hover:border-champagne",
+    "bg-transparent text-porcelain border border-[rgba(184,192,197,0.28)] hover-fine:hover:bg-card",
 };
 
 export function buttonClasses(
@@ -34,7 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {variant === "primary" && (
           <span
             aria-hidden
-            className="h-2 w-2 rounded-full bg-apricot shrink-0"
+            className="h-2 w-2 rounded-full bg-champagne shrink-0"
           />
         )}
         {children}

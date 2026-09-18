@@ -1,7 +1,6 @@
 import { z } from "zod";
 import {
   AUTOMATION_INTERESTS,
-  CHANNELS,
   COMPANY_SIZES,
   CONTACT_LANGUAGES,
   COUNTRIES_OTHER,
@@ -27,7 +26,6 @@ export const leadSchema = z.object({
   fullName: z.string().trim().min(2).max(120),
   workEmail: z.string().trim().toLowerCase().email(),
   phone: z.string().trim().min(6).max(24),
-  jobTitle: z.string().trim().max(120).optional().or(z.literal("")),
 
   // Group 2: about your business
   companyName: z.string().trim().min(1).max(160),
@@ -46,18 +44,13 @@ export const leadSchema = z.object({
   country: z.enum(countryCodes),
 
   // Group 3: what you need
-  automationInterests: z
-    .array(z.enum(AUTOMATION_INTERESTS as unknown as [string, ...string[]]))
-    .min(1),
-  channels: z
-    .array(z.enum(CHANNELS as unknown as [string, ...string[]]))
-    .default([]),
+  automationInterests: z.enum(
+    AUTOMATION_INTERESTS as unknown as [string, ...string[]]
+  ),
   monthlyEnquiries: z
     .enum(MONTHLY_ENQUIRIES as unknown as [string, ...string[]])
     .optional()
     .or(z.literal("")),
-  currentTools: z.string().trim().max(300).optional().or(z.literal("")),
-  challenge: z.string().trim().min(20).max(1000),
   timeline: z
     .enum(TIMELINES as unknown as [string, ...string[]])
     .optional()

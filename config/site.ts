@@ -9,9 +9,9 @@ export const NAV_SECTIONS = [
 export const SOLUTIONS = [
   { id: "whatsapp_agent", accent: "lagoon" },
   { id: "lead_qualification", accent: "champagne" },
-  { id: "crm_automation", accent: "atlantic" },
-  { id: "followups_reminders", accent: "apricot" },
-  { id: "custom_automations", accent: "sea-glass" },
+  { id: "crm_automation", accent: "lagoon" },
+  { id: "followups_reminders", accent: "champagne" },
+  { id: "custom_automations", accent: "lagoon" },
 ] as const;
 
 export type SolutionId = (typeof SOLUTIONS)[number]["id"];
@@ -24,14 +24,6 @@ export const AUTOMATION_INTERESTS = [
   "custom_automations",
   "appointment_booking",
   "customer_support",
-] as const;
-
-export const CHANNELS = [
-  "whatsapp",
-  "instagram",
-  "website_forms",
-  "phone_calls",
-  "email",
 ] as const;
 
 export const INDUSTRIES = [

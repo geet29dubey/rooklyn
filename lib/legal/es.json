@@ -1,0 +1,859 @@
+{
+  "notice": [
+    {
+      "type": "p",
+      "text": "AVISO LEGAL"
+    },
+    {
+      "type": "p",
+      "text": "Última actualización: 21 de septiembre de 2026"
+    },
+    {
+      "type": "h1",
+      "text": "1. Identificación del titular"
+    },
+    {
+      "type": "p",
+      "text": "En cumplimiento de la normativa aplicable a los servicios de la sociedad de la información, se facilita la siguiente información de identificación del titular del sitio web:"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Titular",
+          "Geetanjali Dubey"
+        ],
+        [
+          "Nombre comercial",
+          "Rooklyn"
+        ],
+        [
+          "NIF/NIE",
+          "Z0680759X"
+        ],
+        [
+          "Domicilio profesional",
+          "Calle Transversal Sexta 24, 28021 Madrid, España"
+        ],
+        [
+          "Correo electrónico",
+          "geet29.dubey@gmail.com"
+        ],
+        [
+          "Sitio web",
+          "https://rooklyn.co"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Datos registrales: no aplicable actualmente, salvo que resulte exigible por la forma jurídica o por la inscripción en un registro público."
+    },
+    {
+      "type": "h1",
+      "text": "2. Objeto y ámbito de aplicación"
+    },
+    {
+      "type": "p",
+      "text": "Rooklyn ofrece información y servicios relacionados con tecnología, automatización, CRM, inteligencia artificial, gestión comercial, marketing digital y soluciones de optimización de procesos para empresas."
+    },
+    {
+      "type": "p",
+      "text": "Este Aviso Legal se aplica a rooklyn.co y, cuando corresponda, a los subdominios, páginas de demostración y páginas comerciales gestionadas por Rooklyn, incluidos clima.rooklyn.co y aureaclima.rooklyn.co."
+    },
+    {
+      "type": "p",
+      "text": "Áurea Clima es un entorno demostrativo de Rooklyn destinado a ilustrar funcionalidades aplicables a empresas de climatización, calefacción, aire acondicionado y servicios relacionados. Salvo indicación expresa, no representa una empresa HVAC independiente ni implica la prestación efectiva de los servicios técnicos mostrados en la demostración."
+    },
+    {
+      "type": "h1",
+      "text": "3. Condiciones de uso"
+    },
+    {
+      "type": "p",
+      "text": "El acceso y uso de los sitios web de Rooklyn atribuye la condición de usuario e implica el compromiso de utilizarlos de forma lícita, diligente y conforme a la legislación aplicable, al presente Aviso Legal y a la buena fe."
+    },
+    {
+      "type": "p",
+      "text": "Queda prohibido, entre otros usos:"
+    },
+    {
+      "type": "listItem",
+      "text": "Realizar actividades ilícitas o contrarias a derechos de terceros."
+    },
+    {
+      "type": "listItem",
+      "text": "Introducir virus, código malicioso o elementos destinados a dañar o alterar sistemas."
+    },
+    {
+      "type": "listItem",
+      "text": "Intentar acceder sin autorización a sistemas, cuentas, datos o funcionalidades."
+    },
+    {
+      "type": "listItem",
+      "text": "Interferir con la disponibilidad, seguridad o funcionamiento de los sitios web."
+    },
+    {
+      "type": "listItem",
+      "text": "Reproducir, explotar o utilizar contenidos de forma contraria a la ley o a los derechos de sus titulares."
+    },
+    {
+      "type": "h1",
+      "text": "4. Contenido demostrativo"
+    },
+    {
+      "type": "p",
+      "text": "Determinadas funcionalidades, precios, empresas, comunicaciones, automatizaciones, calendarios, solicitudes de servicio, presupuestos, activos, estados de oportunidades u otros elementos mostrados en entornos de demostración pueden ser ficticios o tener una finalidad exclusivamente demostrativa."
+    },
+    {
+      "type": "p",
+      "text": "El usuario no debe introducir en un entorno de demostración datos sensibles, datos confidenciales de terceros ni información que no sea necesaria para realizar la prueba."
+    },
+    {
+      "type": "h1",
+      "text": "5. Propiedad intelectual e industrial"
+    },
+    {
+      "type": "p",
+      "text": "Salvo indicación en contrario, los contenidos, diseños, textos, elementos gráficos, estructura, software, marcas, nombres comerciales y demás elementos de los sitios web pertenecen a Rooklyn o se utilizan con autorización o bajo una licencia aplicable."
+    },
+    {
+      "type": "p",
+      "text": "No se autoriza su reproducción, distribución, transformación, comunicación pública o explotación comercial cuando dicha utilización requiera autorización del titular de los derechos, sin perjuicio de los usos permitidos por la ley."
+    },
+    {
+      "type": "h1",
+      "text": "6. Disponibilidad y responsabilidad"
+    },
+    {
+      "type": "p",
+      "text": "Rooklyn procura mantener sus sitios web disponibles, seguros y actualizados, pero no garantiza la ausencia absoluta de errores, interrupciones, vulnerabilidades o incidencias técnicas."
+    },
+    {
+      "type": "p",
+      "text": "Los contenidos publicados tienen carácter informativo y demostrativo. No constituyen asesoramiento jurídico, fiscal, financiero, técnico especializado ni sustituyen la valoración profesional que pueda requerir cada caso concreto."
+    },
+    {
+      "type": "h1",
+      "text": "7. Enlaces y servicios de terceros"
+    },
+    {
+      "type": "p",
+      "text": "Los sitios web pueden incluir enlaces, integraciones o servicios proporcionados por terceros. Rooklyn no controla necesariamente dichos servicios y no responde por sus contenidos, disponibilidad, políticas o prácticas, sin perjuicio de las responsabilidades que legalmente correspondan."
+    },
+    {
+      "type": "h1",
+      "text": "8. Protección de datos personales"
+    },
+    {
+      "type": "p",
+      "text": "El tratamiento de los datos personales realizado a través de los sitios web, formularios y canales propios de Rooklyn se describe en la Política de Privacidad disponible en https://rooklyn.co/politica-privacidad."
+    },
+    {
+      "type": "h1",
+      "text": "9. Cookies"
+    },
+    {
+      "type": "p",
+      "text": "La utilización de cookies y tecnologías similares se describe en la Política de Cookies disponible en https://rooklyn.co/politica-cookies. Cuando resulte necesario, las cookies no esenciales se instalarán únicamente después de que el usuario haya realizado una elección válida mediante el mecanismo de gestión de consentimiento."
+    },
+    {
+      "type": "h1",
+      "text": "10. Comunicaciones y contacto"
+    },
+    {
+      "type": "p",
+      "text": "Para consultas relacionadas con el sitio web o con los servicios de Rooklyn, puede contactar mediante geet29.dubey@gmail.com. Este correo podrá ser sustituido por una dirección específica del dominio rooklyn.co cuando esté disponible."
+    },
+    {
+      "type": "h1",
+      "text": "11. Legislación aplicable"
+    },
+    {
+      "type": "p",
+      "text": "El presente Aviso Legal se regirá por la legislación española, sin perjuicio de las normas imperativas y de los derechos que puedan corresponder a consumidores o usuarios cuando resulten aplicables."
+    },
+    {
+      "type": "h1",
+      "text": "12. Modificaciones"
+    },
+    {
+      "type": "p",
+      "text": "Rooklyn podrá actualizar este Aviso Legal para reflejar cambios normativos, técnicos, organizativos o en los servicios ofrecidos. La fecha de la última actualización aparecerá al inicio del documento."
+    }
+  ],
+  "cookies": [
+    {
+      "type": "p",
+      "text": "POLÍTICA DE COOKIES"
+    },
+    {
+      "type": "p",
+      "text": "Última actualización: 21 de septiembre de 2026"
+    },
+    {
+      "type": "p",
+      "text": "Esta Política de Cookies explica qué son las cookies y tecnologías similares, cómo pueden utilizarse en los sitios web operados por Rooklyn, qué terceros pueden intervenir y cómo puede el usuario aceptar, rechazar, configurar o retirar sus preferencias."
+    },
+    {
+      "type": "h1",
+      "text": "1. Responsable"
+    },
+    {
+      "type": "p",
+      "text": "Responsable: Geetanjali Dubey Nombre comercial: Rooklyn NIF/NIE/CIF: Z0680759X Correo electrónico: geet29.dubey@gmail.com Sitio web principal: https://rooklyn.co"
+    },
+    {
+      "type": "p",
+      "text": "Esta Política se aplica, cuando corresponda, a los siguientes dominios y subdominios gestionados por Rooklyn:"
+    },
+    {
+      "type": "listItem",
+      "text": "https://rooklyn.co"
+    },
+    {
+      "type": "listItem",
+      "text": "https://clima.rooklyn.co"
+    },
+    {
+      "type": "listItem",
+      "text": "https://aureaclima.rooklyn.co"
+    },
+    {
+      "type": "p",
+      "text": "Los enlaces que dirijan a sitios de terceros quedan sometidos a las políticas de privacidad y cookies de dichos terceros."
+    },
+    {
+      "type": "h1",
+      "text": "2. Marco normativo y alcance"
+    },
+    {
+      "type": "p",
+      "text": "El uso de cookies y tecnologías de almacenamiento o acceso a información en el dispositivo del usuario se rige, entre otras normas aplicables, por el artículo 22.2 de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI). Cuando dichas tecnologías impliquen tratamiento de datos personales, resultan asimismo aplicables el Reglamento (UE) 2016/679 (RGPD) y la normativa española de protección de datos que corresponda."
+    },
+    {
+      "type": "p",
+      "text": "Las cookies estrictamente necesarias para transmitir una comunicación o prestar un servicio expresamente solicitado por el usuario pueden quedar exceptuadas del requisito de consentimiento. Las cookies no necesarias se activarán únicamente cuando exista una base jurídica válida y, cuando corresponda, después de que el usuario haya prestado un consentimiento válido."
+    },
+    {
+      "type": "h1",
+      "text": "3. ¿Qué son las cookies y tecnologías similares?"
+    },
+    {
+      "type": "p",
+      "text": "Las cookies son pequeños archivos de texto que un sitio web puede almacenar en el navegador o dispositivo del usuario. También pueden utilizarse tecnologías con funciones similares, como almacenamiento local, píxeles, identificadores técnicos o scripts integrados."
+    },
+    {
+      "type": "p",
+      "text": "Estas tecnologías pueden servir para permitir el funcionamiento técnico del sitio, recordar preferencias, mantener la seguridad, gestionar sesiones, medir el uso de las páginas o, cuando proceda y exista consentimiento, personalizar contenidos o comunicaciones comerciales."
+    },
+    {
+      "type": "h1",
+      "text": "4. Tipos de cookies por finalidad"
+    },
+    {
+      "type": "h2",
+      "text": "Cookies técnicas o estrictamente necesarias"
+    },
+    {
+      "type": "p",
+      "text": "Permiten el funcionamiento básico del sitio, la navegación, la seguridad, el equilibrio de carga, la prevención de fraude o bots, la gestión de sesiones, la conservación de la elección de cookies o la prestación de una funcionalidad expresamente solicitada por el usuario. Cuando sean estrictamente necesarias, no se utilizarán para finalidades adicionales incompatibles."
+    },
+    {
+      "type": "h2",
+      "text": "Cookies de preferencias o funcionales"
+    },
+    {
+      "type": "p",
+      "text": "Permiten recordar elecciones del usuario, como el idioma o determinadas preferencias de interfaz. Cuando la normativa exija consentimiento para una preferencia concreta, la tecnología correspondiente permanecerá desactivada hasta obtenerlo."
+    },
+    {
+      "type": "h2",
+      "text": "Cookies analíticas o de rendimiento"
+    },
+    {
+      "type": "p",
+      "text": "Permiten medir de forma agregada cómo se utiliza un sitio, detectar errores, conocer páginas visitadas o mejorar el rendimiento. Cuando requieran consentimiento, no se instalarán ni activarán antes de que el usuario las acepte."
+    },
+    {
+      "type": "h2",
+      "text": "Cookies publicitarias o de marketing"
+    },
+    {
+      "type": "p",
+      "text": "Pueden utilizarse para medir campañas, limitar la repetición de anuncios, crear audiencias o mostrar publicidad basada en intereses. Si se utilizan, se solicitará el consentimiento previo que resulte exigible."
+    },
+    {
+      "type": "h2",
+      "text": "Cookies o tecnologías de servicios integrados"
+    },
+    {
+      "type": "p",
+      "text": "Determinadas páginas pueden incorporar formularios, calendarios, CRM, chat, vídeo, mapas, captchas u otros componentes de terceros. La finalidad y régimen de consentimiento dependerán del componente y de las tecnologías que efectivamente cargue en el navegador."
+    },
+    {
+      "type": "h1",
+      "text": "5. Cookies propias y de terceros"
+    },
+    {
+      "type": "p",
+      "text": "En función de la entidad que gestione la tecnología, los sitios pueden utilizar:"
+    },
+    {
+      "type": "listItem",
+      "text": "Cookies propias: gestionadas desde dominios o componentes controlados por Rooklyn."
+    },
+    {
+      "type": "listItem",
+      "text": "Cookies de terceros: gestionadas por proveedores tecnológicos integrados en el sitio, cuando la funcionalidad correspondiente se encuentre activa."
+    },
+    {
+      "type": "p",
+      "text": "La presencia efectiva de una cookie concreta puede variar según el dominio visitado, la página, el componente cargado, la configuración técnica y la elección realizada por el usuario en el gestor de consentimiento."
+    },
+    {
+      "type": "h1",
+      "text": "6. Inventario de cookies y servicios tecnológicos"
+    },
+    {
+      "type": "p",
+      "text": "A la fecha de esta Política, Rooklyn utiliza o puede cargar, según la página y la funcionalidad activada, los siguientes servicios. Las tecnologías no necesarias deberán permanecer bloqueadas hasta que exista consentimiento cuando éste sea exigible."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Categoría",
+          "Proveedor",
+          "Finalidad",
+          "Ejemplos / tecnología",
+          "Duración orientativa",
+          "Estado / activación"
+        ],
+        [
+          "Necesarias",
+          "Rooklyn / gestor de consentimiento",
+          "Funcionamiento técnico, conservación de la elección de cookies y, cuando proceda, preferencias imprescindibles para prestar la funcionalidad solicitada.",
+          "Cookie o almacenamiento de consentimiento; el nombre técnico depende del gestor implantado.",
+          "Durante la sesión o durante el plazo configurado para conservar la elección del usuario.",
+          "Activas únicamente en la medida necesaria para operar el sitio o recordar la elección del usuario."
+        ],
+        [
+          "Necesarias / seguridad",
+          "Cloudflare, Inc. (cuando la infraestructura o funciones de seguridad lo requieran)",
+          "Entrega segura del sitio, filtrado de tráfico, protección frente a bots, retos de seguridad y/o balanceo de carga.",
+          "Cloudflare documenta cookies técnicas como __cf_bm, cf_clearance o _cflb cuando las funciones correspondientes están activas.",
+          "Normalmente de sesión o de corta duración, según la función y configuración del proveedor.",
+          "Solo cuando el servicio o función técnica correspondiente se encuentre activo."
+        ],
+        [
+          "Funcionales / CRM / reservas",
+          "HighLevel / LeadConnector (cuando se carguen formularios, calendarios, chat o componentes integrados)",
+          "Procesar formularios, solicitudes, reservas, sesiones de componentes, preferencias y otras funciones vinculadas al CRM o a la interacción solicitada por el usuario.",
+          "HighLevel utiliza tecnologías de sesión y persistentes; los identificadores concretos dependen del componente cargado.",
+          "Desde la sesión hasta periodos persistentes definidos por el proveedor; HighLevel publica duraciones de hasta un año para determinadas cookies.",
+          "Solo en páginas donde se cargue la integración correspondiente. Las tecnologías no necesarias se supeditarán al consentimiento cuando sea exigible."
+        ],
+        [
+          "Preferencias",
+          "Rooklyn y/o proveedor del componente",
+          "Recordar idioma u otras preferencias elegidas por el usuario.",
+          "Cookie o almacenamiento local de preferencia, si se implementa.",
+          "Hasta que caduque la preferencia, se elimine o el usuario cambie su configuración.",
+          "Solo cuando la funcionalidad se encuentre implementada y conforme al régimen de consentimiento aplicable."
+        ],
+        [
+          "Analíticas / rendimiento",
+          "Rooklyn y/o proveedor de analítica que se active en el futuro",
+          "Medición de uso, rendimiento y mejora del sitio.",
+          "No se declara en esta Política una herramienta concreta de analítica basada en cookies como activa por defecto. Si se habilita, se identificará en el gestor y en esta tabla.",
+          "Según la herramienta que se active.",
+          "Desactivadas hasta su configuración y, cuando proceda, consentimiento."
+        ],
+        [
+          "Marketing / publicidad",
+          "Rooklyn y/o plataforma publicitaria que se active en el futuro",
+          "Medición de campañas, atribución, audiencias o publicidad personalizada.",
+          "No se declara en esta Política una plataforma concreta de marketing basada en cookies como activa por defecto. Si se habilita, se identificará antes de su uso.",
+          "Según la plataforma que se active.",
+          "Desactivadas hasta su configuración y consentimiento previo cuando sea exigible."
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Importante: el inventario técnico exacto (nombre de la cookie o identificador, proveedor, finalidad y caducidad) debe coincidir con la configuración que esté desplegada en cada dominio. Cuando el gestor de consentimiento muestre un inventario dinámico, dicho panel deberá mantenerse actualizado y accesible desde “Configuración de cookies”. Si se incorpora una nueva herramienta de analítica, publicidad, vídeo, chat, calendario, captcha u otro tercero, esta sección deberá revisarse antes de su activación."
+    },
+    {
+      "type": "h1",
+      "text": "7. Consentimiento y configuración"
+    },
+    {
+      "type": "p",
+      "text": "Cuando se utilicen cookies o tecnologías que requieran consentimiento, el usuario dispondrá, desde la primera capa o banner, de mecanismos claros para:"
+    },
+    {
+      "type": "listItem",
+      "text": "Aceptar cookies no necesarias."
+    },
+    {
+      "type": "listItem",
+      "text": "Rechazar cookies no necesarias."
+    },
+    {
+      "type": "listItem",
+      "text": "Configurar las cookies por finalidad y guardar la selección."
+    },
+    {
+      "type": "p",
+      "text": "Las opciones de aceptar y rechazar deberán ofrecerse al mismo tiempo y con una visibilidad equivalente. No se utilizarán casillas premarcadas ni se considerará que la mera continuación de la navegación constituye consentimiento. Las cookies no necesarias que requieran consentimiento permanecerán bloqueadas hasta que el usuario realice una elección válida."
+    },
+    {
+      "type": "h1",
+      "text": "8. Retirada o modificación del consentimiento"
+    },
+    {
+      "type": "p",
+      "text": "El usuario podrá modificar o retirar sus preferencias en cualquier momento mediante el enlace o botón “Configuración de cookies” disponible de forma permanente en el pie de página o en el sistema de gestión de consentimiento del sitio."
+    },
+    {
+      "type": "p",
+      "text": "Retirar el consentimiento no afectará a la licitud del tratamiento efectuado antes de su retirada. Cuando el usuario rechace una categoría, las tecnologías de dicha categoría dejarán de cargarse en las visitas posteriores, salvo aquellas que sean estrictamente necesarias o deban conservarse por obligación legal."
+    },
+    {
+      "type": "h1",
+      "text": "9. Gestión desde el navegador"
+    },
+    {
+      "type": "p",
+      "text": "Además del gestor de consentimiento del sitio, el usuario puede permitir, bloquear, eliminar o limitar cookies desde la configuración de su navegador. El bloqueo de determinadas cookies técnicas puede impedir que algunas funciones solicitadas se presten correctamente."
+    },
+    {
+      "type": "p",
+      "text": "Los principales navegadores incluyen opciones específicas de privacidad y cookies en sus menús de configuración (por ejemplo, Chrome, Edge, Firefox y Safari). El procedimiento puede variar según la versión y el dispositivo."
+    },
+    {
+      "type": "h1",
+      "text": "10. Servicios de terceros"
+    },
+    {
+      "type": "p",
+      "text": "Rooklyn puede integrar servicios de terceros para alojamiento y seguridad, CRM, formularios, calendarios, reservas, mensajería, chat, vídeo, mapas, analítica o marketing. Cuando alguno de estos servicios instale cookies o utilice tecnologías de seguimiento no necesarias, se aplicará el régimen de consentimiento correspondiente."
+    },
+    {
+      "type": "listItem",
+      "text": "Cloudflare: puede intervenir en la entrega, seguridad y protección del tráfico del sitio. Cloudflare clasifica determinadas cookies de seguridad como estrictamente necesarias cuando se activan sus funciones correspondientes."
+    },
+    {
+      "type": "listItem",
+      "text": "HighLevel / LeadConnector: puede intervenir en formularios, CRM, calendarios, chat, reservas u otros componentes integrados. HighLevel publica su propia Política de Cookies y documentación de privacidad para sus servicios."
+    },
+    {
+      "type": "p",
+      "text": "La inclusión de un proveedor en esta Política no significa que todas sus cookies se utilicen en todas las páginas. Solo se cargarán las tecnologías asociadas a los componentes que estén efectivamente integrados y activados."
+    },
+    {
+      "type": "h1",
+      "text": "11. Transferencias internacionales"
+    },
+    {
+      "type": "p",
+      "text": "Algunos proveedores tecnológicos pueden tratar datos fuera del Espacio Económico Europeo. Cuando exista una transferencia internacional de datos personales, Rooklyn procurará que se utilice un mecanismo reconocido por la normativa aplicable, como una decisión de adecuación, el Marco de Privacidad de Datos UE-EE. UU. (cuando el proveedor esté certificado y la transferencia quede cubierta) o cláusulas contractuales tipo, según corresponda."
+    },
+    {
+      "type": "p",
+      "text": "HighLevel informa públicamente de que HighLevel y LeadConnector participan en el Marco de Privacidad de Datos UE-EE. UU. Para conocer el mecanismo concreto aplicable a un tratamiento determinado, puede consultarse la documentación de privacidad del proveedor y la Política de Privacidad de Rooklyn."
+    },
+    {
+      "type": "h1",
+      "text": "12. Conservación"
+    },
+    {
+      "type": "p",
+      "text": "Las cookies de sesión se eliminan normalmente al cerrar el navegador. Las cookies persistentes permanecen durante el plazo configurado o hasta que el usuario las elimine. Rooklyn aplicará plazos proporcionados a la finalidad y revisará periódicamente las tecnologías activas para evitar una conservación innecesaria."
+    },
+    {
+      "type": "h1",
+      "text": "13. Actualización de esta Política"
+    },
+    {
+      "type": "p",
+      "text": "Esta Política podrá actualizarse cuando cambien las cookies utilizadas, los proveedores tecnológicos, los dominios gestionados por Rooklyn o las obligaciones legales aplicables. La fecha de la última actualización aparecerá al inicio del documento. Recomendamos revisar periódicamente esta página."
+    },
+    {
+      "type": "h1",
+      "text": "14. Contacto"
+    },
+    {
+      "type": "p",
+      "text": "Para consultas relacionadas con esta Política de Cookies o con la configuración de privacidad del sitio, puede contactar con Rooklyn en: geet29.dubey@gmail.com."
+    }
+  ],
+  "privacy": [
+    {
+      "type": "p",
+      "text": "POLÍTICA DE PRIVACIDAD"
+    },
+    {
+      "type": "p",
+      "text": "Última actualización: 21 de septiembre de 2026"
+    },
+    {
+      "type": "p",
+      "text": "En Rooklyn nos comprometemos a tratar los datos personales de forma lícita, leal, transparente y limitada a las finalidades para las que resulten necesarios. Esta Política explica cómo tratamos los datos personales de quienes interactúan con nuestros sitios web, formularios, páginas de demostración y canales propios."
+    },
+    {
+      "type": "h1",
+      "text": "1. Responsable del tratamiento"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Titular",
+          "Geetanjali Dubey"
+        ],
+        [
+          "Nombre comercial",
+          "Rooklyn"
+        ],
+        [
+          "NIF/NIE",
+          "Z0680759X"
+        ],
+        [
+          "Domicilio profesional",
+          "Calle Transversal Sexta 24, 28021 Madrid, España"
+        ],
+        [
+          "Correo electrónico",
+          "geet29.dubey@gmail.com"
+        ],
+        [
+          "Sitio web",
+          "https://rooklyn.co"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Rooklyn actúa como responsable del tratamiento respecto de los datos recogidos para sus propias finalidades comerciales, de contacto, contratación y gestión de sus servicios. Cuando Rooklyn trate datos por cuenta de un cliente y siguiendo sus instrucciones, podrá actuar como encargado del tratamiento; dicha relación deberá regularse contractualmente cuando corresponda."
+    },
+    {
+      "type": "h1",
+      "text": "2. Ámbito de aplicación"
+    },
+    {
+      "type": "p",
+      "text": "Esta Política se aplica, entre otros, a:"
+    },
+    {
+      "type": "listItem",
+      "text": "https://rooklyn.co"
+    },
+    {
+      "type": "listItem",
+      "text": "https://clima.rooklyn.co"
+    },
+    {
+      "type": "listItem",
+      "text": "https://aureaclima.rooklyn.co"
+    },
+    {
+      "type": "listItem",
+      "text": "formularios, páginas de reserva, demostraciones y otros canales propios vinculados a esos sitios."
+    },
+    {
+      "type": "p",
+      "text": "Áurea Clima es un entorno demostrativo de Rooklyn y no constituye necesariamente una empresa HVAC independiente."
+    },
+    {
+      "type": "h1",
+      "text": "3. Datos que podemos tratar"
+    },
+    {
+      "type": "h2",
+      "text": "3.1 Datos identificativos y de contacto"
+    },
+    {
+      "type": "listItem",
+      "text": "Nombre y apellidos."
+    },
+    {
+      "type": "listItem",
+      "text": "Empresa y cargo o función profesional."
+    },
+    {
+      "type": "listItem",
+      "text": "Dirección de correo electrónico."
+    },
+    {
+      "type": "listItem",
+      "text": "Número de teléfono."
+    },
+    {
+      "type": "h2",
+      "text": "3.2 Datos relacionados con solicitudes y relaciones comerciales"
+    },
+    {
+      "type": "listItem",
+      "text": "Tipo de empresa y servicios de interés."
+    },
+    {
+      "type": "listItem",
+      "text": "Información facilitada voluntariamente en formularios o comunicaciones."
+    },
+    {
+      "type": "listItem",
+      "text": "Fecha y hora de reuniones, demostraciones o reservas."
+    },
+    {
+      "type": "listItem",
+      "text": "Mensajes e historial de comunicaciones relacionados con la solicitud."
+    },
+    {
+      "type": "listItem",
+      "text": "Datos necesarios para propuestas, presupuestos, contratación, facturación y soporte cuando exista relación contractual."
+    },
+    {
+      "type": "h2",
+      "text": "3.3 Datos técnicos y de navegación"
+    },
+    {
+      "type": "listItem",
+      "text": "Dirección IP y datos de conexión."
+    },
+    {
+      "type": "listItem",
+      "text": "Tipo de navegador, dispositivo y sistema operativo."
+    },
+    {
+      "type": "listItem",
+      "text": "Fecha y hora de acceso."
+    },
+    {
+      "type": "listItem",
+      "text": "Información sobre uso y navegación cuando proceda."
+    },
+    {
+      "type": "p",
+      "text": "Cuando estos datos se obtengan mediante cookies o tecnologías no necesarias, se solicitará el consentimiento cuando sea exigible."
+    },
+    {
+      "type": "h1",
+      "text": "4. Finalidades y bases jurídicas"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Finalidad",
+          "Datos / actividad",
+          "Base jurídica principal"
+        ],
+        [
+          "Atender consultas y solicitudes",
+          "Responder formularios, correos y solicitudes de información",
+          "Medidas precontractuales solicitadas por el interesado y, según el caso, interés legítimo en atender comunicaciones profesionales."
+        ],
+        [
+          "Gestionar demostraciones y reuniones",
+          "Organización de llamadas, demos y citas solicitadas",
+          "Medidas precontractuales solicitadas por el interesado."
+        ],
+        [
+          "Gestión comercial y CRM",
+          "Registrar contactos, oportunidades e historial de seguimiento",
+          "Medidas precontractuales; interés legítimo en la gestión de relaciones profesionales cuando resulte aplicable."
+        ],
+        [
+          "Prestación de servicios",
+          "Gestión contractual, soporte, facturación y administración",
+          "Ejecución de contrato y cumplimiento de obligaciones legales."
+        ],
+        [
+          "Comunicaciones comerciales",
+          "Información sobre servicios, soluciones y novedades",
+          "Consentimiento cuando sea necesario, o la base legal que resulte aplicable a relaciones previas conforme a la normativa."
+        ],
+        [
+          "Seguridad y funcionamiento",
+          "Prevención de fraude, seguridad, mantenimiento y diagnóstico técnico",
+          "Interés legítimo en mantener la seguridad y funcionamiento de los sistemas; cumplimiento legal cuando proceda."
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Cuando un tratamiento se base en el consentimiento, el interesado podrá retirarlo en cualquier momento sin que ello afecte a la licitud del tratamiento previo a su retirada."
+    },
+    {
+      "type": "h1",
+      "text": "5. Formularios y datos obligatorios"
+    },
+    {
+      "type": "p",
+      "text": "Los campos marcados como obligatorios son necesarios para gestionar la solicitud correspondiente. Si no se facilitan, puede no ser posible atender la petición o prestar la funcionalidad solicitada."
+    },
+    {
+      "type": "p",
+      "text": "La información sobre protección de datos mostrada junto a los formularios complementa esta Política. Cuando se solicite consentimiento para una finalidad opcional, como determinadas comunicaciones comerciales, se presentará de forma separada y no premarcada."
+    },
+    {
+      "type": "h1",
+      "text": "6. Conservación de los datos"
+    },
+    {
+      "type": "p",
+      "text": "Los datos se conservarán durante el tiempo necesario para cumplir la finalidad para la que fueron recogidos y, posteriormente, durante los plazos en los que puedan surgir responsabilidades legales."
+    },
+    {
+      "type": "listItem",
+      "text": "Consultas y oportunidades comerciales: mientras exista una interacción o posibilidad razonable de relación comercial y posteriormente durante el plazo necesario para atender posibles responsabilidades o solicitudes."
+    },
+    {
+      "type": "listItem",
+      "text": "Clientes: durante la relación contractual y posteriormente durante los plazos legales aplicables."
+    },
+    {
+      "type": "listItem",
+      "text": "Comunicaciones comerciales basadas en consentimiento: hasta la retirada del consentimiento o el ejercicio del derecho de oposición, sin perjuicio de conservar la evidencia necesaria para acreditar la preferencia o consentimiento."
+    },
+    {
+      "type": "h1",
+      "text": "7. Destinatarios y proveedores tecnológicos"
+    },
+    {
+      "type": "p",
+      "text": "Rooklyn puede recurrir a proveedores que tratan datos para prestar servicios tecnológicos necesarios para su actividad. Según la configuración efectiva de cada sitio o servicio, pueden incluir:"
+    },
+    {
+      "type": "listItem",
+      "text": "Proveedores de alojamiento web, DNS, seguridad y distribución de contenido, incluido Cloudflare cuando esté activo."
+    },
+    {
+      "type": "listItem",
+      "text": "GoHighLevel / HighLevel para CRM, formularios, automatizaciones, oportunidades y comunicaciones."
+    },
+    {
+      "type": "listItem",
+      "text": "Proveedores de correo electrónico y calendario."
+    },
+    {
+      "type": "listItem",
+      "text": "Proveedores de mensajería, incluido WhatsApp/Meta cuando se utilice dicho canal."
+    },
+    {
+      "type": "listItem",
+      "text": "Proveedores de infraestructura, automatización o inteligencia artificial que resulten necesarios para prestar funcionalidades concretas y se encuentren debidamente configurados."
+    },
+    {
+      "type": "p",
+      "text": "Rooklyn no vende datos personales. Cuando un proveedor actúe como encargado del tratamiento, la relación se regulará conforme a las exigencias aplicables. También podrán comunicarse datos cuando exista una obligación legal."
+    },
+    {
+      "type": "h1",
+      "text": "8. Transferencias internacionales"
+    },
+    {
+      "type": "p",
+      "text": "Algunos proveedores tecnológicos pueden estar establecidos o tratar datos fuera del Espacio Económico Europeo. Cuando exista una transferencia internacional sujeta al RGPD, se utilizará un mecanismo válido, como una decisión de adecuación, cláusulas contractuales tipo u otra garantía reconocida por la normativa aplicable. Puede solicitar información adicional sobre las garantías aplicables mediante el correo indicado en esta Política."
+    },
+    {
+      "type": "h1",
+      "text": "9. GoHighLevel y formularios"
+    },
+    {
+      "type": "p",
+      "text": "Determinados formularios y procesos de Rooklyn pueden integrarse con GoHighLevel / HighLevel. La información facilitada puede incorporarse al CRM para gestionar solicitudes, contactar con el interesado, programar demostraciones o reuniones, gestionar seguimientos y mantener el historial de comunicaciones relacionado con la solicitud."
+    },
+    {
+      "type": "h1",
+      "text": "10. Áurea Clima y entornos de demostración"
+    },
+    {
+      "type": "p",
+      "text": "Áurea Clima es un entorno de demostración comercial utilizado para mostrar ejemplos de automatización y gestión aplicables al sector de climatización y HVAC. Los datos introducidos en formularios activos de la demostración se tratarán conforme a esta Política cuando Rooklyn los reciba para sus propias finalidades."
+    },
+    {
+      "type": "p",
+      "text": "No deben introducirse datos especialmente sensibles, datos de salud, información confidencial de terceros ni datos reales de clientes que no sean necesarios para realizar la demostración."
+    },
+    {
+      "type": "h1",
+      "text": "11. Decisiones automatizadas y perfilado"
+    },
+    {
+      "type": "p",
+      "text": "Rooklyn puede utilizar automatizaciones para clasificar solicitudes, crear tareas, asignar estados o facilitar seguimientos internos. Salvo que se informe expresamente de lo contrario, estas automatizaciones no se utilizan para adoptar decisiones basadas únicamente en tratamiento automatizado que produzcan efectos jurídicos sobre el interesado o le afecten significativamente de modo similar."
+    },
+    {
+      "type": "h1",
+      "text": "12. Derechos de las personas interesadas"
+    },
+    {
+      "type": "p",
+      "text": "Puede ejercer, cuando correspondan, los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad, así como retirar el consentimiento cuando el tratamiento se base en él."
+    },
+    {
+      "type": "p",
+      "text": "Para ejercer sus derechos puede escribir a geet29.dubey@gmail.com, indicando en el asunto “Protección de datos” y facilitando la información necesaria para identificar la solicitud. Podremos solicitar información adicional cuando sea razonablemente necesaria para verificar la identidad del solicitante."
+    },
+    {
+      "type": "h1",
+      "text": "13. Reclamación ante la autoridad de control"
+    },
+    {
+      "type": "p",
+      "text": "Si considera que el tratamiento de sus datos personales infringe la normativa, puede presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD), cuya información y procedimientos están disponibles en https://www.aepd.es."
+    },
+    {
+      "type": "h1",
+      "text": "14. Seguridad"
+    },
+    {
+      "type": "p",
+      "text": "Rooklyn aplicará medidas técnicas y organizativas apropiadas atendiendo a la naturaleza, alcance, contexto y finalidades del tratamiento y al nivel de riesgo. Ningún sistema conectado a Internet puede garantizar una seguridad absoluta."
+    },
+    {
+      "type": "h1",
+      "text": "15. Datos de terceros"
+    },
+    {
+      "type": "p",
+      "text": "Quien facilite datos de terceros debe contar con una base legítima para hacerlo y proporcionar únicamente la información necesaria para la finalidad correspondiente."
+    },
+    {
+      "type": "h1",
+      "text": "16. Menores de edad"
+    },
+    {
+      "type": "p",
+      "text": "Los servicios de Rooklyn están dirigidos principalmente a empresas y profesionales. No se pretende recopilar intencionadamente datos de menores mediante formularios comerciales o demostraciones."
+    },
+    {
+      "type": "h1",
+      "text": "17. Enlaces externos"
+    },
+    {
+      "type": "p",
+      "text": "Los sitios web pueden contener enlaces a páginas o servicios de terceros. Sus prácticas de privacidad se rigen por sus propias políticas y condiciones."
+    },
+    {
+      "type": "h1",
+      "text": "18. Cookies"
+    },
+    {
+      "type": "p",
+      "text": "La información sobre cookies y tecnologías similares se encuentra en la Política de Cookies disponible en https://rooklyn.co/politica-cookies."
+    },
+    {
+      "type": "h1",
+      "text": "19. Cambios en esta Política"
+    },
+    {
+      "type": "p",
+      "text": "Rooklyn podrá actualizar esta Política cuando cambien los tratamientos, proveedores, servicios o requisitos normativos. La fecha de la última actualización aparecerá al inicio del documento."
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 
 # Spam protection (Cloudflare Turnstile)
 TURNSTILE_SECRET_KEY=
+TURNSTILE_HOSTNAMES=localhost,127.0.0.1
 
 # Email notification (Resend REST API)
 RESEND_API_KEY=

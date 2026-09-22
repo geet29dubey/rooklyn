@@ -23,7 +23,7 @@ export default async function OgImage({
           alignItems: "center",
           justifyContent: "center",
           background:
-            "radial-gradient(60% 60% at 80% 10%, rgba(158,42,69,0.35), transparent 60%), radial-gradient(50% 50% at 10% 90%, rgba(17,122,109,0.3), transparent 60%), #0B131C",
+            "radial-gradient(60% 60% at 80% 10%, rgba(78,41,56,0.35), transparent 60%), radial-gradient(50% 50% at 10% 90%, rgba(120,200,194,0.18), transparent 60%), #0D1923",
         }}
       >
         <svg width="96" height="96" viewBox="0 0 240 240">
@@ -46,7 +46,8 @@ export default async function OgImage({
             marginTop: 28,
             fontSize: 58,
             letterSpacing: 14,
-            color: "#C9A96E",
+            fontWeight: 700,
+            color: "#C2AB76",
             fontFamily: "serif",
           }}
         >
@@ -57,7 +58,7 @@ export default async function OgImage({
             marginTop: 18,
             fontSize: 28,
             fontStyle: "italic",
-            color: "#C9A96E",
+            color: "#C2AB76",
             fontFamily: "serif",
           }}
         >

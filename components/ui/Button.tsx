@@ -7,13 +7,13 @@ type ButtonProps = {
 } & ComponentPropsWithoutRef<"button">;
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-semibold whitespace-nowrap transition-all duration-200 min-h-[44px] focus-visible:outline-champagne disabled:opacity-60 disabled:pointer-events-none";
+  "inline-flex min-h-[56px] items-center justify-center gap-2 rounded-full px-7 py-4 text-center text-[17px] font-bold leading-snug sm:text-[19px] transition-all duration-200 focus-visible:outline-champagne disabled:opacity-60 disabled:pointer-events-none";
 
 const variants = {
   primary:
-    "bg-porcelain text-night hover-fine:hover:-translate-y-0.5 hover-fine:hover:shadow-[0_10px_30px_-10px_rgba(242,238,232,0.35)]",
+    "bg-porcelain text-night hover-fine:hover:-translate-y-0.5 hover-fine:hover:shadow-[0_6px_20px_-8px_rgba(244,241,235,0.3)]",
   secondary:
-    "bg-transparent text-porcelain border border-[rgba(242,238,232,.3)] hover-fine:hover:border-champagne",
+    "bg-transparent text-porcelain border border-[rgba(184,192,197,0.28)] hover-fine:hover:bg-card",
 };
 
 export function buttonClasses(

@@ -1,43 +1,7 @@
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { permanentRedirect } from "next/navigation";
 import type { Locale } from "@/i18n/routing";
-import { routing } from "@/i18n/routing";
-import { LegalLayout } from "@/components/legal/LegalLayout";
+import { fullLegalPath } from "@/lib/legal/routes";
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "legal.dataProtection" });
-  return { title: t("title") };
-}
-
-export default async function DataProtectionPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale as Locale);
-  const t = await getTranslations({ locale, namespace: "legal" });
-  const page = await getTranslations({ locale, namespace: "legal.dataProtection" });
-
-  const sections = page.raw("sections") as { heading: string; body: string }[];
-
-  return (
-    <LegalLayout
-      title={page("title")}
-      lastUpdated="September 2026"
-      lastUpdatedLabel={t("lastUpdated")}
-      devNote={t("devNote")}
-      backHomeLabel={t("backHome")}
-      sections={sections}
-    />
-  );
+export default async function Page({ params }: { params: Promise<{ locale: Locale }> }) {
+  permanentRedirect(fullLegalPath((await params).locale, "privacy"));
 }

@@ -13,7 +13,7 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rooklyn.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rooklyn.co";
 
 export async function generateMetadata({
   params,

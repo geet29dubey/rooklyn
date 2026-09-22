@@ -2,32 +2,28 @@
 // Usage: npm run test:lead (with `npm run dev` or `npm run preview`
 // already running in another terminal).
 const target = process.env.TEST_LEAD_URL ?? "http://localhost:3000/api/lead";
+const siteOrigin = new URL(target).origin;
 
 const payload = {
-  fullName: "Ada Test",
+  firstName: "Ada",
+  lastName: "Test",
   workEmail: "ada@example.com",
   phone: "+34600000000",
-  jobTitle: "Operations Manager",
   companyName: "Example Clinic",
-  website: "https://example.com",
   industry: "healthcare",
   companySize: "11_50",
   country: "ES",
-  automationInterests: ["whatsapp_agent", "followups_reminders"],
-  channels: ["whatsapp", "instagram"],
+  automationInterests: "whatsapp_agent",
   monthlyEnquiries: "100_500",
-  currentTools: "Google Calendar, Excel",
-  challenge: "We miss too many WhatsApp messages outside opening hours.",
   timeline: "within_1_month",
   preferredLanguage: "en",
-  heardAboutUs: "google",
   privacyAccepted: true,
   marketingOptIn: false,
   website_url: "",
   turnstileToken: "test-token",
   submissionId: crypto.randomUUID(),
   locale: "en",
-  pageUrl: "http://localhost:3000/en#contact",
+  pageUrl: `${siteOrigin}/en#contact`,
   referrer: "",
   utmSource: "",
   utmMedium: "",

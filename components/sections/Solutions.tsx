@@ -19,17 +19,14 @@ const ICONS: Record<SolutionId, typeof MessageCircle> = {
 const ACCENT_CLASSES: Record<string, { bg: string; text: string }> = {
   lagoon: { bg: "bg-lagoon/12", text: "text-lagoon" },
   champagne: { bg: "bg-champagne/12", text: "text-champagne" },
-  atlantic: { bg: "bg-atlantic/12", text: "text-atlantic" },
-  apricot: { bg: "bg-apricot/12", text: "text-apricot" },
-  "sea-glass": { bg: "bg-sea-glass/12", text: "text-sea-glass" },
 };
 
 export function Solutions() {
   const t = useTranslations("solutions");
 
   return (
-    <section id="solutions" className="py-section-mobile md:py-section">
-      <div className="container max-w-container">
+    <section id="solutions" className="py-section-mobile sm:py-section-tablet md:py-section landscape-phone:py-10">
+      <div className="site-container">
         <SectionHeader
           number="02"
           eyebrow={t("eyebrow")}
@@ -44,7 +41,7 @@ export function Solutions() {
           intro={t("intro")}
         />
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-6">
           {SOLUTIONS.slice(0, 4).map((solution, i) => {
             const Icon = ICONS[solution.id];
             const accent = ACCENT_CLASSES[solution.accent];
@@ -97,16 +94,13 @@ function SolutionCard({
           <Icon className="h-5 w-5" strokeWidth={1.5} />
         </div>
         <h3>{t(`${base}.name`)}</h3>
-        <p className="font-display mt-1 text-[22px] italic text-champagne">
-          {t(`${base}.oneliner`)}
-        </p>
-        <p className="eyebrow mt-4 text-[10px] tracking-[0.16em] text-text-3">
+        <p className="eyebrow mt-3 !text-[15px] tracking-[0.16em] text-text-3">
           {t("solvesLabel")}: {t(`${base}.solves`)}
         </p>
-        <p className="mt-4 text-[15px] text-text-2">{t(`${base}.description`)}</p>
+        <p className="mt-4 text-[19px] leading-[1.6] text-text-3 sm:text-[20px] lg:text-[21px]">{t(`${base}.description`)}</p>
         <ul className="mt-5 flex flex-col gap-2.5">
           {[1, 2, 3].map((n) => (
-            <li key={n} className="flex items-start gap-2.5 text-[14px] text-text-2">
+            <li key={n} className="flex items-start gap-2.5 text-[18px] text-text-2 sm:text-[19px] lg:text-[20px]">
               <Check className="mt-0.5 h-4 w-4 shrink-0 text-champagne" strokeWidth={1.5} />
               {t(`${base}.feature${n}`)}
             </li>
@@ -120,22 +114,16 @@ function SolutionCard({
 function CustomCard({ t }: { t: ReturnType<typeof useTranslations> }) {
   const base = "items.custom_automations";
   return (
-    <div className="relative overflow-hidden rounded-[24px] border border-hairline bg-garnet-deep p-8 sm:p-12">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-garnet-glow" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-[10px] rounded-[16px] border border-porcelain/[0.12]"
-      />
+    <div className="relative overflow-hidden rounded-[20px] border border-hairline bg-card p-8 sm:p-12">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-mint-glow" />
+      <div aria-hidden className="absolute left-0 top-0 h-[3px] w-20 bg-champagne" />
       <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
         <div>
-          <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-sea-glass/12 text-sea-glass">
+          <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-lagoon/12 text-lagoon">
             <Wand2 className="h-5 w-5" strokeWidth={1.5} />
           </div>
           <h3>{t(`${base}.name`)}</h3>
-          <p className="font-display mt-1 text-[24px] italic text-champagne">
-            {t(`${base}.oneliner`)}
-          </p>
-          <p className="mt-4 max-w-md text-[15px] text-text-2">
+          <p className="mt-4 max-w-md text-[19px] leading-[1.6] text-text-3 sm:text-[20px] lg:text-[21px]">
             {t(`${base}.description`)}
           </p>
           <AnchorButton
@@ -161,7 +149,7 @@ function CustomCard({ t }: { t: ReturnType<typeof useTranslations> }) {
           {[1, 2, 3].map((n) => (
             <li
               key={n}
-              className="flex items-start gap-3 rounded-2xl border border-porcelain/[0.1] bg-white/[0.03] p-4 text-[14px] text-text-2"
+              className="flex items-start gap-3 rounded-2xl border border-porcelain/[0.1] bg-white/[0.03] p-4 text-[18px] text-text-2 sm:text-[19px] lg:text-[20px]"
             >
               <Check className="mt-0.5 h-4 w-4 shrink-0 text-champagne" strokeWidth={1.5} />
               {t(`${base}.feature${n}`)}

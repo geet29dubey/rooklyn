@@ -10,31 +10,30 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: { DEFAULT: "20px", lg: "32px" },
+      padding: { DEFAULT: "20px", sm: "28px", lg: "40px" },
     },
     extend: {
       colors: {
         night: "#0B131C",
-        "night-2": "#0E1822",
-        "night-3": "#132131",
-        card: "#142333",
-        "card-2": "#1B2B3D",
+        "night-2": "#0F1B29",
+        card: "#13243A",
+        "card-2": "#0F1D2B",
         ink: "#13243A",
-        porcelain: "#F2EEE8",
-        "text-2": "#B9C4CF",
-        "text-3": "#8A99A8",
+        porcelain: "#F7F4EF",
+        "text-2": "rgba(247,244,239,0.86)",
+        "text-3": "rgba(247,244,239,0.68)",
         champagne: "#C9A96E",
-        "champagne-light": "#D9BE8C",
+        "champagne-light": "#E0C994",
+        apricot: "#F4A36C",
         garnet: "#9E2A45",
         "garnet-deep": "#5C1628",
-        "garnet-night": "#3A0F1C",
-        lagoon: "#117A6D",
+        "garnet-night": "#2A1018",
+        lagoon: "#8FD3C1",
+        "lagoon-deep": "#117A6D",
         atlantic: "#2A5CAA",
-        "sea-glass": "#8FD3C1",
         sky: "#A9C4EC",
-        apricot: "#F4A36C",
-        error: "#E39A86",
-        hairline: "rgba(242,238,232,0.09)",
+        error: "#F0A0AA",
+        hairline: "rgba(247,244,239,0.13)",
       },
       fontFamily: {
         display: ["var(--font-cormorant)", "serif"],
@@ -44,19 +43,18 @@ const config: Config = {
         container: "1200px",
       },
       backgroundImage: {
-        tide: "linear-gradient(125deg, #117A6D, #2A5CAA)",
+        "mint-glow":
+          "radial-gradient(circle, rgba(17,122,109,0.16), transparent 65%)",
         "garnet-glow":
-          "radial-gradient(70% 60% at 100% 0%, rgba(158,42,69,.5), transparent 70%)",
+          "radial-gradient(circle, rgba(158,42,69,0.18), transparent 70%)",
+        tide: "linear-gradient(125deg, #117A6D, #2A5CAA)",
       },
       spacing: {
         section: "120px",
-        "section-mobile": "80px",
+        "section-tablet": "88px",
+        "section-mobile": "64px",
       },
       keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
         drift: {
           "0%, 100%": { transform: "translate(0, 0)" },
           "50%": { transform: "translate(-3%, 2%)" },
@@ -66,15 +64,17 @@ const config: Config = {
           "50%": { transform: "translateY(-8px)" },
         },
         orbit: {
-          "0%": { transform: "rotate(0deg) translateX(110px) rotate(0deg)" },
+          "0%": {
+            transform:
+              "rotate(0deg) translateX(var(--orbit-radius, 110px)) rotate(0deg)",
+          },
           "100%": {
-            transform: "rotate(360deg) translateX(110px) rotate(-360deg)",
+            transform:
+              "rotate(360deg) translateX(var(--orbit-radius, 110px)) rotate(-360deg)",
           },
         },
       },
       animation: {
-        marquee: "marquee 40s linear infinite",
-        "marquee-slow": "marquee 60s linear infinite",
         drift: "drift 18s ease-in-out infinite",
         bob: "bob 6s ease-in-out infinite",
         orbit: "orbit 22s linear infinite",

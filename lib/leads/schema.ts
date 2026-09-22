@@ -1,12 +1,11 @@
 import { z } from "zod";
+import { isValidPhone } from "@/lib/leads/phone";
 import {
   AUTOMATION_INTERESTS,
-  CHANNELS,
   COMPANY_SIZES,
   CONTACT_LANGUAGES,
   COUNTRIES_OTHER,
   COUNTRIES_PRIORITY,
-  HEARD_ABOUT,
   INDUSTRIES,
   MONTHLY_ENQUIRIES,
   TIMELINES,
@@ -24,49 +23,30 @@ const countryCodes = [...COUNTRIES_PRIORITY, ...COUNTRIES_OTHER] as [
  */
 export const leadSchema = z.object({
   // Group 1: about you
-  fullName: z.string().trim().min(2).max(120),
+  firstName: z.string().trim().min(1).max(120),
+  lastName: z.string().trim().min(1).max(120),
   workEmail: z.string().trim().toLowerCase().email(),
-  phone: z.string().trim().min(6).max(24),
-  jobTitle: z.string().trim().max(120).optional().or(z.literal("")),
+  phone: z.string().trim().min(1).max(32).refine(isValidPhone),
 
   // Group 2: about your business
   companyName: z.string().trim().min(1).max(160),
-  website: z
-    .string()
-    .trim()
-    .max(200)
-    .optional()
-    .or(z.literal(""))
-    .refine(
-      (value) => !value || /^https?:\/\/.+\..+/i.test(value),
-      "Invalid URL"
-    ),
   industry: z.enum(INDUSTRIES as unknown as [string, ...string[]]),
   companySize: z.enum(COMPANY_SIZES as unknown as [string, ...string[]]),
   country: z.enum(countryCodes),
 
   // Group 3: what you need
-  automationInterests: z
-    .array(z.enum(AUTOMATION_INTERESTS as unknown as [string, ...string[]]))
-    .min(1),
-  channels: z
-    .array(z.enum(CHANNELS as unknown as [string, ...string[]]))
-    .default([]),
+  automationInterests: z.enum(
+    AUTOMATION_INTERESTS as unknown as [string, ...string[]]
+  ),
   monthlyEnquiries: z
     .enum(MONTHLY_ENQUIRIES as unknown as [string, ...string[]])
     .optional()
     .or(z.literal("")),
-  currentTools: z.string().trim().max(300).optional().or(z.literal("")),
-  challenge: z.string().trim().min(20).max(1000),
   timeline: z
     .enum(TIMELINES as unknown as [string, ...string[]])
     .optional()
     .or(z.literal("")),
   preferredLanguage: z.enum(CONTACT_LANGUAGES as unknown as [string, ...string[]]),
-  heardAboutUs: z
-    .enum(HEARD_ABOUT as unknown as [string, ...string[]])
-    .optional()
-    .or(z.literal("")),
 
   // Group 4: consent
   privacyAccepted: z.literal(true),

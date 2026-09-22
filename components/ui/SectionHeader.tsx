@@ -19,9 +19,9 @@ export function SectionHeader({
   className,
 }: SectionHeaderProps) {
   return (
-    <div className={cn("mb-12 md:mb-16", className)}>
-      <div className="flex items-center gap-3 mb-5">
-        <span className="flex h-6 items-center rounded-full bg-garnet/20 px-2.5 text-[11px] font-bold tracking-widest text-garnet border border-garnet/30">
+    <div className={cn("mb-11 md:mb-16", className)}>
+      <div className="mb-5 flex items-center gap-3">
+        <span className="flex h-6 items-center rounded-full bg-champagne/12 px-2.5 text-[11px] font-bold tracking-widest text-champagne border border-champagne/25">
           {number}
         </span>
         <span className="eyebrow">{eyebrow}</span>
@@ -29,18 +29,18 @@ export function SectionHeader({
       </div>
       <div
         className={cn(
-          "flex flex-col gap-6",
+          "flex flex-col gap-5 md:gap-8",
           align === "split" && "md:flex-row md:items-end md:justify-between"
         )}
       >
-        <h2 className="max-w-xl">{title}</h2>
+        <h2 className="max-w-[var(--container-text)]">{title}</h2>
         {intro && (
-          <p className="text-text-2 text-[17px] md:max-w-sm md:text-right">
+          <p className="max-w-[34rem] text-[19px] leading-[1.55] text-text-2 sm:text-[20px] md:max-w-[500px] md:text-right lg:text-[22px]">
             {intro}
           </p>
         )}
       </div>
-      <div className="hairline-divider mt-10" />
+      <div className="hairline-divider mt-8 md:mt-10" />
     </div>
   );
 }

@@ -40,10 +40,16 @@ GHL API). Open `/config/ghl-field-map.ts` and replace every
 
 1. In GHL, go to **Automation → Workflows → Create Workflow**.
 2. Add an **Inbound Webhook** trigger. GHL gives you a unique URL.
-3. Inside the workflow, map the incoming JSON fields (see the payload
-   shape in `lib/leads/normalize.ts`) to the contact's standard and custom
-   fields, and add any branching (e.g. tag-based routing, notifications,
-   pipeline creation) you need.
+3. Inside the workflow, map the incoming top-level JSON fields to the
+   contact's standard and custom fields. The webhook includes `first_name`,
+   `last_name`, `full_name`,
+   `email`, `phone`, `company_name`, `country`, `industry`, `company_size`,
+   `automation_interest`, `monthly_enquiries`, `preferred_timeline`,
+   `preferred_language`, `privacy_consent`, `marketing_consent`,
+   `lead_source`, `lead_page`, `form_type`, and `page_language`.
+   Visitor-entered values and consent choices come from the submitted form;
+   `lead_page` comes from the current page URL. The previous nested payload
+   remains available for existing workflow mappings and attribution fields.
 4. Copy the webhook URL into `GHL_INBOUND_WEBHOOK_URL`.
 
 If you'd rather integrate directly against the GHL API (upsert contact,

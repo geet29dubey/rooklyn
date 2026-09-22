@@ -1,37 +1,43 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { RooklynMark } from "@/components/logo/RooklynMark";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { CookieSettingsLink } from "@/components/legal/CookieSettingsLink";
+import type { Locale } from "@/i18n/routing";
+import { legalPath } from "@/lib/legal/routes";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const legal = useTranslations("legal");
+  const locale = useLocale() as Locale;
 
   const links = [
-    { href: "/privacy-policy", label: t("privacyPolicy") },
-    { href: "/cookie-policy", label: t("cookiePolicy") },
-    { href: "/data-protection", label: t("dataProtection") },
-    { href: "/legal-notice", label: t("legalNotice") },
+    { href: legalPath(locale, "privacy"), label: t("privacyPolicy") },
+    { href: legalPath(locale, "cookies"), label: t("cookiePolicy") },
+    { href: legalPath(locale, "notice"), label: t("legalNotice") },
   ] as const;
 
   return (
-    <footer className="border-t border-hairline bg-[#070D14]">
-      <div className="container max-w-container flex flex-col gap-8 py-12 md:py-14">
+    <footer className="border-t border-hairline bg-night-2">
+      <div className="site-container-wide flex flex-col gap-8 py-12 md:py-14">
         <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
-          <Link href="/" className="flex items-center gap-3">
-            <RooklynMark size={26} />
-            <span className="font-display text-[15px] tracking-[0.28em] text-champagne">
-              ROOKLYN
-            </span>
-          </Link>
-          <p className="font-display italic text-champagne text-[16px]">
-            {t("tagline")}
-          </p>
-          <LanguageSwitcher />
+          <div className="flex flex-col items-center gap-2 md:items-start">
+            <Link href="/" className="flex items-center gap-3">
+              <RooklynMark size={42} className="h-9 w-9 md:h-[42px] md:w-[42px]" />
+              <span className="font-display text-[19px] font-bold tracking-[0.24em] text-champagne md:text-[22px]">
+                ROOKLYN
+              </span>
+            </Link>
+            <p className="font-display text-[18px] italic text-champagne md:text-[20px]">
+              {t("tagline")}
+            </p>
+          </div>
+          <LanguageSwitcher dropUp />
         </div>
 
         <div className="h-px bg-hairline" />
 
-        <div className="flex flex-col items-center gap-4 text-center text-[13px] text-text-3 md:flex-row md:justify-between md:text-left">
+        <div className="flex flex-col items-center gap-4 text-center text-[14px] text-text-3 md:flex-row md:justify-between md:text-left">
           <p>{t("copyright", { year: new Date().getFullYear() })}</p>
           <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 md:justify-end">
             {links.map((link, i) => (
@@ -45,6 +51,10 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li className="flex items-center gap-2">
+              <span aria-hidden>·</span>
+              <CookieSettingsLink label={legal("cookieSettingsLink")} className="inline-flex min-h-[44px] items-center py-2 text-text-3 hover-fine:hover:text-porcelain" />
+            </li>
           </ul>
         </div>
       </div>

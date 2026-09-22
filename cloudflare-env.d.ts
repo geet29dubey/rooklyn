@@ -22,4 +22,5 @@ interface CloudflareEnv {
   LEAD_WEBHOOK_URL?: string;
 
   TURNSTILE_SECRET_KEY?: string;
+  TURNSTILE_HOSTNAMES?: string;
 }

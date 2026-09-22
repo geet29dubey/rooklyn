@@ -16,7 +16,8 @@
   // GHL_INBOUND_WEBHOOK_URL, TURNSTILE_SECRET_KEY, LEAD_WEBHOOK_URL) are
   // set with `wrangler secret put NAME` or in the dashboard, never here.
   "vars": {
-    "GHL_MODE": "inbound_webhook"
+    "GHL_MODE": "inbound_webhook",
+    "TURNSTILE_HOSTNAMES": "rooklyn.co"
   },
   // 5 lead submissions per 60 seconds per IP, enforced in /api/lead.
   "ratelimits": [

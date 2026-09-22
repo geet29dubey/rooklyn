@@ -40,15 +40,17 @@ export async function POST(request: Request) {
     }
   }
 
-  if (env.TURNSTILE_SECRET_KEY) {
-    const verified = await verifyTurnstile(
-      lead.turnstileToken,
-      env.TURNSTILE_SECRET_KEY,
-      ip
-    );
-    if (!verified) {
-      return NextResponse.json({ error: "Turnstile verification failed" }, { status: 400 });
-    }
+  if (!env.TURNSTILE_SECRET_KEY || !env.TURNSTILE_HOSTNAMES) {
+    return NextResponse.json({ error: "Turnstile is not configured" }, { status: 503 });
+  }
+  const verified = await verifyTurnstile(
+    lead.turnstileToken,
+    env.TURNSTILE_SECRET_KEY,
+    env.TURNSTILE_HOSTNAMES,
+    ip === "unknown" ? undefined : ip
+  );
+  if (!verified) {
+    return NextResponse.json({ error: "Turnstile verification failed" }, { status: 403 });
   }
 
   const submittedAt = new Date().toISOString();

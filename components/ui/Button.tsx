@@ -7,7 +7,7 @@ type ButtonProps = {
 } & ComponentPropsWithoutRef<"button">;
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-semibold whitespace-nowrap transition-all duration-200 min-h-[44px] focus-visible:outline-champagne disabled:opacity-60 disabled:pointer-events-none";
+  "inline-flex min-h-[56px] items-center justify-center gap-2 rounded-full px-7 py-4 text-center text-[17px] font-bold leading-snug sm:text-[19px] transition-all duration-200 focus-visible:outline-champagne disabled:opacity-60 disabled:pointer-events-none";
 
 const variants = {
   primary:
@@ -34,7 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {variant === "primary" && (
           <span
             aria-hidden
-            className="h-2 w-2 rounded-full bg-champagne shrink-0"
+            className="h-2 w-2 rounded-full bg-apricot shrink-0"
           />
         )}
         {children}

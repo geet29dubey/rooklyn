@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { buttonClasses } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import type { Locale } from "@/i18n/routing";
+import { legalPath } from "@/lib/legal/routes";
 
 export type ConsentState = {
   necessary: true;
@@ -35,6 +37,7 @@ function saveConsent(consent: ConsentState) {
 
 export function CookieBanner() {
   const t = useTranslations("cookies");
+  const locale = useLocale() as Locale;
   const [visible, setVisible] = useState(false);
   const [customizing, setCustomizing] = useState(false);
   const [analytics, setAnalytics] = useState(false);
@@ -83,7 +86,7 @@ export function CookieBanner() {
               <p className="text-[14px] text-text-2">
                 {t("message")}{" "}
                 <Link
-                  href="/cookie-policy"
+                  href={legalPath(locale, "cookies")}
                   className="text-champagne underline underline-offset-2"
                 >
                   {t("learnMore")}

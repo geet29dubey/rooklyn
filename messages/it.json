@@ -9,7 +9,7 @@
     "process": "Processo",
     "benefits": "Vantaggi",
     "contact": "Contatti",
-    "cta": "Prenota il tuo audit gratuito",
+    "cta": "Contattaci",
     "menu": "Apri menu",
     "close": "Chiudi menu"
   },
@@ -20,6 +20,7 @@
     "subheadline": "Rooklyn risponde alle richieste, qualifica i lead, aggiorna il tuo CRM e fa i follow-up automaticamente, così le opportunità continuano ad avanzare anche quando il tuo team è occupato.",
     "ctaPrimary": "Guarda Rooklyn in azione",
     "ctaSecondary": "Prenota un audit gratuito",
+    "demoMicrocopy": "Esplora il nostro esempio dal vivo di automazione HVAC.",
     "trust": "WhatsApp · Qualificazione lead · CRM · Follow-up · Multilingue",
     "brandProposition": "Le mosse che faresti, fatte in automatico.",
     "card1": "Lead qualificato · proprio ora",
@@ -171,7 +172,8 @@
     "groupWhatYouNeed": "Di cosa hai bisogno",
     "groupConsent": "Consenso",
     "fields": {
-      "fullName": "Nome completo",
+      "firstName": "Nome",
+      "lastName": "Cognome",
       "workEmail": "Email di lavoro",
       "phone": "Telefono / WhatsApp",
       "companyName": "Nome dell'azienda",
@@ -286,7 +288,8 @@
     "errorTitle": "Qualcosa è andato storto",
     "errorBody": "Riprova, oppure scrivici direttamente a {email}.",
     "errors": {
-      "fullName": "Inserisci il tuo nome completo.",
+      "firstName": "Inserisci il tuo nome.",
+      "lastName": "Inserisci il tuo cognome.",
       "email": "Inserisci un indirizzo email valido.",
       "phone": "Inserisci un numero di telefono valido.",
       "companyName": "Inserisci il nome della tua azienda.",

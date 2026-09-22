@@ -1,5 +1,6 @@
 import type { NormalizedLead } from "@/lib/leads/normalize";
 import { GHL_FIELD_MAP } from "@/config/ghl-field-map";
+import { toGhlWorkflowFields } from "@/lib/leads/ghl-workflow";
 
 export type GhlConfig =
   | {
@@ -66,7 +67,7 @@ async function withRetry(
   return { ok: false, error: lastError };
 }
 
-/** Mode A: post the normalised payload to a GHL Inbound Webhook workflow. */
+/** Mode A: expose flat workflow fields while retaining the existing payload. */
 async function sendViaInboundWebhook(
   lead: NormalizedLead,
   config: Extract<GhlConfig, { mode: "inbound_webhook" }>
@@ -78,7 +79,7 @@ async function sendViaInboundWebhook(
         "Content-Type": "application/json",
         "Idempotency-Key": lead.submission_id,
       },
-      body: JSON.stringify(lead),
+      body: JSON.stringify({ ...lead, ...toGhlWorkflowFields(lead) }),
     })
   );
 }

@@ -1,12 +1,12 @@
 # Rooklyn — marketing website
 
 A premium, multilingual (EN/ES/IT) marketing site for Rooklyn, an AI
-automation agency, built with Next.js 15 (App Router), Tailwind CSS and
+automation agency, built with Next.js 16 (App Router), Tailwind CSS and
 next-intl, and deployed to **Cloudflare Workers** via OpenNext.
 
 ## Stack
 
-- Next.js 15 + TypeScript, App Router
+- Next.js 16 + TypeScript, App Router
 - Tailwind CSS with the Rooklyn brand tokens
 - next-intl for `/en`, `/es`, `/it` routing
 - React Hook Form + Zod for the lead form
@@ -15,16 +15,24 @@ next-intl, and deployed to **Cloudflare Workers** via OpenNext.
 
 ## Local development
 
-```bash
-npm install
-cp .env.example .env.local        # public, build-time variables
-cp .dev.vars.example .dev.vars    # secrets + bindings for local dev
+In PowerShell, from the project directory:
+
+```powershell
+npm ci
+Copy-Item .env.example .env.local
 npm run dev
 ```
 
-`next dev` runs the normal Next.js dev server. Cloudflare bindings (the
-rate limiter, secrets) are shimmed locally via
-`initOpenNextCloudflareForDev()` in `next.config.ts`, reading `.dev.vars`.
+Open `http://localhost:3000/en` (or `/es` or `/it`). The contact form shows a
+localized thank-you message after a successful submission. Plain `next dev`
+reads server variables from `.env.local`. To test a successful submission
+locally, add `TURNSTILE_HOSTNAMES=localhost` and the existing
+`TURNSTILE_SECRET_KEY` to that ignored file. Add `GHL_INBOUND_WEBHOOK_URL` there
+only if you intend the test lead to reach GHL. Without the Turnstile secret,
+the lead endpoint rejects submissions.
+
+For the Cloudflare runtime preview below, copy `.dev.vars.example` to
+`.dev.vars` and set the same secret there. Both local files are gitignored.
 
 ## Testing in the real Workers runtime
 
@@ -59,6 +67,15 @@ under **Workers & Pages → rooklyn-web → Settings → Variables**:
 `TURNSTILE_SECRET_KEY`, `GHL_INBOUND_WEBHOOK_URL` (or the `GHL_API_*`
 secrets if using API mode), `LEAD_WEBHOOK_URL` (optional).
 
+Turnstile also requires `TURNSTILE_HOSTNAMES`: a comma-separated list of the
+exact frontend hostnames accepted by the widget for this deployment. Set only
+the production hostname(s) in production (`rooklyn.co` is configured in
+`wrangler.jsonc`); use `localhost,127.0.0.1` locally.
+The contact form uses the site key in `.env.example` and verifies the token's
+`contact` action and hostname on the server. A missing secret or hostname
+configuration makes the lead endpoint return 503 rather than accepting an
+unverified submission.
+
 ### Build variables
 
 `NEXT_PUBLIC_*` variables are inlined into the client bundle at **build**
@@ -68,9 +85,7 @@ shell before `npm run deploy`), not only as runtime secrets. See
 
 ### Custom domain
 
-Attach `rooklyn.com` to the Worker as a Custom Domain in the Cloudflare
-dashboard, with a redirect rule from `www.rooklyn.com` → `rooklyn.com`,
-HTTPS always on, and HTTP/3 enabled.
+The production Worker hostname is `rooklyn.co`.
 
 ## Connecting GoHighLevel
 

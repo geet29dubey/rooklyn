@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { playfair, inter } from "@/lib/fonts";
+import { cormorant, manrope } from "@/lib/fonts";
 import { routing, type Locale } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -13,7 +13,7 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rooklyn.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rooklyn.co";
 
 export async function generateMetadata({
   params,
@@ -90,7 +90,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${playfair.variable} ${inter.variable}`}
+      className={`${cormorant.variable} ${manrope.variable}`}
       suppressHydrationWarning
     >
       <head>

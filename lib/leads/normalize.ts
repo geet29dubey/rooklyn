@@ -1,4 +1,5 @@
 import type { LeadInput } from "@/lib/leads/schema";
+import { toE164 } from "@/lib/leads/phone";
 
 export type NormalizedLead = {
   submission_id: string;
@@ -42,31 +43,7 @@ export type NormalizedLead = {
   tags: string[];
 };
 
-function splitName(fullName: string): { first: string; last: string } {
-  const parts = fullName.trim().split(/\s+/);
-  const first = parts[0] ?? "";
-  const last = parts.slice(1).join(" ");
-  return { first, last };
-}
-
-/**
- * Formats a phone number to a loose E.164 shape. This is a light
- * best-effort normalisation (strip everything but digits and a leading
- * +, default to the Spain country code when none is given) — a full
- * libphonenumber validation can replace this later if needed.
- */
-function toE164(raw: string): string {
-  const trimmed = raw.trim();
-  const hasPlus = trimmed.startsWith("+");
-  const digits = trimmed.replace(/[^\d]/g, "");
-  if (hasPlus) return `+${digits}`;
-  if (digits.startsWith("34") && digits.length > 9) return `+${digits}`;
-  return `+34${digits}`;
-}
-
 export function normalizeLead(input: LeadInput, submittedAtIso: string): NormalizedLead {
-  const { first, last } = splitName(input.fullName);
-
   const tags = [
     "website-lead",
     `lang-${input.locale}`,
@@ -83,15 +60,15 @@ export function normalizeLead(input: LeadInput, submittedAtIso: string): Normali
     submitted_at: submittedAtIso,
     locale: input.locale,
     contact: {
-      first_name: first,
-      last_name: last,
+      first_name: input.firstName,
+      last_name: input.lastName,
       email: input.workEmail.toLowerCase(),
       phone: toE164(input.phone),
       preferred_language: input.preferredLanguage,
     },
     company: {
       name: input.companyName,
-      website: input.website ?? "",
+      website: "",
       industry: input.industry,
       size: input.companySize,
       country: input.country,
@@ -100,7 +77,7 @@ export function normalizeLead(input: LeadInput, submittedAtIso: string): Normali
       automation_interest: input.automationInterests,
       monthly_enquiries: input.monthlyEnquiries ?? "",
       timeline: input.timeline ?? "",
-      heard_about_us: input.heardAboutUs ?? "",
+      heard_about_us: "",
     },
     consent: {
       privacy_accepted: input.privacyAccepted,

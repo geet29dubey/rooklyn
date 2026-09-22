@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from "react";
 import { useLocale } from "next-intl";
 
 declare global {
@@ -13,12 +13,14 @@ declare global {
           theme?: "light" | "dark" | "auto";
           language?: string;
           size?: "normal" | "compact";
+          action?: string;
           callback: (token: string) => void;
           "expired-callback"?: () => void;
           "error-callback"?: () => void;
         }
       ) => string;
       reset: (widgetId?: string) => void;
+      remove: (widgetId: string) => void;
     };
   }
 }
@@ -37,53 +39,66 @@ function loadTurnstileScript(): Promise<void> {
       script.src = SCRIPT_SRC;
       script.async = true;
       script.onload = () => resolve();
-      script.onerror = () => reject(new Error("Failed to load Turnstile"));
+      script.onerror = () => {
+        scriptPromise = null;
+        script.remove();
+        reject(new Error("Failed to load Turnstile"));
+      };
       document.head.appendChild(script);
     });
   }
   return scriptPromise;
 }
 
-export function Turnstile({
-  onToken,
-  className,
-}: {
+export type TurnstileHandle = { reset: () => void };
+
+export const Turnstile = forwardRef<TurnstileHandle, {
   onToken: (token: string) => void;
   className?: string;
-}) {
+}>(({ onToken, className }, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+  const onTokenRef = useRef(onToken);
+  onTokenRef.current = onToken;
   const locale = useLocale();
   const id = useId();
-  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "0x4AAAAAAE_4qPMu47gy_U9p";
+
+  useImperativeHandle(ref, () => ({
+    reset: () => {
+      if (widgetIdRef.current) window.turnstile?.reset(widgetIdRef.current);
+    },
+  }), []);
 
   useEffect(() => {
-    if (!siteKey || !containerRef.current) return;
-    let widgetId: string | undefined;
+    if (!containerRef.current) return;
     let cancelled = false;
 
     loadTurnstileScript().then(() => {
       if (cancelled || !containerRef.current || !window.turnstile) return;
       const isSmall =
         typeof window !== "undefined" && window.innerWidth < 400;
-      widgetId = window.turnstile.render(containerRef.current, {
+      widgetIdRef.current = window.turnstile.render(containerRef.current, {
         sitekey: siteKey,
+        action: "contact",
         theme: "dark",
         language: locale,
         size: isSmall ? "compact" : "normal",
-        callback: onToken,
-        "expired-callback": () => onToken(""),
-        "error-callback": () => onToken(""),
+        callback: (token) => onTokenRef.current(token),
+        "expired-callback": () => onTokenRef.current(""),
+        "error-callback": () => onTokenRef.current(""),
       });
-    });
+    }).catch(() => onTokenRef.current(""));
 
     return () => {
       cancelled = true;
-      if (widgetId && window.turnstile) window.turnstile.reset(widgetId);
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [siteKey, locale]);
 
-  if (!siteKey) return null;
-
   return <div ref={containerRef} id={`turnstile-${id}`} className={className} />;
-}
+});
+Turnstile.displayName = "Turnstile";

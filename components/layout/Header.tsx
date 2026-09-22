@@ -16,48 +16,48 @@ export function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-40 w-full"
+        className="sticky top-0 z-40 w-full bg-transparent"
         style={{ paddingTop: "max(12px, env(safe-area-inset-top))" }}
       >
-        <div className="container max-w-container">
-          <div className="flex h-14 items-center justify-between rounded-full border border-[rgba(184,192,197,0.14)] bg-[rgba(13,25,35,0.88)] pl-3 pr-2 backdrop-blur-md landscape-phone:h-[52px] md:h-16 md:pl-4 md:pr-3">
+        <div className="site-container-wide">
+          <div className="flex h-[66px] items-center justify-between rounded-full border border-porcelain/[0.12] bg-night/90 px-4 shadow-[0_18px_55px_-32px_rgba(0,0,0,0.9)] backdrop-blur-xl landscape-phone:h-[52px] md:h-[72px] md:px-5 xl:grid xl:min-h-[86px] xl:grid-cols-[1fr_auto_1fr] xl:gap-6 xl:px-7">
             <Link
               href="/"
               className="flex items-center gap-2 md:gap-3"
               aria-label="Rooklyn — home"
             >
-              <RooklynMark size={28} />
-              <span className="font-display hidden text-[16px] font-bold tracking-[0.2em] text-champagne sm:inline md:text-[17px] md:tracking-[0.26em]">
+              <RooklynMark size={36} className="h-8 w-8 md:h-9 md:w-9" />
+              <span className="font-display text-[16px] font-bold tracking-[0.2em] text-champagne md:text-[20px] md:tracking-[0.24em]">
                 ROOKLYN
               </span>
             </Link>
 
             <nav
-              className="hidden items-center gap-7 lg:flex"
+              className="hidden items-center gap-6 xl:flex 2xl:gap-9"
               aria-label="Primary"
             >
               {NAV_SECTIONS.map((section) => (
                 <Link
                   key={section.id}
                   href={`/#${section.id}`}
-                  className="text-[14px] text-text-2 transition-colors hover-fine:hover:text-porcelain"
+                  className="whitespace-nowrap text-[20px] font-medium text-porcelain/90 transition-colors hover-fine:hover:text-porcelain 2xl:text-[21px]"
                 >
                   {t(section.key)}
                 </Link>
               ))}
             </nav>
 
-            <div className="flex items-center gap-3 md:gap-4">
+            <div className="flex items-center gap-3 md:gap-4 xl:justify-self-end">
               <div className="hidden md:block">
                 <LanguageSwitcher />
               </div>
               <Link
                 href="/#contact"
-                className="hidden min-h-[44px] items-center gap-2 rounded-full bg-porcelain px-5 text-[14px] font-semibold text-night lg:inline-flex"
+                className="hidden min-h-[56px] items-center gap-2 rounded-full bg-porcelain px-7 text-[18px] font-bold text-night xl:inline-flex"
               >
                 <span
                   aria-hidden
-                  className="h-2 w-2 rounded-full bg-champagne"
+                  className="h-2 w-2 rounded-full bg-apricot"
                 />
                 {t("cta")}
               </Link>
@@ -65,7 +65,7 @@ export function Header() {
                 type="button"
                 onClick={() => setMenuOpen(true)}
                 aria-label={t("menu")}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline lg:hidden"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline xl:hidden"
               >
                 <Menu className="h-5 w-5" strokeWidth={1.5} />
               </button>

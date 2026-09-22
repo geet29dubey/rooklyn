@@ -17,8 +17,8 @@ export function Problems() {
   }));
 
   return (
-    <section id="problems" className="py-section-mobile sm:py-section-tablet md:py-section">
-      <div className="container max-w-container">
+    <section id="problems" className="py-section-mobile sm:py-section-tablet md:py-section landscape-phone:py-10">
+      <div className="site-container">
         <SectionHeader
           number="01"
           eyebrow={t("eyebrow")}
@@ -36,12 +36,12 @@ export function Problems() {
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {items.map((item, i) => (
             <FadeIn key={item.title} as="li" delay={i * 0.05}>
-              <div className="h-full min-h-[200px] rounded-2xl border border-hairline bg-card p-7 sm:p-8 transition-[transform,border-color] duration-300 hover-fine:hover:-translate-y-0.5 hover-fine:hover:border-[rgba(184,192,197,0.24)]">
+              <div className="h-full min-h-[200px] rounded-2xl border border-hairline bg-card p-7 sm:p-8 lg:p-9 transition-[transform,border-color] duration-300 hover-fine:hover:-translate-y-0.5 hover-fine:hover:border-[rgba(184,192,197,0.24)]">
                 <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-garnet/15 text-error">
                   <item.Icon className="h-5 w-5" strokeWidth={1.5} />
                 </div>
                 <h3 className="mb-2">{item.title}</h3>
-                <p className="text-[15px] text-text-2">{item.body}</p>
+                <p className="text-[19px] leading-[1.6] text-text-3 sm:text-[20px] lg:text-[21px]">{item.body}</p>
               </div>
             </FadeIn>
           ))}

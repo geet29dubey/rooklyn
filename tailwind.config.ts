@@ -14,53 +14,47 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // Deep Atlantic — main background
-        night: "#0D1923",
-        "night-2": "#0A141C",
-        // Slate Navy — elevated surfaces
-        card: "#1D323F",
-        "card-2": "#16262F",
-        ink: "#1D323F",
-        // Warm Ivory — primary text
-        porcelain: "#F4F1EB",
-        // Soft Silver — secondary / tertiary text
-        "text-2": "#B8C0C5",
-        "text-3": "#7E8891",
-        // Champagne Gold — brand emphasis
-        champagne: "#C2AB76",
-        "champagne-light": "#DBC79A",
-        // Muted Garnet — problem states / atmosphere only
-        garnet: "#4E2938",
-        "garnet-deep": "#4E2938",
-        "garnet-night": "#341B25",
-        // Lagoon Mint — automation / success / active-system
-        lagoon: "#78C8C2",
-        error: "#E2949E",
-        hairline: "rgba(184,192,197,0.16)",
+        night: "#0B131C",
+        "night-2": "#0F1B29",
+        card: "#13243A",
+        "card-2": "#0F1D2B",
+        ink: "#13243A",
+        porcelain: "#F7F4EF",
+        "text-2": "rgba(247,244,239,0.86)",
+        "text-3": "rgba(247,244,239,0.68)",
+        champagne: "#C9A96E",
+        "champagne-light": "#E0C994",
+        apricot: "#F4A36C",
+        garnet: "#9E2A45",
+        "garnet-deep": "#5C1628",
+        "garnet-night": "#2A1018",
+        lagoon: "#8FD3C1",
+        "lagoon-deep": "#117A6D",
+        atlantic: "#2A5CAA",
+        sky: "#A9C4EC",
+        error: "#F0A0AA",
+        hairline: "rgba(247,244,239,0.13)",
       },
       fontFamily: {
-        display: ["var(--font-playfair)", "serif"],
-        sans: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-cormorant)", "serif"],
+        sans: ["var(--font-manrope)", "sans-serif"],
       },
       maxWidth: {
-        container: "1240px",
+        container: "1200px",
       },
       backgroundImage: {
         "mint-glow":
-          "radial-gradient(circle, rgba(120,200,194,0.10), transparent 65%)",
+          "radial-gradient(circle, rgba(17,122,109,0.16), transparent 65%)",
         "garnet-glow":
-          "radial-gradient(circle, rgba(78,41,56,0.17), transparent 70%)",
+          "radial-gradient(circle, rgba(158,42,69,0.18), transparent 70%)",
+        tide: "linear-gradient(125deg, #117A6D, #2A5CAA)",
       },
       spacing: {
-        section: "96px",
-        "section-tablet": "72px",
-        "section-mobile": "56px",
+        section: "120px",
+        "section-tablet": "88px",
+        "section-mobile": "64px",
       },
       keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
         drift: {
           "0%, 100%": { transform: "translate(0, 0)" },
           "50%": { transform: "translate(-3%, 2%)" },
@@ -70,15 +64,17 @@ const config: Config = {
           "50%": { transform: "translateY(-8px)" },
         },
         orbit: {
-          "0%": { transform: "rotate(0deg) translateX(110px) rotate(0deg)" },
+          "0%": {
+            transform:
+              "rotate(0deg) translateX(var(--orbit-radius, 110px)) rotate(0deg)",
+          },
           "100%": {
-            transform: "rotate(360deg) translateX(110px) rotate(-360deg)",
+            transform:
+              "rotate(360deg) translateX(var(--orbit-radius, 110px)) rotate(-360deg)",
           },
         },
       },
       animation: {
-        marquee: "marquee 40s linear infinite",
-        "marquee-slow": "marquee 60s linear infinite",
         drift: "drift 18s ease-in-out infinite",
         bob: "bob 6s ease-in-out infinite",
         orbit: "orbit 22s linear infinite",

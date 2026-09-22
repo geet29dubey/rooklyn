@@ -9,7 +9,7 @@
     "process": "Process",
     "benefits": "Benefits",
     "contact": "Contact",
-    "cta": "Book a free audit",
+    "cta": "Contact us",
     "menu": "Open menu",
     "close": "Close menu"
   },
@@ -20,6 +20,7 @@
     "subheadline": "Rooklyn responds to enquiries, qualifies leads, updates your CRM and follows up automatically — so opportunities keep moving even when your team is busy.",
     "ctaPrimary": "See Rooklyn in action",
     "ctaSecondary": "Book a free automation audit",
+    "demoMicrocopy": "Explore our live HVAC automation example.",
     "trust": "WhatsApp · Lead qualification · CRM · Follow-ups · Multilingual",
     "brandProposition": "The moves you'd make, made automatically.",
     "card1": "Lead qualified · just now",
@@ -171,7 +172,8 @@
     "groupWhatYouNeed": "What you need",
     "groupConsent": "Consent",
     "fields": {
-      "fullName": "Full name",
+      "firstName": "First name",
+      "lastName": "Last name",
       "workEmail": "Work email",
       "phone": "Phone / WhatsApp",
       "companyName": "Company name",
@@ -286,7 +288,8 @@
     "errorTitle": "Something went wrong",
     "errorBody": "Please try again, or email us directly at {email}.",
     "errors": {
-      "fullName": "Please enter your full name.",
+      "firstName": "Please enter your first name.",
+      "lastName": "Please enter your last name.",
       "email": "Please enter a valid email address.",
       "phone": "Please enter a valid phone number.",
       "companyName": "Please enter your company name.",

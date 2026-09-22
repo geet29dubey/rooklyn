@@ -8,6 +8,7 @@ export const defaultLocale: Locale = "en";
 export const routing = defineRouting({
   locales,
   defaultLocale,
+  localeDetection: false,
   localePrefix: "always",
   localeCookie: {
     name: "NEXT_LOCALE",

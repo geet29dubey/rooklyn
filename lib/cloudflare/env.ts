@@ -15,7 +15,8 @@ export function getEnv(): CloudflareEnv {
 
 export function getWaitUntil(): (promise: Promise<unknown>) => void {
   try {
-    return (promise) => getCloudflareContext().ctx.waitUntil(promise);
+    const context = getCloudflareContext();
+    return (promise) => context.ctx.waitUntil(promise);
   } catch {
     // Local `next dev` without the Cloudflare dev binding shim: run inline.
     return (promise) => {

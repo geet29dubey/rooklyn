@@ -1,20 +1,20 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import { RooklynMark } from "@/components/logo/RooklynMark";
 import { Button } from "@/components/ui/Button";
-import { Turnstile } from "@/components/forms/Turnstile";
+import { Turnstile, type TurnstileHandle } from "@/components/forms/Turnstile";
 import { FieldWrap, inputClass, selectClass } from "@/components/forms/fields";
 import { leadFormSchema, type LeadFormInput } from "@/lib/leads/schema";
+import { fullLegalPath } from "@/lib/legal/routes";
 import {
   AUTOMATION_INTERESTS,
   COMPANY_SIZES,
   COUNTRIES_OTHER,
   COUNTRIES_PRIORITY,
-  HEARD_ABOUT,
   INDUSTRIES,
   MONTHLY_ENQUIRIES,
   TIMELINES,
@@ -66,6 +66,7 @@ export function LeadForm() {
   const locale = useLocale() as "en" | "es" | "it";
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submittedName, setSubmittedName] = useState("");
+  const turnstileRef = useRef<TurnstileHandle>(null);
 
   const {
     register,
@@ -77,11 +78,11 @@ export function LeadForm() {
   } = useForm<LeadFormInput>({
     resolver: zodResolver(leadFormSchema),
     defaultValues: {
-      fullName: "",
+      firstName: "",
+      lastName: "",
       workEmail: "",
       phone: "+34",
       companyName: "",
-      website: "",
       automationInterests: "" as unknown as LeadFormInput["automationInterests"],
       preferredLanguage: locale,
       privacyAccepted: false as unknown as true,
@@ -130,10 +131,12 @@ export function LeadForm() {
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Request failed");
-      setSubmittedName(values.fullName.split(" ")[0] ?? values.fullName);
+      setSubmittedName(values.firstName);
       setStatus("success");
     } catch {
       setStatus("error");
+      setValue("turnstileToken", "");
+      turnstileRef.current?.reset();
     }
   }
 
@@ -157,13 +160,13 @@ export function LeadForm() {
               href={bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-porcelain px-6 py-3.5 text-[15px] font-semibold text-night"
+              className="inline-flex min-h-[56px] items-center gap-2 rounded-full bg-porcelain px-7 py-4 text-center text-[17px] font-bold text-night sm:text-[19px]"
             >
               <span aria-hidden className="h-2 w-2 rounded-full bg-champagne" />
               {t("successBook")}
             </a>
           )}
-          <a href="#top" className="text-[14px] text-text-2 underline underline-offset-2">
+          <a href="#top" className="text-[16px] text-text-2 underline underline-offset-2">
             {t("backToTop")}
           </a>
         </div>
@@ -175,20 +178,33 @@ export function LeadForm() {
     <form
       onSubmit={handleSubmit(onSubmit, onInvalid)}
       noValidate
-      className="rounded-[24px] border border-hairline bg-card p-6 sm:p-9"
+      className="rounded-[22px] border border-porcelain/[0.13] bg-card/75 p-5 shadow-[0_32px_90px_-62px_rgba(0,0,0,0.95)] backdrop-blur-sm sm:p-7 lg:p-8"
     >
-      <div className="flex flex-col gap-8">
-        <fieldset className="flex flex-col gap-4">
+      <div className="flex flex-col gap-5">
+        <fieldset className="flex flex-col gap-3.5">
           <legend className="eyebrow mb-1">{t("groupAboutYou")}</legend>
 
-          <FieldWrap label={t("fields.fullName")} htmlFor="fullName" error={errors.fullName && t("errors.fullName")}>
-            <input
-              id="fullName"
-              autoComplete="name"
-              className={inputClass(!!errors.fullName)}
-              {...register("fullName")}
-            />
-          </FieldWrap>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <FieldWrap label={t("fields.firstName")} htmlFor="firstName" error={errors.firstName && t("errors.firstName")}>
+              <input
+                id="firstName"
+                autoComplete="given-name"
+                required
+                className={inputClass(!!errors.firstName)}
+                {...register("firstName")}
+              />
+            </FieldWrap>
+
+            <FieldWrap label={t("fields.lastName")} htmlFor="lastName" error={errors.lastName && t("errors.lastName")}>
+              <input
+                id="lastName"
+                autoComplete="family-name"
+                required
+                className={inputClass(!!errors.lastName)}
+                {...register("lastName")}
+              />
+            </FieldWrap>
+          </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <FieldWrap label={t("fields.workEmail")} htmlFor="workEmail" error={errors.workEmail && t("errors.email")}>
@@ -197,6 +213,7 @@ export function LeadForm() {
                 type="email"
                 inputMode="email"
                 autoComplete="email"
+                required
                 className={inputClass(!!errors.workEmail)}
                 {...register("workEmail")}
               />
@@ -208,6 +225,8 @@ export function LeadForm() {
                 type="tel"
                 inputMode="tel"
                 autoComplete="tel"
+                required
+                maxLength={32}
                 className={inputClass(!!errors.phone)}
                 {...register("phone")}
               />
@@ -215,8 +234,8 @@ export function LeadForm() {
           </div>
         </fieldset>
 
-        <fieldset className="flex flex-col gap-4">
-          <legend className="eyebrow mb-1">{t("groupAboutBusiness")}</legend>
+        <fieldset className="grid gap-3.5 sm:grid-cols-2">
+          <legend className="sr-only">{t("groupAboutBusiness")}</legend>
 
           <FieldWrap label={t("fields.companyName")} htmlFor="companyName" error={errors.companyName && t("errors.companyName")}>
             <input
@@ -226,46 +245,6 @@ export function LeadForm() {
               {...register("companyName")}
             />
           </FieldWrap>
-
-          <FieldWrap label={t("fields.website")} htmlFor="website" optional error={errors.website && t("errors.website")}>
-            <input
-              id="website"
-              type="url"
-              inputMode="url"
-              autoComplete="url"
-              placeholder="https://"
-              className={inputClass(!!errors.website)}
-              {...register("website")}
-            />
-          </FieldWrap>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            <FieldWrap label={t("fields.industry")} htmlFor="industry" error={errors.industry && t("errors.industry")}>
-              <select id="industry" className={selectClass(!!errors.industry)} defaultValue="" {...register("industry")}>
-                <option value="" disabled>
-                  {t("selectPlaceholder")}
-                </option>
-                {INDUSTRIES.map((id) => (
-                  <option key={id} value={id}>
-                    {t(`options.industry.${id}`)}
-                  </option>
-                ))}
-              </select>
-            </FieldWrap>
-
-            <FieldWrap label={t("fields.companySize")} htmlFor="companySize" error={errors.companySize && t("errors.companySize")}>
-              <select id="companySize" className={selectClass(!!errors.companySize)} defaultValue="" {...register("companySize")}>
-                <option value="" disabled>
-                  {t("selectPlaceholder")}
-                </option>
-                {COMPANY_SIZES.map((id) => (
-                  <option key={id} value={id}>
-                    {t(`options.companySize.${id}`)}
-                  </option>
-                ))}
-              </select>
-            </FieldWrap>
-          </div>
 
           <FieldWrap label={t("fields.country")} htmlFor="country" error={errors.country && t("errors.country")}>
             <select
@@ -285,15 +264,42 @@ export function LeadForm() {
               ))}
             </select>
           </FieldWrap>
+
+          <FieldWrap label={t("fields.industry")} htmlFor="industry" error={errors.industry && t("errors.industry")}>
+            <select id="industry" className={selectClass(!!errors.industry)} defaultValue="" {...register("industry")}>
+              <option value="" disabled>
+                {t("selectPlaceholder")}
+              </option>
+              {INDUSTRIES.map((id) => (
+                <option key={id} value={id}>
+                  {t(`options.industry.${id}`)}
+                </option>
+              ))}
+            </select>
+          </FieldWrap>
+
+          <FieldWrap label={t("fields.companySize")} htmlFor="companySize" error={errors.companySize && t("errors.companySize")}>
+            <select id="companySize" className={selectClass(!!errors.companySize)} defaultValue="" {...register("companySize")}>
+              <option value="" disabled>
+                {t("selectPlaceholder")}
+              </option>
+              {COMPANY_SIZES.map((id) => (
+                <option key={id} value={id}>
+                  {t(`options.companySize.${id}`)}
+                </option>
+              ))}
+            </select>
+          </FieldWrap>
         </fieldset>
 
-        <fieldset className="flex flex-col gap-5">
-          <legend className="eyebrow mb-1">{t("groupWhatYouNeed")}</legend>
+        <fieldset className="grid gap-3.5 sm:grid-cols-2">
+          <legend className="sr-only">{t("groupWhatYouNeed")}</legend>
 
           <FieldWrap
             label={t("fields.automationInterests")}
             htmlFor="automationInterests"
             error={errors.automationInterests && t("errors.automationInterests")}
+            className="sm:col-span-2"
           >
             <select
               id="automationInterests"
@@ -312,58 +318,43 @@ export function LeadForm() {
             </select>
           </FieldWrap>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <FieldWrap label={t("fields.monthlyEnquiries")} htmlFor="monthlyEnquiries" optional>
-              <select id="monthlyEnquiries" className={selectClass()} defaultValue="" {...register("monthlyEnquiries")}>
-                <option value="">{t("selectPlaceholder")}</option>
-                {MONTHLY_ENQUIRIES.map((id) => (
-                  <option key={id} value={id}>
-                    {t(`options.monthlyEnquiries.${id}`)}
-                  </option>
-                ))}
-              </select>
-            </FieldWrap>
+          <FieldWrap label={t("fields.monthlyEnquiries")} htmlFor="monthlyEnquiries" optional>
+            <select id="monthlyEnquiries" className={selectClass()} defaultValue="" {...register("monthlyEnquiries")}>
+              <option value="">{t("selectPlaceholder")}</option>
+              {MONTHLY_ENQUIRIES.map((id) => (
+                <option key={id} value={id}>
+                  {t(`options.monthlyEnquiries.${id}`)}
+                </option>
+              ))}
+            </select>
+          </FieldWrap>
 
-            <FieldWrap label={t("fields.timeline")} htmlFor="timeline" optional>
-              <select id="timeline" className={selectClass()} defaultValue="" {...register("timeline")}>
-                <option value="">{t("selectPlaceholder")}</option>
-                {TIMELINES.map((id) => (
-                  <option key={id} value={id}>
-                    {t(`options.timeline.${id}`)}
-                  </option>
-                ))}
-              </select>
-            </FieldWrap>
-          </div>
+          <FieldWrap label={t("fields.timeline")} htmlFor="timeline" optional>
+            <select id="timeline" className={selectClass()} defaultValue="" {...register("timeline")}>
+              <option value="">{t("selectPlaceholder")}</option>
+              {TIMELINES.map((id) => (
+                <option key={id} value={id}>
+                  {t(`options.timeline.${id}`)}
+                </option>
+              ))}
+            </select>
+          </FieldWrap>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <FieldWrap label={t("fields.preferredLanguage")} htmlFor="preferredLanguage">
-              <select id="preferredLanguage" className={selectClass()} {...register("preferredLanguage")}>
-                {(["en", "es", "it"] as const).map((id) => (
-                  <option key={id} value={id}>
-                    {t(`options.preferredLanguage.${id}`)}
-                  </option>
-                ))}
-              </select>
-            </FieldWrap>
-
-            <FieldWrap label={t("fields.heardAboutUs")} htmlFor="heardAboutUs" optional>
-              <select id="heardAboutUs" className={selectClass()} defaultValue="" {...register("heardAboutUs")}>
-                <option value="">{t("selectPlaceholder")}</option>
-                {HEARD_ABOUT.map((id) => (
-                  <option key={id} value={id}>
-                    {t(`options.heardAboutUs.${id}`)}
-                  </option>
-                ))}
-              </select>
-            </FieldWrap>
-          </div>
+          <FieldWrap label={t("fields.preferredLanguage")} htmlFor="preferredLanguage" className="sm:col-span-2">
+            <select id="preferredLanguage" className={selectClass()} {...register("preferredLanguage")}>
+              {(["en", "es", "it"] as const).map((id) => (
+                <option key={id} value={id}>
+                  {t(`options.preferredLanguage.${id}`)}
+                </option>
+              ))}
+            </select>
+          </FieldWrap>
         </fieldset>
 
-        <fieldset className="flex flex-col gap-4">
-          <legend className="eyebrow mb-1">{t("groupConsent")}</legend>
+        <fieldset className="flex flex-col gap-3.5">
+          <legend className="sr-only">{t("groupConsent")}</legend>
 
-          <label className="flex items-start gap-3 text-[14px] text-text-2">
+          <label className="flex items-start gap-3 text-[17px] text-text-2 sm:text-[19px]">
             <input
               type="checkbox"
               className="mt-1 h-5 w-5 shrink-0 accent-champagne"
@@ -371,19 +362,19 @@ export function LeadForm() {
             />
             <span>
               {t("consentPrivacyPre")}{" "}
-              <a href={`/${locale}/privacy-policy`} target="_blank" className="text-champagne underline underline-offset-2">
+              <a href={fullLegalPath(locale, "privacy")} target="_blank" className="text-champagne underline underline-offset-2">
                 {t("consentPrivacyLink")}
               </a>{" "}
               {t("consentPrivacyPost")}
             </span>
           </label>
           {errors.privacyAccepted && (
-            <p role="alert" className="text-[13px] text-error">
+            <p role="alert" className="text-[16px] text-error">
               {t("errors.consentRequired")}
             </p>
           )}
 
-          <label className="flex items-start gap-3 text-[14px] text-text-2">
+          <label className="flex items-start gap-3 text-[17px] text-text-2 sm:text-[19px]">
             <input
               type="checkbox"
               className="mt-1 h-5 w-5 shrink-0 accent-champagne"
@@ -401,11 +392,11 @@ export function LeadForm() {
             control={control}
             name="turnstileToken"
             render={({ field }) => (
-              <Turnstile onToken={(token) => field.onChange(token)} className="max-[399px]:scale-90 max-[399px]:origin-left" />
+              <Turnstile ref={turnstileRef} onToken={(token) => field.onChange(token)} className="max-[399px]:scale-90 max-[399px]:origin-left" />
             )}
           />
           {errors.turnstileToken && (
-            <p role="alert" className="text-[13px] text-error">
+            <p role="alert" className="text-[16px] text-error">
               {t("errors.turnstile")}
             </p>
           )}
@@ -414,11 +405,11 @@ export function LeadForm() {
             {isSubmitting ? t("sending") : t("submit")}
           </Button>
 
-          <p className="text-[12px] leading-relaxed text-text-3">{t("privacyNotice")}</p>
+          <p className="text-[16px] leading-relaxed text-text-3">{t("privacyNotice")}</p>
         </fieldset>
 
         {status === "error" && (
-          <div role="alert" className="rounded-xl border border-error/40 bg-error/10 p-4 text-[14px] text-error">
+          <div role="alert" className="rounded-xl border border-error/40 bg-error/10 p-4 text-[16px] text-error">
             <p className="font-semibold">{t("errorTitle")}</p>
             <p className="mt-1">{t("errorBody", { email: contactEmail })}</p>
           </div>

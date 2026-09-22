@@ -58,7 +58,7 @@ export function MobileMenu({
   return (
     <div
       ref={panelRef}
-      className="fixed inset-0 z-50 bg-night lg:hidden"
+      className="fixed inset-0 z-[60] bg-night xl:hidden"
       style={{
         paddingTop: "env(safe-area-inset-top)",
         paddingBottom: "env(safe-area-inset-bottom)",
@@ -86,7 +86,7 @@ export function MobileMenu({
               <Link
                 href={`/#${section.id}`}
                 onClick={onClose}
-                className="font-display block min-h-[44px] py-2 text-3xl text-porcelain hover-fine:hover:text-champagne"
+                className="font-display block min-h-[44px] py-2 text-[34px] leading-tight text-porcelain hover-fine:hover:text-champagne sm:text-[36px]"
               >
                 {t(section.key)}
               </Link>
@@ -99,7 +99,7 @@ export function MobileMenu({
           <Link
             href="/#contact"
             onClick={onClose}
-            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-porcelain px-6 py-3.5 text-[15px] font-semibold text-night"
+            className="inline-flex min-h-[56px] items-center justify-center gap-2 rounded-full bg-porcelain px-7 py-4 text-center text-[17px] font-bold text-night sm:text-[19px]"
           >
             <span aria-hidden className="h-2 w-2 rounded-full bg-champagne" />
             {t("cta")}

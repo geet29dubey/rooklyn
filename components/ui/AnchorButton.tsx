@@ -14,7 +14,7 @@ export function AnchorButton({
   return (
     <a className={buttonClasses(variant, className)} {...props}>
       {variant === "primary" && (
-        <span aria-hidden className="h-2 w-2 rounded-full bg-champagne shrink-0" />
+        <span aria-hidden className="h-2 w-2 rounded-full bg-apricot shrink-0" />
       )}
       {children}
     </a>

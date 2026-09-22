@@ -24,7 +24,7 @@ export function Footer() {
           <div className="flex flex-col items-center gap-2 md:items-start">
             <Link href="/" className="flex items-center gap-3">
               <RooklynMark size={42} className="h-9 w-9 md:h-[42px] md:w-[42px]" />
-              <span className="font-display text-[19px] font-bold tracking-[0.24em] text-champagne md:text-[22px]">
+              <span className="brand-wordmark font-display text-[19px] text-champagne md:text-[22px]">
                 ROOKLYN
               </span>
             </Link>

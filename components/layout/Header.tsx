@@ -26,8 +26,8 @@ export function Header() {
               className="flex items-center gap-2 md:gap-3"
               aria-label="Rooklyn — home"
             >
-              <RooklynMark size={36} className="h-8 w-8 md:h-9 md:w-9" />
-              <span className="font-display text-[16px] font-bold tracking-[0.2em] text-champagne md:text-[20px] md:tracking-[0.24em]">
+              <RooklynMark size={42} className="h-9 w-9 md:h-[42px] md:w-[42px]" />
+              <span className="brand-wordmark font-display text-[19px] text-champagne md:text-[22px]">
                 ROOKLYN
               </span>
             </Link>

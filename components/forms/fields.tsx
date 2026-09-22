@@ -19,7 +19,7 @@ export function FieldWrap({
 }) {
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
-      <label htmlFor={htmlFor} className="text-[17px] font-semibold text-porcelain sm:text-[19px]">
+      <label htmlFor={htmlFor} className="text-[17px] font-bold text-lagoon sm:text-[19px]">
         {label}
         {optional && (
           <span className="ml-1 font-normal text-text-3">(optional)</span>

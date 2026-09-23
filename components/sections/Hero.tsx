@@ -29,7 +29,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="home-hero relative overflow-hidden pb-16 pt-10 sm:pt-14 md:pb-[100px] md:pt-20 lg:pt-[164px] xl:flex xl:min-h-[calc(100svh-102px)] xl:items-center xl:pb-[110px] xl:pt-[208px] landscape-phone:pb-10 landscape-phone:pt-6">
+    <section className="home-hero relative overflow-hidden pb-16 pt-10 sm:pt-14 md:pb-[100px] md:pt-20 lg:pt-[164px] xl:flex xl:items-center xl:pb-[clamp(72px,5.5vw,110px)] xl:pt-[clamp(80px,6vw,120px)] landscape-phone:pb-10 landscape-phone:pt-6">
       <div
         aria-hidden
         className="grain pointer-events-none absolute inset-0"
@@ -41,7 +41,7 @@ export function Hero() {
 
       <div className="site-container-wide hero-container relative">
         <div className="grid items-center gap-12 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-10 lg:gap-[clamp(3rem,4vw,4.5rem)]">
-          <div>
+          <div className="xl:max-w-[680px]">
             <p className="eyebrow">{t("eyebrow")}</p>
 
             <h1 className="mt-5 hero-headline">

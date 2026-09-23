@@ -39,3 +39,59 @@ test("Turnstile accepts only a verified contact token from an allowed hostname",
     globalThis.fetch = originalFetch;
   }
 });
+
+test("official Turnstile test credentials are restricted to non-production", async () => {
+  const originalFetch = globalThis.fetch;
+  const originalNodeEnv = process.env.NODE_ENV;
+  const dummySecret = "1x0000000000000000000000000000000AA";
+  let result = { success: true, hostname: "dummy.example", action: "" };
+  let calls = 0;
+  try {
+    globalThis.fetch = async () => {
+      calls++;
+      return Response.json(result);
+    };
+    process.env.NODE_ENV = "development";
+    assert.equal(await verifyTurnstile("test-token", dummySecret, "localhost"), true);
+    assert.equal(await verifyTurnstile("test-token", "other-secret", "localhost"), false);
+    result.success = false;
+    assert.equal(await verifyTurnstile("test-token", dummySecret, "localhost"), false);
+
+    process.env.NODE_ENV = "production";
+    result = { success: true, hostname: "rooklyn.co", action: "contact" };
+    const callsBeforeDummy = calls;
+    assert.equal(await verifyTurnstile("test-token", dummySecret, "rooklyn.co"), false);
+    assert.equal(calls, callsBeforeDummy);
+    assert.equal(await verifyTurnstile("test-token", "other-secret", "rooklyn.co,www.rooklyn.co"), true);
+    result.hostname = "www.rooklyn.co";
+    assert.equal(await verifyTurnstile("test-token", "other-secret", "rooklyn.co,www.rooklyn.co"), true);
+    result.hostname = "attacker.example";
+    assert.equal(await verifyTurnstile("test-token", "other-secret", "rooklyn.co"), false);
+    result = { success: true, hostname: "rooklyn.co", action: "signup" };
+    assert.equal(await verifyTurnstile("test-token", "other-secret", "rooklyn.co"), false);
+    result = { success: false, hostname: "rooklyn.co", action: "contact" };
+    assert.equal(await verifyTurnstile("test-token", "other-secret", "rooklyn.co"), false);
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (originalNodeEnv === undefined) delete process.env.NODE_ENV;
+    else process.env.NODE_ENV = originalNodeEnv;
+  }
+});
+
+test("Turnstile fails closed on unavailable or malformed Siteverify responses", async () => {
+  const originalFetch = globalThis.fetch;
+  try {
+    for (const response of [
+      () => new Response("unavailable", { status: 503 }),
+      () => new Response("not JSON"),
+      () => Response.json(null),
+      () => Response.json({ success: "true", hostname: "rooklyn.co", action: "contact" }),
+      () => { throw new Error("Network unavailable"); },
+    ]) {
+      globalThis.fetch = async () => response();
+      assert.equal(await verifyTurnstile("test-token", "test-secret", "rooklyn.co"), false);
+    }
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});

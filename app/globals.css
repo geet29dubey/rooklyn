@@ -43,12 +43,40 @@
   }
 
   body:has(.home-hero) main > section:not(.home-hero) {
-    padding-block: 96px;
+    padding-block: 80px;
   }
 
-  body:has(.home-hero) main > #contact {
-    padding-top: 88px;
-    padding-bottom: 102px;
+  body:has(.home-hero) main > section:not(.home-hero) > .site-container {
+    padding-inline: 24px;
+  }
+
+  #contact > .site-container > .grid {
+    column-gap: 72px;
+  }
+
+  #contact p:not([role="alert"]),
+  #contact li,
+  #contact a[href^="mailto:"],
+  #contact a[href^="https://wa.me/"] {
+    font-size: 18px;
+  }
+
+  #contact form {
+    padding: 32px;
+  }
+
+  #contact form label,
+  #contact form p:not([role="alert"]) {
+    font-size: 16px;
+  }
+
+  #contact form :is(input:not([type="checkbox"]):not([type="hidden"]), select) {
+    min-height: 50px;
+    font-size: 16px;
+  }
+
+  #contact form > div {
+    gap: 16px;
   }
 
   .site-header button[aria-controls] {
@@ -164,8 +192,12 @@ p {
     line-height: 0.98;
   }
 
-  body:has(.home-hero) main h2 {
-    font-size: clamp(2.6rem, 3.2vw, 3.7rem);
+  body:has(.home-hero) main > section:not(.home-hero) h2 {
+    font-size: clamp(42px, 2.5vw, 48px);
+  }
+
+  body:has(.home-hero) main > section:not(.home-hero) h3 {
+    font-size: 26px;
   }
 
   body:has(.home-hero) .eyebrow {

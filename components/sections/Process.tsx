@@ -38,33 +38,33 @@ export function Process() {
           intro={t("intro")}
         />
 
-        <ol className="grid gap-4 md:grid-cols-2 md:gap-6">
+        <ol className="grid gap-4 md:grid-cols-2 md:gap-6 xl:gap-5">
           {steps.map((step, i) => (
             <FadeIn key={step.title} as="li" delay={i * 0.06}>
-              <article className="relative h-full min-h-[250px] overflow-hidden rounded-[20px] border border-porcelain/[0.12] bg-night/70 p-6 shadow-[0_24px_70px_-52px_rgba(0,0,0,0.95)] sm:p-8 lg:min-h-[280px] lg:p-9">
+              <article className="relative h-full min-h-[250px] overflow-hidden rounded-[20px] border border-porcelain/[0.12] bg-night/70 p-6 shadow-[0_24px_70px_-52px_rgba(0,0,0,0.95)] sm:p-8 lg:min-h-[280px] lg:p-9 xl:min-h-0 xl:p-[30px]">
                 <div
                   aria-hidden
                   className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/70 to-transparent"
                 />
                 <span
                   aria-hidden
-                  className="font-display absolute -bottom-7 right-4 text-[118px] font-semibold leading-none text-porcelain/[0.025] sm:text-[150px]"
+                  className="font-display absolute -bottom-7 right-4 text-[118px] font-semibold leading-none text-porcelain/[0.025] sm:text-[150px] xl:text-[124px]"
                 >
                   {step.number}
                 </span>
 
                 <div className="relative flex items-start justify-between gap-4">
-                  <span className="inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-apricot/45 bg-apricot/[0.08] px-2 font-sans text-[14px] font-bold tracking-[0.16em] text-apricot">
+                  <span className="inline-flex h-10 min-w-10 xl:h-9 xl:min-w-9 items-center justify-center rounded-full border border-apricot/45 bg-apricot/[0.08] px-2 font-sans text-[14px] font-bold tracking-[0.16em] text-apricot">
                     {step.number}
                   </span>
-                  <span className="rounded-full border border-hairline bg-card/45 px-3 py-1.5 text-[16px] font-semibold text-text-2 sm:text-[17px]">
+                  <span className="rounded-full border border-hairline bg-card/45 px-3 py-1.5 text-[16px] font-semibold text-text-2 sm:text-[17px] xl:text-[15px]">
                     {step.duration}
                   </span>
                 </div>
 
-                <div className="relative mt-7 max-w-[34rem]">
+                <div className="relative mt-7 max-w-[34rem] xl:mt-5">
                   <h3 className="text-[28px] sm:text-[30px]">{step.title}</h3>
-                  <p className="mt-3 text-[19px] leading-[1.6] text-text-2 sm:text-[20px] lg:text-[21px]">
+                  <p className="mt-3 text-[19px] leading-[1.6] text-text-2 sm:text-[20px] lg:text-[21px] xl:text-[17.5px] xl:leading-[1.55]">
                     {step.body}
                   </p>
                 </div>
@@ -78,7 +78,7 @@ export function Process() {
           ))}
         </ol>
 
-        <p className="mt-6 text-[17px] text-text-3 sm:text-[18px]">{t("note")}</p>
+        <p className="mt-6 text-[17px] text-text-3 sm:text-[18px] xl:text-[16px]">{t("note")}</p>
       </div>
     </section>
   );

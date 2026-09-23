@@ -19,16 +19,16 @@ export function Footer() {
 
   return (
     <footer className="border-t border-hairline bg-night-2">
-      <div className="site-container-wide flex flex-col gap-8 py-12 md:py-14 xl:gap-2 xl:pt-11 xl:pb-8">
-        <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
-          <div className="flex flex-col items-center gap-2 md:items-start xl:gap-1">
+      <div className="site-container-wide flex flex-col gap-4 py-8 md:gap-8 md:py-14 xl:gap-1 xl:pt-8 xl:pb-6">
+        <div className="flex flex-col items-center gap-4 text-center md:flex-row md:items-center md:justify-between md:gap-6 md:text-left">
+          <div className="flex flex-col items-center gap-1 md:items-start md:gap-2 xl:gap-1">
             <Link href="/" className="flex items-center gap-3">
               <RooklynMark size={42} className="h-9 w-9 md:h-[42px] md:w-[42px]" />
               <span className="brand-wordmark font-display text-[19px] text-champagne md:text-[22px]">
                 ROOKLYN
               </span>
             </Link>
-            <p className="font-display text-[18px] italic text-champagne md:text-[20px] xl:text-[16px]">
+            <p className="font-display text-[13px] italic text-champagne md:text-[20px] xl:text-[13px]">
               {t("tagline")}
             </p>
           </div>
@@ -37,7 +37,7 @@ export function Footer() {
 
         <div className="h-px bg-hairline" />
 
-        <div className="flex flex-col items-center gap-4 text-center text-[14px] text-text-3 md:flex-row md:justify-between md:text-left xl:text-[15px]">
+        <div className="flex flex-col items-center gap-2 text-center text-[13px] text-text-3 md:flex-row md:justify-between md:gap-4 md:text-left md:text-[14px] xl:text-[13px]">
           <p>{t("copyright", { year: new Date().getFullYear() })}</p>
           <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 md:justify-end">
             {links.map((link, i) => (
@@ -45,7 +45,7 @@ export function Footer() {
                 {i > 0 && <span aria-hidden>·</span>}
                 <Link
                   href={link.href}
-                  className="min-h-[44px] py-2 xl:min-h-7 xl:py-0 inline-flex items-center hover-fine:hover:text-porcelain"
+                  className="min-h-[44px] py-2 xl:min-h-6 xl:py-0 inline-flex items-center hover-fine:hover:text-porcelain"
                 >
                   {link.label}
                 </Link>
@@ -53,7 +53,7 @@ export function Footer() {
             ))}
             <li className="flex items-center gap-2">
               <span aria-hidden>·</span>
-              <CookieSettingsLink label={legal("cookieSettingsLink")} className="inline-flex min-h-[44px] items-center py-2 xl:min-h-7 xl:py-0 text-text-3 hover-fine:hover:text-porcelain" />
+              <CookieSettingsLink label={legal("cookieSettingsLink")} className="inline-flex min-h-[44px] items-center py-2 xl:min-h-6 xl:py-0 text-text-3 hover-fine:hover:text-porcelain" />
             </li>
           </ul>
         </div>

@@ -378,7 +378,7 @@ export function LeadForm() {
         <fieldset className="flex flex-col gap-3.5">
           <legend className="sr-only">{t("groupConsent")}</legend>
 
-          <label className="flex items-start gap-3 text-[17px] text-text-2 sm:text-[19px]">
+          <label className="consent-label flex items-start text-text-2">
             <input
               type="checkbox"
               className="mt-1 h-5 w-5 shrink-0 accent-champagne"
@@ -398,7 +398,7 @@ export function LeadForm() {
             </p>
           )}
 
-          <label className="flex items-start gap-3 text-[17px] text-text-2 sm:text-[19px]">
+          <label className="consent-label flex items-start text-text-2">
             <input
               type="checkbox"
               className="mt-1 h-5 w-5 shrink-0 accent-champagne"
@@ -450,7 +450,7 @@ export function LeadForm() {
             {isSubmitting ? t("sending") : t("submit")}
           </Button>
 
-          <p className="text-[16px] leading-relaxed text-text-3">{t("privacyNotice")}</p>
+          <p className="form-privacy-note text-text-3">{t("privacyNotice")}</p>
         </fieldset>
 
         {status === "error" && (

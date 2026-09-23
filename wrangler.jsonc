@@ -5,6 +5,11 @@
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-09-01",
   "compatibility_flags": ["nodejs_compat"],
+  "keep_vars": true,
+   "vars": {
+    "TURNSTILE_HOSTNAMES": "rooklyn.co,www.rooklyn.co",
+    "GHL_MODE": "inbound_webhook"
+  },
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"

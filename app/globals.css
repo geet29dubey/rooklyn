@@ -20,6 +20,32 @@
   width: min(calc(100% - 64px), var(--container-wide));
 }
 
+#contact form .consent-label {
+  min-height: 44px;
+  gap: 9px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+#contact form .consent-label input {
+  width: 17px;
+  height: 17px;
+  margin-top: 1px;
+}
+
+#contact form p.form-privacy-note {
+  max-width: none;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+#contact form button[type="submit"] {
+  min-height: 48px;
+  padding-block: 10px;
+  font-size: 16px;
+}
+
 @media (min-width: 1024px) {
   .site-container,
   .site-container-wide {
@@ -62,21 +88,33 @@
   }
 
   #contact form {
-    padding: 32px;
+    padding: 28px;
   }
 
-  #contact form label,
-  #contact form p:not([role="alert"]) {
+  #contact form label {
+    font-size: 14px;
+  }
+
+  #contact form p:not([role="alert"], .form-privacy-note) {
     font-size: 16px;
   }
 
   #contact form :is(input:not([type="checkbox"]):not([type="hidden"]), select) {
-    min-height: 50px;
+    min-height: 44px;
     font-size: 16px;
   }
 
   #contact form > div {
     gap: 16px;
+  }
+
+  #contact form .consent-label {
+    min-height: 0;
+  }
+
+  footer button[aria-controls] {
+    height: 40px;
+    font-size: 14px;
   }
 
   .site-header button[aria-controls] {

@@ -29,7 +29,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="home-hero relative overflow-hidden pb-16 pt-10 sm:pt-14 md:pb-[100px] md:pt-20 lg:pt-[164px] xl:flex xl:items-center xl:pb-[clamp(72px,5.5vw,110px)] xl:pt-[clamp(80px,6vw,120px)] landscape-phone:pb-10 landscape-phone:pt-6">
+    <section className="home-hero relative overflow-hidden pb-16 pt-10 sm:pt-14 md:pb-[100px] md:pt-20 lg:pt-[164px] xl:flex xl:items-center xl:pb-[clamp(58px,4.4vw,88px)] xl:pt-[clamp(64px,4.8vw,96px)] landscape-phone:pb-10 landscape-phone:pt-6">
       <div
         aria-hidden
         className="grain pointer-events-none absolute inset-0"
@@ -40,11 +40,11 @@ export function Hero() {
       </div>
 
       <div className="site-container-wide hero-container relative">
-        <div className="grid items-center gap-12 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-10 lg:gap-[clamp(3rem,4vw,4.5rem)]">
-          <div className="xl:max-w-[680px]">
+        <div className="grid items-center gap-12 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-10 lg:gap-[clamp(3rem,4vw,4.5rem)] xl:gap-[clamp(2.4rem,3.2vw,3.6rem)]">
+          <div className="xl:max-w-[560px]">
             <p className="eyebrow">{t("eyebrow")}</p>
 
-            <h1 className="mt-5 hero-headline">
+            <h1 className="mt-5 hero-headline xl:mt-4">
               {t("h1Pre")}{" "}
               <span className="relative inline-block font-display italic text-champagne">
                 {t("h1Italic")}
@@ -66,11 +66,11 @@ export function Hero() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-[620px] text-[20px] font-medium leading-[1.55] text-porcelain sm:text-[22px] lg:text-[24px]">
+            <p className="mt-6 max-w-[620px] text-[20px] font-medium leading-[1.55] text-porcelain sm:text-[22px] lg:text-[24px] xl:mt-5 xl:max-w-[550px] xl:text-[21px] xl:leading-[1.5]">
               {t("subheadline")}
             </p>
 
-            <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap">
+            <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap xl:mt-6 xl:gap-3">
               <AnchorButton href="https://clima.rooklyn.co" variant="primary" className="w-full sm:w-auto">
                 {t("ctaPrimary")}
               </AnchorButton>
@@ -79,22 +79,22 @@ export function Hero() {
               </AnchorButton>
             </div>
 
-            <p className="mt-3 text-[17px] font-medium leading-relaxed text-text-2 sm:text-[18px]">
+            <p className="mt-3 text-[17px] font-medium leading-relaxed text-text-2 sm:text-[18px] xl:text-[15px]">
               {t("demoMicrocopy")}
             </p>
 
-            <p className="mt-6 text-[17px] font-medium leading-relaxed tracking-wide text-text-2 sm:text-[18px] lg:text-[20px]">{t("trust")}</p>
+            <p className="mt-6 text-[17px] font-medium leading-relaxed tracking-wide text-text-2 sm:text-[18px] lg:text-[20px] xl:mt-5 xl:text-[16px]">{t("trust")}</p>
 
-            <div className="mt-9 flex items-center gap-3 border-t border-hairline pt-6">
+            <div className="mt-9 flex items-center gap-3 border-t border-hairline pt-6 xl:mt-7 xl:gap-2.5 xl:pt-5">
               <span aria-hidden className="h-[3px] w-6 shrink-0 bg-champagne" />
-              <p className="font-display text-[21px] italic leading-snug text-champagne sm:text-[24px] lg:text-[26px]">
+              <p className="font-display text-[21px] italic leading-snug text-champagne sm:text-[24px] lg:text-[26px] xl:text-[21px]">
                 {t("brandProposition")}
               </p>
             </div>
           </div>
 
-          <div className="relative mx-auto flex h-[410px] w-full max-w-[600px] items-center justify-center sm:h-[480px] md:h-[540px] lg:-translate-y-8 xl:h-[580px] xl:max-w-[640px] xl:-translate-y-12 landscape-phone:h-[390px]">
-            <div className="relative flex h-[290px] w-[290px] items-center justify-center [--orbit-radius:120px] sm:h-[350px] sm:w-[350px] sm:[--orbit-radius:148px] md:h-[400px] md:w-[400px] md:[--orbit-radius:172px] lg:h-[440px] lg:w-[440px] lg:[--orbit-radius:192px] xl:h-[500px] xl:w-[500px] xl:[--orbit-radius:220px]">
+          <div className="relative mx-auto flex h-[410px] w-full max-w-[600px] items-center justify-center sm:h-[480px] md:h-[540px] lg:-translate-y-8 xl:h-[464px] xl:max-w-[480px] xl:-translate-y-[38px] landscape-phone:h-[390px]">
+            <div className="relative flex h-[290px] w-[290px] items-center justify-center [--orbit-radius:120px] sm:h-[350px] sm:w-[350px] sm:[--orbit-radius:148px] md:h-[400px] md:w-[400px] md:[--orbit-radius:172px] lg:h-[440px] lg:w-[440px] lg:[--orbit-radius:192px] xl:h-[400px] xl:w-[400px] xl:[--orbit-radius:176px]">
               <div
                 aria-hidden
                 className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_42%,#1B3650,#0B131C_72%)] shadow-[0_40px_120px_-48px_rgba(42,92,170,0.8)]"
@@ -117,7 +117,7 @@ export function Hero() {
               />
               <RooklynMark
                 size={270}
-                className="relative h-[158px] w-[158px] sm:h-[192px] sm:w-[192px] md:h-[218px] md:w-[218px] lg:h-[240px] lg:w-[240px] xl:h-[270px] xl:w-[270px]"
+                className="relative h-[158px] w-[158px] sm:h-[192px] sm:w-[192px] md:h-[218px] md:w-[218px] lg:h-[240px] lg:w-[240px] xl:h-[216px] xl:w-[216px]"
               />
             </div>
 
@@ -128,18 +128,18 @@ export function Hero() {
               return (
                 <div
                   key={label}
-                  className={`absolute ${position} flex w-fit max-w-[min(15rem,78vw)] animate-bob items-center gap-2.5 rounded-2xl border border-porcelain/[0.14] bg-card/95 px-3 py-2.5 text-left shadow-[0_16px_45px_-28px_rgba(0,0,0,0.95)] backdrop-blur-md sm:max-w-[17rem] sm:px-3.5`}
+                  className={`absolute ${position} flex w-fit max-w-[min(15rem,78vw)] animate-bob items-center gap-2.5 rounded-2xl border border-porcelain/[0.14] bg-card/95 px-3 py-2.5 text-left shadow-[0_16px_45px_-28px_rgba(0,0,0,0.95)] backdrop-blur-md sm:max-w-[17rem] sm:px-3.5 xl:max-w-[218px] xl:gap-2 xl:px-3 xl:py-2`}
                   style={{ animationDelay: `${i * 0.6}s` }}
                 >
-                  <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-xl ${iconClass}`}>
-                    <Icon aria-hidden className="h-4 w-4" strokeWidth={2} />
+                  <span className={`flex h-8 w-8 shrink-0 xl:h-[26px] xl:w-[26px] items-center justify-center rounded-xl ${iconClass}`}>
+                    <Icon aria-hidden className="h-4 w-4 xl:h-[13px] xl:w-[13px]" strokeWidth={2} />
                   </span>
                   <span className="min-w-0 leading-tight">
-                    <span className="block text-[16px] font-semibold text-porcelain sm:text-[17px]">
+                    <span className="block text-[16px] font-semibold text-porcelain sm:text-[17px] xl:text-[14px]">
                       {headline}
                     </span>
                     {detail && (
-                      <span className="mt-0.5 block text-[13px] text-text-3 sm:text-[14px]">
+                      <span className="mt-0.5 block text-[13px] text-text-3 sm:text-[14px] xl:text-[12px]">
                         {detail}
                       </span>
                     )}

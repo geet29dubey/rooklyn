@@ -7,7 +7,7 @@ type ButtonProps = {
 } & ComponentPropsWithoutRef<"button">;
 
 const base =
-  "inline-flex min-h-[56px] items-center justify-center gap-2 rounded-full px-7 py-4 text-center text-[17px] font-bold leading-snug sm:text-[19px] transition-all duration-200 focus-visible:outline-champagne disabled:opacity-60 disabled:pointer-events-none";
+  "inline-flex min-h-[56px] items-center justify-center gap-2 rounded-full px-7 py-4 text-center text-[17px] font-bold leading-snug sm:text-[19px] xl:min-h-[48px] xl:px-6 xl:py-3 xl:text-[16px] transition-all duration-200 focus-visible:outline-champagne disabled:opacity-60 disabled:pointer-events-none";
 
 const variants = {
   primary:

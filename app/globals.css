@@ -34,12 +34,27 @@
 @media (min-width: 1280px) {
   body:has(.home-hero) :is(.site-container, .site-container-wide) {
     width: 100%;
-    max-width: var(--container-wide);
-    padding-inline: clamp(24px, 3vw, 48px);
+    max-width: 1200px;
+    padding-inline: 26px;
   }
 
   .home-hero {
     margin-top: 0;
+  }
+
+  body:has(.home-hero) main > section:not(.home-hero) {
+    padding-block: 96px;
+  }
+
+  body:has(.home-hero) main > #contact {
+    padding-top: 88px;
+    padding-bottom: 102px;
+  }
+
+  .site-header button[aria-controls] {
+    height: 38px;
+    padding-inline: 13px;
+    font-size: 14px;
   }
 }
 
@@ -145,7 +160,16 @@ p {
 
 @media (min-width: 1280px) {
   .hero-headline {
-    font-size: clamp(3.75rem, 4.5vw, 5.25rem);
+    font-size: clamp(3rem, 3.6vw, 4.2rem);
+    line-height: 0.98;
+  }
+
+  body:has(.home-hero) main h2 {
+    font-size: clamp(2.6rem, 3.2vw, 3.7rem);
+  }
+
+  body:has(.home-hero) .eyebrow {
+    font-size: 13px;
   }
 }
 

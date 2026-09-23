@@ -87,6 +87,12 @@ h3,
   text-wrap: balance;
 }
 
+.brand-wordmark {
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  -webkit-text-stroke: 0.4px currentColor;
+}
+
 /* Desktop hero headline */
 h1 {
   font-size: clamp(3rem, 5vw, 6rem);

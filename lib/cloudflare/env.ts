@@ -1,11 +1,16 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 /**
- * Typed access to Cloudflare bindings and secrets. Falls back to
+ * Plain next dev uses .env.local via process.env. Production reads
+ * Cloudflare runtime bindings and secrets. Falls back to
  * `process.env` when no Cloudflare context is available (e.g. during a
  * plain `next build` type-check), which keeps local tooling working.
  */
 export function getEnv(): CloudflareEnv {
+  if (process.env.NODE_ENV === "development" && process.env.CLOUDFLARE_DEV !== "1") {
+    return process.env as unknown as CloudflareEnv;
+  }
+
   try {
     return getCloudflareContext().env as unknown as CloudflareEnv;
   } catch {

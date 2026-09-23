@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, type FieldErrors } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import { RooklynMark } from "@/components/logo/RooklynMark";
@@ -66,12 +66,12 @@ export function LeadForm() {
   const locale = useLocale() as "en" | "es" | "it";
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submittedName, setSubmittedName] = useState("");
+  const [turnstileFailed, setTurnstileFailed] = useState(false);
   const turnstileRef = useRef<TurnstileHandle>(null);
 
   const {
     register,
     handleSubmit,
-    control,
     setValue,
     setFocus,
     formState: { errors, isSubmitting },
@@ -85,12 +85,19 @@ export function LeadForm() {
       companyName: "",
       automationInterests: "" as unknown as LeadFormInput["automationInterests"],
       preferredLanguage: locale,
+      locale,
       privacyAccepted: false as unknown as true,
       marketingOptIn: false,
       website_url: "",
       turnstileToken: "",
     },
   });
+
+  useEffect(() => {
+    setValue("locale", locale, {
+      shouldValidate: true,
+    });
+  }, [locale, setValue]);
 
   useEffect(() => {
     try {
@@ -113,36 +120,53 @@ export function LeadForm() {
 
   async function onSubmit(values: LeadFormInput) {
     setStatus("sending");
-    const tracking = captureUtmAndTracking();
-    const payload = {
-      ...values,
-      submissionId: crypto.randomUUID(),
-      locale,
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      submittedAt: new Date().toISOString(),
-      ...tracking,
-    };
-
     try {
-      const res = await fetch("/api/lead", {
+      const tracking = captureUtmAndTracking();
+      const payload = {
+        ...values,
+        submissionId: crypto.randomUUID(),
+        locale,
+        pageUrl: window.location.href,
+        referrer: document.referrer,
+        submittedAt: new Date().toISOString(),
+        ...tracking,
+      };
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+      if (res.status === 403) setTurnstileFailed(true);
       if (!res.ok) throw new Error("Request failed");
       setSubmittedName(values.firstName);
       setStatus("success");
     } catch {
       setStatus("error");
-      setValue("turnstileToken", "");
+      setValue("turnstileToken", "", {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
       turnstileRef.current?.reset();
     }
   }
 
-  function onInvalid() {
-    const firstError = Object.keys(errors)[0] as keyof LeadFormInput | undefined;
-    if (firstError) setFocus(firstError);
+  function onInvalid(formErrors: FieldErrors<LeadFormInput>) {
+    // A validation error is different from a server/API failure.
+    // Keep the generic "Something went wrong" box hidden and show/focus
+    // the actual field error instead.
+    setStatus("idle");
+
+    const firstError = Object.keys(formErrors)[0] as keyof LeadFormInput | undefined;
+
+    if (firstError === "turnstileToken") {
+      requestAnimationFrame(() =>
+        document
+          .getElementById("turnstile-error")
+          ?.scrollIntoView({ block: "center" })
+      );
+    } else if (firstError) {
+      setFocus(firstError);
+    }
   }
 
   const bookingUrl = process.env.NEXT_PUBLIC_GHL_BOOKING_URL;
@@ -383,20 +407,41 @@ export function LeadForm() {
             <span>{t("consentMarketing")}</span>
           </label>
 
+          <input type="hidden" {...register("locale")} />
+
           <div className="hidden" aria-hidden="true">
             <label htmlFor="website_url">Leave this field empty</label>
             <input id="website_url" tabIndex={-1} autoComplete="off" {...register("website_url")} />
           </div>
 
-          <Controller
-            control={control}
-            name="turnstileToken"
-            render={({ field }) => (
-              <Turnstile ref={turnstileRef} onToken={(token) => field.onChange(token)} className="max-[399px]:scale-90 max-[399px]:origin-left" />
-            )}
+          {/* Register Turnstile explicitly with React Hook Form.
+              The visual widget writes its token into this hidden field via setValue(). */}
+          <input type="hidden" {...register("turnstileToken")} />
+
+          <Turnstile
+            ref={turnstileRef}
+            onToken={(token) => {
+              setValue("turnstileToken", token, {
+                shouldValidate: true,
+                shouldDirty: true,
+                shouldTouch: true,
+              });
+
+              if (token) {
+                setTurnstileFailed(false);
+              }
+            }}
+            onError={() => {
+              setTurnstileFailed(true);
+              setValue("turnstileToken", "", {
+                shouldValidate: true,
+                shouldDirty: true,
+              });
+            }}
+            className="max-[399px]:scale-90 max-[399px]:origin-left"
           />
-          {errors.turnstileToken && (
-            <p role="alert" className="text-[16px] text-error">
+          {(errors.turnstileToken || turnstileFailed) && (
+            <p id="turnstile-error" role="alert" className="text-[16px] text-error">
               {t("errors.turnstile")}
             </p>
           )}

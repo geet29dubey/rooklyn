@@ -54,15 +54,18 @@ export type TurnstileHandle = { reset: () => void };
 
 export const Turnstile = forwardRef<TurnstileHandle, {
   onToken: (token: string) => void;
+  onError?: () => void;
   className?: string;
-}>(({ onToken, className }, ref) => {
+}>(({ onToken, onError, className }, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
   const onTokenRef = useRef(onToken);
   onTokenRef.current = onToken;
+  const onErrorRef = useRef(onError);
+  onErrorRef.current = onError;
   const locale = useLocale();
   const id = useId();
-  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "0x4AAAAAAE_4qPMu47gy_U9p";
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   useImperativeHandle(ref, () => ({
     reset: () => {
@@ -72,6 +75,11 @@ export const Turnstile = forwardRef<TurnstileHandle, {
 
   useEffect(() => {
     if (!containerRef.current) return;
+    if (!siteKey || (process.env.NODE_ENV === "production" && /^[123]x0+/.test(siteKey))) {
+      onTokenRef.current("");
+      onErrorRef.current?.();
+      return;
+    }
     let cancelled = false;
 
     loadTurnstileScript().then(() => {
@@ -85,10 +93,19 @@ export const Turnstile = forwardRef<TurnstileHandle, {
         language: locale,
         size: isSmall ? "compact" : "normal",
         callback: (token) => onTokenRef.current(token),
-        "expired-callback": () => onTokenRef.current(""),
-        "error-callback": () => onTokenRef.current(""),
+        "expired-callback": () => {
+          onTokenRef.current("");
+          onErrorRef.current?.();
+        },
+        "error-callback": () => {
+          onTokenRef.current("");
+          onErrorRef.current?.();
+        },
       });
-    }).catch(() => onTokenRef.current(""));
+    }).catch(() => {
+      onTokenRef.current("");
+      onErrorRef.current?.();
+    });
 
     return () => {
       cancelled = true;

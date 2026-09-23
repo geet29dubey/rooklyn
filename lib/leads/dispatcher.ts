@@ -9,6 +9,14 @@ export type DispatchResult = {
   emailSent: boolean;
 };
 
+// Destination errors may contain request URLs or credentials. Only known
+// HTTP status messages are safe to include in production logs.
+function safeFailureReason(error?: string): string {
+  return error && /^(?:Resend|GHL|Webhook) responded [1-5]\d{2}$/.test(error)
+    ? error
+    : "Delivery failed";
+}
+
 /**
  * Sends the internal notification email inline (the visitor's success
  * response waits on it), then hands GHL and the optional generic webhook
@@ -31,17 +39,16 @@ export async function dispatchLead(
     const result = await sendLeadEmail(lead, emailConfig);
     emailSent = result.ok;
     if (!result.ok) {
-      console.error("Lead email notification failed", result.error);
+      console.error("Lead email notification failed", safeFailureReason(result.error));
     }
   } else {
     console.log("Email destination disabled");
   }
-
   const ghlConfig = resolveGhlConfig(env);
   if (ghlConfig) {
     waitUntil(
       sendToGhl(lead, ghlConfig).then((result) => {
-        if (!result.ok) console.error("GHL destination failed", result.error);
+        if (!result.ok) console.error("GHL destination failed", safeFailureReason(result.error));
       })
     );
   } else {
@@ -51,7 +58,7 @@ export async function dispatchLead(
   if (isWebhookConfigured(env.LEAD_WEBHOOK_URL)) {
     waitUntil(
       sendToWebhook(lead, env.LEAD_WEBHOOK_URL).then((result) => {
-        if (!result.ok) console.error("Generic webhook destination failed", result.error);
+        if (!result.ok) console.error("Generic webhook destination failed", safeFailureReason(result.error));
       })
     );
   } else {

@@ -46,25 +46,25 @@ export function Benefits() {
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {tiles.map((tile, i) => (
             <FadeIn key={tile.label} delay={i * 0.05}>
-              <div className="flex h-full flex-col rounded-2xl border border-hairline bg-card p-7">
+              <div className="flex h-full flex-col rounded-2xl border border-hairline bg-card p-7 xl:p-6">
                 <p
-                  className="font-display flex min-h-16 items-start bg-gradient-to-br from-champagne to-champagne-light bg-clip-text text-[clamp(2rem,3.3vw,2.65rem)] leading-[1.04] text-transparent sm:min-h-[6.25rem] lg:min-h-[6.75rem]"
+                  className="font-display flex min-h-16 items-start bg-gradient-to-br from-champagne to-champagne-light bg-clip-text text-[clamp(2rem,3.3vw,2.65rem)] leading-[1.04] text-transparent sm:min-h-[6.25rem] lg:min-h-[6.75rem] xl:min-h-[2.08em] xl:text-[35px]"
                 >
                   {tile.figure}
                 </p>
-                <p className="mt-2 text-[18px] font-semibold leading-6 text-porcelain sm:text-[19px]">
+                <p className="mt-2 text-[18px] font-semibold leading-6 text-porcelain sm:text-[19px] xl:text-[16px]">
                   {tile.label}
                 </p>
-                <p className="mt-1.5 text-[19px] leading-[1.6] text-text-3 sm:text-[20px] lg:text-[21px]">{tile.body}</p>
+                <p className="mt-1.5 text-[19px] leading-[1.6] text-text-3 sm:text-[20px] lg:text-[21px] xl:text-[17.5px] xl:leading-[1.55]">{tile.body}</p>
               </div>
             </FadeIn>
           ))}
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-3 md:grid-cols-2">
+        <div className="mt-12 xl:mt-9 grid grid-cols-1 gap-x-10 gap-y-3 md:grid-cols-2">
           {outcomes.map((outcome, i) => (
             <FadeIn key={outcome} delay={i * 0.03}>
-              <div className="flex items-start gap-3 text-[18px] text-text-2 sm:text-[19px]">
+              <div className="flex items-start gap-3 text-[18px] text-text-2 sm:text-[19px] xl:text-[16.5px]">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-champagne" strokeWidth={1.5} />
                 {outcome}
               </div>
@@ -72,20 +72,20 @@ export function Benefits() {
           ))}
         </div>
 
-        <FadeIn className="mt-12">
-          <div className="rounded-2xl border border-hairline bg-card p-7 sm:p-9">
-            <span className="eyebrow !text-[15px] tracking-[0.16em] text-text-3">
+        <FadeIn className="mt-12 xl:mt-9">
+          <div className="rounded-2xl border border-hairline bg-card p-7 sm:p-9 xl:p-7">
+            <span className="eyebrow !text-[15px] xl:!text-[13px] tracking-[0.16em] text-text-3">
               {t("caseLabel")}
             </span>
             <h3 className="mt-3">{t("caseTitle")}</h3>
-            <p className="mt-2 max-w-2xl text-[19px] text-text-3 sm:text-[20px] lg:text-[21px]">{t("caseBody")}</p>
-            <div className="mt-5 flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 rounded-full border border-hairline px-4 py-2 text-[16px] sm:text-[17px]">
+            <p className="mt-2 max-w-2xl text-[19px] text-text-3 sm:text-[20px] lg:text-[21px] xl:text-[17.5px] xl:leading-[1.55]">{t("caseBody")}</p>
+            <div className="mt-5 flex flex-wrap gap-4 xl:mt-4 xl:gap-3">
+              <div className="flex items-center gap-2 rounded-full border border-hairline px-4 py-2 text-[16px] sm:text-[17px] xl:py-1.5 xl:text-[15px]">
                 <span className="text-text-3 line-through">{t("caseBefore1")}</span>
                 <span aria-hidden>→</span>
                 <span className="text-lagoon">{t("caseAfter1")}</span>
               </div>
-              <div className="flex items-center gap-2 rounded-full border border-hairline px-4 py-2 text-[16px] sm:text-[17px]">
+              <div className="flex items-center gap-2 rounded-full border border-hairline px-4 py-2 text-[16px] sm:text-[17px] xl:py-1.5 xl:text-[15px]">
                 <span className="text-text-3 line-through">{t("caseBefore2")}</span>
                 <span aria-hidden>→</span>
                 <span className="text-lagoon">{t("caseAfter2")}</span>
@@ -94,7 +94,7 @@ export function Benefits() {
           </div>
         </FadeIn>
 
-        <div className="mt-12 flex flex-col gap-3.5 sm:flex-row">
+        <div className="mt-12 xl:mt-9 flex flex-col gap-3.5 sm:flex-row">
           <AnchorButton href="#contact" variant="primary" className="w-full sm:w-auto">
             {t("ctaPrimary")}
           </AnchorButton>

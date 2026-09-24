@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
 import { RooklynMark } from "@/components/logo/RooklynMark";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
@@ -16,20 +17,26 @@ export function MobileMenu({
   onClose: () => void;
 }) {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    const previousFocus = document.activeElement as HTMLElement | null;
     document.body.style.overflow = "hidden";
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const closeOnDesktop = () => { if (desktop.matches) onClose(); };
+    desktop.addEventListener("change", closeOnDesktop);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", onKey);
 
     const panel = panelRef.current;
-    const focusable = panel?.querySelectorAll<HTMLElement>(
+    const focusable = Array.from(panel?.querySelectorAll<HTMLElement>(
       'a, button, [tabindex]:not([tabindex="-1"])'
-    );
+    ) ?? []).filter((element) => element.getClientRects().length > 0);
     focusable?.[0]?.focus();
 
     function trap(e: KeyboardEvent) {
@@ -47,9 +54,11 @@ export function MobileMenu({
     document.addEventListener("keydown", trap);
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
+      desktop.removeEventListener("change", closeOnDesktop);
       document.removeEventListener("keydown", onKey);
       document.removeEventListener("keydown", trap);
+      previousFocus?.focus({ preventScroll: true });
     };
   }, [open, onClose]);
 
@@ -58,7 +67,8 @@ export function MobileMenu({
   return (
     <div
       ref={panelRef}
-      className="fixed inset-0 z-[60] bg-night xl:hidden"
+      id="mobile-menu"
+      className="fixed inset-x-0 top-0 z-[60] flex h-dvh flex-col overflow-y-auto overscroll-contain bg-night xl:hidden"
       style={{
         paddingTop: "env(safe-area-inset-top)",
         paddingBottom: "env(safe-area-inset-bottom)",
@@ -67,19 +77,29 @@ export function MobileMenu({
       aria-modal="true"
       aria-label={t("menu")}
     >
-      <div className="flex items-center justify-between px-5 py-4">
-        <RooklynMark size={28} />
+      <div className="flex min-h-16 shrink-0 items-center justify-between px-4 py-2">
+        <NextLink
+          href={`/${locale}`}
+          onClick={onClose}
+          scroll={false}
+          onNavigate={() => window.scrollTo({ top: 0, behavior: "instant" })}
+          aria-label="Rooklyn — home"
+          className="flex max-w-[185px] items-center gap-2"
+        >
+          <RooklynMark size={36} />
+          <span className="brand-wordmark font-display text-[19px] text-champagne">ROOKLYN</span>
+        </NextLink>
         <button
           type="button"
           onClick={onClose}
           aria-label={t("close")}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-hairline"
         >
           <X className="h-5 w-5" strokeWidth={1.5} />
         </button>
       </div>
 
-      <nav className="flex h-[calc(100%-72px)] flex-col justify-between overflow-y-auto px-6 pb-8 landscape-phone:h-auto">
+      <nav className="flex flex-1 flex-col px-5 pb-5">
         <ul className="grid gap-2 pt-4 landscape-phone:grid-cols-2 landscape-phone:gap-x-6">
           {NAV_SECTIONS.map((section) => (
             <li key={section.id}>
@@ -94,8 +114,8 @@ export function MobileMenu({
           ))}
         </ul>
 
-        <div className="flex flex-col gap-6 pt-8">
-          <LanguageSwitcher />
+        <div className="mt-auto flex flex-col gap-4 pt-6">
+          <LanguageSwitcher inline onNavigate={onClose} />
           <Link
             href="/#contact"
             onClick={onClose}

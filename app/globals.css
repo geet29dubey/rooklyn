@@ -5,19 +5,19 @@
 :root {
   --font-cormorant: "Cormorant Garamond", serif;
   --font-manrope: "Manrope", sans-serif;
-  --container-wide: 1440px;
-  --container-standard: 1400px;
+  --container-wide: 1480px;
+  --container-standard: 1320px;
   --container-text: 720px;
 }
 
 .site-container,
 .site-container-wide {
-  width: min(calc(100% - 64px), var(--container-standard));
+  width: min(92vw, var(--container-standard));
   margin-inline: auto;
 }
 
-.site-container-wide {
-  width: min(calc(100% - 64px), var(--container-wide));
+#contact > .site-container > .grid > .w-full {
+  max-width: none;
 }
 
 #contact form .consent-label {
@@ -47,33 +47,18 @@
 }
 
 @media (min-width: 1024px) {
-  .site-container,
-  .site-container-wide {
-    width: min(calc(100% - 32px), 1680px);
-  }
-
   .home-hero {
     margin-top: -84px;
   }
 }
 
 @media (min-width: 1280px) {
-  body:has(.home-hero) :is(.site-container, .site-container-wide) {
-    width: 100%;
-    max-width: 1200px;
-    padding-inline: 26px;
-  }
-
   .home-hero {
     margin-top: 0;
   }
 
   body:has(.home-hero) main > section:not(.home-hero) {
     padding-block: 80px;
-  }
-
-  body:has(.home-hero) main > section:not(.home-hero) > .site-container {
-    padding-inline: 24px;
   }
 
   #contact > .site-container > .grid {
@@ -124,10 +109,91 @@
   }
 }
 
+@media (min-width: 1600px) {
+  .site-container,
+  .site-container-wide {
+    width: min(90vw, var(--container-wide));
+  }
+}
+
 @media (max-width: 767px) {
   .site-container,
   .site-container-wide {
-    width: calc(100% - 36px);
+    width: calc(100% - 40px);
+  }
+
+  .site-header {
+    background-color: theme("colors.night");
+    padding-bottom: 8px;
+  }
+
+  .site-header > .site-container-wide {
+    width: calc(100% - 32px);
+  }
+
+  main > section:not(.home-hero) {
+    padding-block: 48px;
+  }
+
+  main > section:not(.home-hero, #contact) > .site-container > div:first-child {
+    margin-bottom: 28px;
+  }
+
+  main > section:not(.home-hero) > .site-container > .grid,
+  #problems .site-container > ul,
+  #process .site-container > ol {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  #problems :is(.bg-card, .bg-night-2),
+  #solutions .bg-card,
+  #process article,
+  #benefits .bg-card {
+    height: auto;
+    min-height: 0;
+    padding: 24px;
+  }
+
+  #benefits .bg-clip-text {
+    min-height: 0;
+  }
+
+  #benefits > .site-container > .mt-12 {
+    margin-top: 28px;
+  }
+
+  #benefits .rounded-full {
+    flex-wrap: wrap;
+  }
+
+  #contact form {
+    min-width: 0;
+    padding: 20px;
+  }
+
+  #contact form :is(fieldset, .grid) {
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  #contact form .grid > * {
+    grid-column: auto;
+    min-width: 0;
+  }
+
+  #contact form > div {
+    gap: 14px;
+  }
+
+  #contact form :is(input:not([type="checkbox"]):not([type="hidden"]), select) {
+    min-height: 46px;
+    font-size: 16px;
+  }
+
+  #contact form .consent-label {
+    min-height: 0;
   }
 }
 

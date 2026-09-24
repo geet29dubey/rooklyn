@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Menu } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
 import { RooklynMark } from "@/components/logo/RooklynMark";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
@@ -11,6 +12,7 @@ import { NAV_SECTIONS } from "@/config/site";
 
 export function Header() {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -20,17 +22,20 @@ export function Header() {
         style={{ paddingTop: "max(12px, env(safe-area-inset-top))" }}
       >
         <div className="site-container-wide">
-          <div className="flex h-[66px] items-center justify-between rounded-full border border-porcelain/[0.12] bg-night/90 px-4 shadow-[0_18px_55px_-32px_rgba(0,0,0,0.9)] backdrop-blur-xl landscape-phone:h-[52px] md:h-[72px] md:px-5 xl:grid xl:min-h-[72px] xl:grid-cols-[1fr_auto_1fr] xl:gap-5 xl:px-6">
-            <Link
-              href="/"
-              className="flex items-center gap-2 md:gap-3 xl:gap-2.5"
+          <div className="flex h-16 items-center justify-between rounded-full border border-porcelain/[0.12] bg-night/90 px-4 shadow-[0_18px_55px_-32px_rgba(0,0,0,0.9)] backdrop-blur-xl md:h-[72px] md:px-5 xl:grid xl:min-h-[72px] xl:grid-cols-[1fr_auto_1fr] xl:gap-5 xl:px-6">
+            <NextLink
+              href={`/${locale}`}
+              onClick={() => setMenuOpen(false)}
+              scroll={false}
+              onNavigate={() => window.scrollTo({ top: 0, behavior: "instant" })}
+              className="flex max-w-[185px] items-center gap-2 md:max-w-none md:gap-3 xl:gap-2.5"
               aria-label="Rooklyn — home"
             >
               <RooklynMark size={42} className="h-9 w-9 md:h-[42px] md:w-[42px] xl:h-[34px] xl:w-[34px]" />
               <span className="brand-wordmark font-display text-[19px] text-champagne md:text-[22px] xl:text-[18px]">
                 ROOKLYN
               </span>
-            </Link>
+            </NextLink>
 
             <nav
               className="hidden items-center gap-6 xl:flex xl:gap-5 2xl:gap-[30px]"
@@ -65,7 +70,9 @@ export function Header() {
                 type="button"
                 onClick={() => setMenuOpen(true)}
                 aria-label={t("menu")}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline xl:hidden"
+                aria-expanded={menuOpen}
+                aria-controls="mobile-menu"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-hairline md:h-11 md:w-11 xl:hidden"
               >
                 <Menu className="h-5 w-5" strokeWidth={1.5} />
               </button>

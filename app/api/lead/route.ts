@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { leadSchema } from "@/lib/leads/schema";
 import { normalizeLead } from "@/lib/leads/normalize";
 import { dispatchLead } from "@/lib/leads/dispatcher";
@@ -40,13 +41,36 @@ export async function POST(request: Request) {
     }
   }
 
-  if (!env.TURNSTILE_SECRET_KEY || !env.TURNSTILE_HOSTNAMES) {
-    return NextResponse.json({ error: "Turnstile is not configured" }, { status: 503 });
+  if (process.env.NODE_ENV === "production") {
+    let cfEnv: CloudflareEnv | undefined;
+    try {
+      cfEnv = getCloudflareContext().env as unknown as CloudflareEnv;
+    } catch {
+      // No Cloudflare context: report binding presence without logging the error.
+    }
+    console.info({
+      cfSecret: Boolean(cfEnv?.TURNSTILE_SECRET_KEY),
+      cfHostnames: Boolean(cfEnv?.TURNSTILE_HOSTNAMES),
+      processSecret: Boolean(process.env.TURNSTILE_SECRET_KEY),
+      processHostnames: Boolean(process.env.TURNSTILE_HOSTNAMES),
+    });
+  }
+
+  const turnstileSecret = env.TURNSTILE_SECRET_KEY || process.env.TURNSTILE_SECRET_KEY;
+  const turnstileHostnames = env.TURNSTILE_HOSTNAMES || process.env.TURNSTILE_HOSTNAMES;
+  if (!turnstileSecret || !turnstileHostnames) {
+    const missing = [];
+    if (!turnstileSecret) missing.push("TURNSTILE_SECRET_KEY");
+    if (!turnstileHostnames) missing.push("TURNSTILE_HOSTNAMES");
+    return NextResponse.json(
+      { error: "Turnstile is not configured", missing },
+      { status: 503 }
+    );
   }
   const verified = await verifyTurnstile(
     lead.turnstileToken,
-    env.TURNSTILE_SECRET_KEY,
-    env.TURNSTILE_HOSTNAMES,
+    turnstileSecret,
+    turnstileHostnames,
     ip === "unknown" ? undefined : ip
   );
   if (!verified) {

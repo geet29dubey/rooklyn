@@ -1,11 +1,12 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Check, Clock3, Send } from "lucide-react";
 import { RooklynMark } from "@/components/logo/RooklynMark";
 import { AnchorButton } from "@/components/ui/AnchorButton";
 
 export function Hero() {
+  const locale = useLocale();
   const t = useTranslations("hero");
   const activityCards = [
     {
@@ -71,7 +72,7 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap xl:mt-6 xl:gap-3">
-              <AnchorButton href="https://clima.rooklyn.co" variant="primary" className="w-full sm:w-auto">
+              <AnchorButton href={`https://clima.rooklyn.co/${locale}/`} variant="primary" className="w-full sm:w-auto">
                 {t("ctaPrimary")}
               </AnchorButton>
               <AnchorButton href="#contact" variant="secondary" className="w-full sm:w-auto">
